@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin: 0 auto;
+}
+.h {
+	margin: 50px 0px 0px 60px;
+}
+.jianli {
+	margin: 0 auto;
+	border: 1px solid #000;
+	width: 800px;
+	font-weight: bold;
+	height: 750px;
+	
+	
+	
+}
+.header {
+	width: 200px;
+	height: 750px;
+	float: left;
+	background-color: #69A5F8;
+	color: #FFF;/*height: 50px;*//*border: 1px solid #000;*/
+	
+}
+.Information {
+	height: 80px;/*border: 1px solid #000;*/
+}
+.Contact {
+	height: 80px;/*border: 1px solid #000;*/
+}
+.Ability {
+	
+}
+.EDexperience {
+	
+}
+.PRexperience {
+	
+}
+.Information ul {
+	margin: 0px;
+	padding: 0px;
+}
+.Information ul li {
+	float: left;
+	list-style-type: none;
+}
+.Contact ul {
+	margin: 0px;
+	padding: 0px;
+}
+.Contact ul li {
+	float: left;
+	list-style-type: none;
+}
+.list {
+	margin-left: 20px;
+}

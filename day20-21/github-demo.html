@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>day20~day21</title>
+
+    <style>
+      .pavarte {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .pavarte li {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #000;
+        cursor: pointer;
+      }
+      .Erik {
+        width: 500px;
+      }
+      #img {
+        width: 300px;
+        height: 298px;
+        background: url("../images/sprite.jpg") 0px -2px no-repeat;
+        overflow: hidden;
+        background-size: cover;
+      }
+      #fade-fade {
+        border: 15px solid blue;
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>test</h2>
+      <input id="name" type="text" />
+      <button id="submit-btn">Submit</button>
+    </div>
+    <div>
+      <h2>test2</h2>
+      <label>
+        <input id="school" name="status" type="radio" />
+        School
+      </label>
+      <label>
+        <input id="company" name="status" type="radio" />
+        Company
+      </label>
+
+      <select id="school-select">
+        <option>北京邮电大学</option>
+        <option>黑龙江大学</option>
+        <option>华中科技大学</option>
+      </select>
+
+      <select id="company-select">
+        <option>百度</option>
+        <option>爱奇艺</option>
+      </select>
+    </div>
+    <div>
+      <h2>test3</h2>
+      <ul class="pavarte">
+        <li style="background-color:crimson"></li>
+        <li style="background-color:bisque"></li>
+        <li style="background-color:blueviovar"></li>
+        <li style="background-color:coral"></li>
+        <li style="background-color:chartreuse"></li>
+        <li style="background-color:darkolivegreen"></li>
+        <li style="background-color:cyan"></li>
+        <li style="background-color:#194738"></li>
+      </ul>
+      <p class="color-picker"></p>
+    </div>
+
+    <div style="margin-top: 30px" id="fade">
+      <h2>test4</h2>
+      <div id="fade-fade">
+        <div
+          id="fade-obj"
+          style="width:300px;height:300px;background:#000"
+        ></div>
+      </div>
+      <button id="fade-btn">淡出</button>
+    </div>
+
+    <div class="Erik">
+      <h2>FE2016中Erik笑容的动画</h2>
+      <div id="img"></div>
+    </div>
+
+    <script>
+      // submit的
+      document.getElementById("submit-btn").onclick = function() {
+        var val = document.getElementById("name").value;
+        console.log(val);
+      };
+      document.getElementById("name").onkeydown = function(e) {
+        const val = document.getElementById("name").value;
+        if (e.keyCode === 13) {
+          console.log(val);
+        } else if (e.keyCode === 27) {
+          document.getElementById("name").value = "";
+        }
+      };
+      // test2
+      function changeStatus(obj) {
+        var school = document.getElementById("school-select");
+        var company = document.getElementById("company-select");
+        if (obj.id === "school" && obj.checked) {
+          school.style.display = "block";
+          company.style.display = "none";
+        } else if (obj.id === "company" && obj.checked) {
+          school.style.display = "none";
+          company.style.display = "block";
+        }
+      }
+      document.getElementById("school").onclick = function(e) {
+        changeStatus(e.target);
+      };
+      document.getElementById("company").onclick = function(e) {
+        changeStatus(e.target);
+      };
+      // var list = document.querySelectorAll("li");
+      // for (var i = i = 0, len = list.length; i < len; i++) {
+      //     list[i].onclick = function(e) {
+      //         var t = e.target;
+      //         var c = t.style.backgroundColor;
+      //         var p = document.getElementsByClassName("color-picker")[0]
+      //         p.innerHTML = c;
+      //         p.style.color = c;
+      //
+      //     }
+      // }
+      //    test3
+      var oUl = document.querySelector("ul");
+      oUl.onclick = function(e) {
+        e.stopPropagation();
+        const t = e.target;
+        const c = t.style.backgroundColor;
+        const p = document.getElementsByClassName("color-picker")[0];
+        p.innerHTML = c;
+        p.style.color = c;
+      };
+      //test4
+      //   <div style="margin-top: 30px" id="fade">
+      //   <h2>test4</h2>
+      //   <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+      //   <button id="fade-btn">淡出</button>
+      // </div>
+      var fadeBtn = document.getElementById("fade-btn");
+      var fadeObj = document.getElementById("fade-obj");
+      var opacity = document.getElementById("fade-obj").style.opacity;
+      //   var opacitys = document.getElementById("fade-obj").style.opacity;
+      var timer;
+      fadeBtn.onclick = function() {
+        fadeBtn.disabled = true;
+        var text = fadeBtn.innerHTML;
+        console.log(timer);
+        console.log(text);
+        clearInterval(timer);
+        if (text == "淡出") {
+          document.getElementById("fade-obj").style.opacity = 1;
+          timer = setInterval(fadeOut, 100);
+        } else {
+          document.getElementById("fade-obj").style.opacity = 0;
+          timer = setInterval(fadeIn, 100);
+        }
+      };
+      function fadeOut() {
+        var opacity = document.getElementById("fade-obj").style.opacity;
+        console.log(opacity);
+        if (opacity > 0) {
+          document.getElementById("fade-obj").style.opacity -= 0.05;
+        } else {
+          clearInterval(timer);
+          fadeBtn.disabled = false;
+          fadeBtn.innerHTML = "淡入";
+        }
+      }
+      function fadeIn() {
+        var opacity = parseFloat(
+          document.getElementById("fade-obj").style.opacity
+        );
+        console.log(opacity);
+        if (opacity < 1) {
+          document.getElementById("fade-obj").style.opacity = opacity + 0.05;
+        } else {
+          clearInterval(timer);
+          fadeBtn.disabled = false;
+          fadeBtn.innerHTML = "淡出";
+        }
+      }
+      // test5
+      var img = document.getElementById("img");
+      img.style.backgroundPositionY = "-2px";
+      setInterval(changePos, 100);
+      var back = false;
+      function changePos() {
+        const y = parseInt(img.style.backgroundPositionY);
+        if (back) {
+          if (y < -600) {
+            img.style.backgroundPositionY = y + 300 + "px";
+          } else {
+            img.style.backgroundPositionY = y + 300 + "px";
+            back = false;
+          }
+        } else {
+          if (y > -4500) {
+            img.style.backgroundPositionY = y - 300 + "px";
+          } else {
+            img.style.backgroundPositionY = y - 300 + "px";
+            back = true;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

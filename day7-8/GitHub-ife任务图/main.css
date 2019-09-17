@@ -1,0 +1,124 @@
+@charset "utf-8";
+/* CSS Document */
+*, *::after, *::before {margin:0; padding: 0;box-sizing: border-box;}
+ul, ol {list-style: none;}
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.layout {
+  width: 960px;
+  margin: 0 auto;
+}
+
+/*main css*/
+body {
+  min-width: 960px;
+}
+header {
+  background: rgb(51, 51, 51);
+  height: 80px;
+}
+header .logo {
+  float: left;
+  height: 80px;
+  font-size: 40px;
+  line-height: 80px;
+}
+header ul {
+  float: right;
+}
+header ul li {
+  float: left;
+  margin: 5px;
+}
+header ul li a{
+  color: #fff;
+}
+
+.banner {
+  height: 300px;
+  background: rgb(102, 187, 51);
+}
+.banner .bar  {
+  position: relative;
+  height: 100%;
+}
+.banner .bar ul {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+}
+.banner .bar ul li {
+  display: inline-block;
+  width: 30px;
+  line-height: 35px;
+  background: rgb(178, 221, 153);
+  border: 1px solid red;
+  margin-left: 5px;
+  vertical-align: bottom;
+  text-align: center;
+}
+.banner .bar ul li.active {
+  padding-top: 15px;
+  background: #fff;
+}
+nav {
+  height: 70px;
+  border-bottom: 1px solid rgb(221, 221, 221);
+  position: relative;
+}
+nav ul li {
+  float: left;
+  width: 106px;
+  border: 1px solid rgb(221, 221, 221);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+  margin-top: 24px;
+  background:rgb(238, 238, 238);
+}
+nav ul li.active {
+  border-bottom: 1px solid #fff;
+  background: #fff;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.items {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  height: 175px;
+}
+.content .items .item {
+  border: 1px solid rgb(221, 221, 221);
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+}
+.content .items .item:nth-child(1) {
+  margin-left: 0;
+}
+.content .items .item:end {
+  margin-right: 0;
+}
+footer {
+  margin-top: 15px;
+  height: 120px;
+  text-align: center;
+  background: rgb(102, 102, 102);
+}
+footer p {
+  padding-top: 20px;
+}

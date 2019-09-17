@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>123</title>
+    <style type="text/css">
+    #gaodu{
+             height: 2000px;
+              background-color: green;
+    }
+
+    
+    </style>
+</head>
+<body>
+    <button id="mybtn">点击我</button>
+
+    <div id="parent">
+        父亲
+           <div id="child">点击儿子</div>
+
+    </div>
+    <a href="http://ife.baidu.com/course/all" id="a">跳转</a>
+
+    <div id="gaodu"></div>
+    
+</body>
+<script>
+    var mybtn=document.getElementById("mybtn");
+
+     //事件类型 event.type
+    var eventFun=function(event){
+        if(event.type=="click"){
+             alert("clcik事件")
+
+        }
+        else if(event.type=="mouseout"){
+            alert("mouseout事件")
+
+
+        }
+
+    }
+    mybtn.addEventListener("click",eventFun);
+    mybtn.addEventListener("mouseout",eventFun);
+
+    //target
+   /*  var parent=document.getElementById("parent");
+    parent.addEventListener("click",function(event){
+
+        //点击儿子 事件在父亲上
+        //target 事件源  点击的对象
+        //currentTarget  事件绑定对象
+        console.log(event.target);
+        console.log(event.currentTarget);
+    }) */
+
+    //阻止默认行为
+      var a=document.getElementById("a");
+      a.addEventListener("click",function(e){
+          alert("百度前端技术学院");
+          e.preventDefault();
+      })
+
+     //event.stopPropagation()   阻止事件冒泡或捕获 
+     var parent=document.getElementById("parent");
+     var child=document.getElementById("child");
+     parent.addEventListener("click",function(e){
+                   alert("parent");
+
+     })
+     child.addEventListener("click",function(e){
+                   alert("child");
+                   e.stopPropagation();
+
+
+     })
+
+
+     //event.clientY,pageY,screenY
+     //clientY就是指浏览器顶部底边到鼠标位置
+     //pageY就是指浏览器顶部底边到鼠标位置（但是计算滚动轴的距离）
+     //screenY 就是指屏幕顶边到鼠标的位置
+     var gaodu=document.getElementById("gaodu");
+     gaodu.addEventListener("click",function(e){
+               alert("clientY:"+e.clientY+";pageY:"+e.pageY+";screenY:"+e.screenY)
+
+
+     })
+      
+
+
+
+ </script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="uncle"></div>
+    <div id="parent">
+        123
+        <div id="child" class="child">点击儿子</div>
+    </div>
+    <ul id="ul">
+        <li id="one">1</li>
+        <li id="two">2</li>
+        <li id="three"> 3</li>
+        <li id="four">4</li>
+        <li id="five">5</li>
+        <li id="six">6</li>
+        <li id="seven">7</li>
+
+
+    </ul>
+
+    
+</body>
+<script>
+    document.getElementById("parent").addEventListener("click",function(e){
+              alert("parent事件被触发"+this.id);
+    })
+    document.getElementById("child").addEventListener("click",function(e){
+
+               alert("child事件被触发"+this.id);
+    })
+
+    //事件委托(原理就是事件冒泡)
+
+    var ul=document.getElementById("ul");
+    ul.addEventListener("click",function(e){
+        if(e.target.id=="one"){
+        alert(1);
+
+        }else if(e.target.id=="two"){
+          alert(2);
+        }
+        else{
+
+            alert(1234)
+        }
+         
+       
+    })
+        
+
+</script>
+</html>

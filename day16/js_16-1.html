@@ -1,0 +1,23 @@
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>javaScript</title>
+</head>
+<body>
+    <h1>Demo</h1>
+    <P id="content-wrapper">你是谁？</P>
+    <input id="name-input" type="text" >
+    <button id="send-btn">发送</button>
+    <script>
+       console.log(document.getElementById("content-wrapper").innerHTML);
+       document.getElementById("send-btn").onclick=function(){
+        document.getElementById("content-wrapper").innerHTML='你好'+document.getElementById("name-input").value
+        document.getElementById("name-input").setAttribute("placeholder","caixukun");
+        document.getElementById().remove
+
+       }
+    
+    </script>
+   
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+<style type="text/css">
+th {
+	background-color: #f9cd9c;
+	line-height: 30px;
+}
+th, td {
+	border: 1px solid #d69b00;
+	line-height: 28px;
+}
+#total {
+	width: 500px;
+	margin-right: auto;
+	margin-left: auto;
+	font-size: 12pt;
+	font-weight: bold;
+}
+.tb{
+	border-collapse:collapse;
+}
+</style>
+<script type="text/javascript">
+window.onload=function(){
+   var trs=document.getElementsByTagName("tr");
+   var totalprice=0;
+   for(var i=1;i<trs.length;i++){
+        var tds=trs[i].getElementsByTagName("td");
+           totalprice+= parseInt(tds[2].innerHTML)*parseFloat(tds[3].innerHTML);
+   }
+   document.getElementById("totalPrice").innerHTML=totalprice.toFixed(2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+	
+	</script>
+</head>
+
+<body>
+<table width="500" border="0" align="center" cellpadding="0" cellspacing="0" class="tb">
+  <tr>
+    <th scope="col">编号</th>
+    <th scope="col">商品名称</th>
+    <th scope="col">购买数量</th>
+    <th scope="col">单价</th>
+  </tr>
+  <tr>
+    <td>0001a</td>
+    <td>可口可乐</td>
+    <td>8</td>
+    <td>2.55</td>
+  </tr>
+  <tr>
+    <td>0006b</td>
+    <td>运动衣</td>
+    <td>2</td>
+    <td>600.66</td>
+  </tr>
+  <tr>
+    <td>00015a</td>
+    <td>羽绒服</td>
+    <td>3</td>
+    <td>800</td>
+  </tr>
+</table>
+<p id="total">购物总金额：<span id="totalPrice"></span></p>
+
+</body>
+</html>

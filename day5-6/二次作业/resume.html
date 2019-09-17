@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>简历</title>
+    <link id="cssfile" rel="stylesheet" href="style_1.css">
+</head>
+
+<body>
+    
+    <section class="title_total">
+        <h1>简历</h1>
+    </section>
+    <main class="main">
+        <section class="info basicInfo">
+            <section class="title">
+                <h2>基本信息</h2>
+            </section>
+            <section class="content-info_content">
+                <div>
+                    <p><b>姓名 </b>张三</p>
+                </div>
+                <div>
+                    <p><b>性别 </b>男</p>
+                </div>
+                <div>
+                    <p><b>应聘职位 </b>Web前端工程师</p>
+                </div>
+            </section>
+            
+        </section>
+        <section class="info contactInfo">
+            <section class="title">
+                <h2>联系方式</h2>
+            </section>
+            <section class="content-info_content">
+                <div>
+                    <p><b>手机 </b>12312341234</p>
+                </div>
+                <div>
+                    <p><b>Email </b><a href="">joinefe@baidu.com</a></p>
+                </div>
+                <div>
+                    <p><b>个人主页 </b><a href="https://github.com">Github</a></p>
+                </div>
+            </section>
+        </section>
+        <section class="info ability">
+            <section class="title">
+                <h2>能力描述</h2>
+            </section>
+            <section class="content">
+                <div>
+                    <div><b>技术能力</b></div>
+                    <div><p>熟练掌握HTML,CSS,JavaScript</p></div>
+                </div>
+                <div>
+                    <div><b>综合能力</b></div>
+                    <div><p>良好的沟通，主动积极，努力勤奋</p></div>
+                </div>
+            </section>
+        </section>
+        <section class="info edu">
+            <section class="title">
+                <h2>教育经历</h2>
+            </section>
+            <section class="content">
+                <div>
+                    <div><b>本科</b></div>
+                    <div><p>百度前端技术学院小薇学院</p></div>
+                </div>
+                <div>
+                    <div><b>研究生</b></div>
+                    <div><p>百度前端技术学院大斌学院</p></div>
+                </div>
+            </section>
+        </section>
+        <section class="info project">
+            <section class="title">
+                <h2>项目经历</h2>
+            </section>
+            <section class="content">
+                <div>
+                    <div><b>小度小度</b></div>
+                    <div><p>作为前端工程师角色参与了ABC组件的开发</p></div>
+                </div>
+                <div>
+                    <div><b>SAN Doc</b></div>
+                    <div><p>作为文档工程师参与了SAN Doc编写</p></div>
+                </div>
+            </section>
+        </section>
+        <section class="info project">
+            <section class="title">
+                <h2>兴趣爱好</h2>
+            </section>
+            <section class="content">
+                <div>
+                    <div><b id="hobby"></b></div>
+                    <div><p id="hobby-details"></p></div>
+                </div>
+               
+            </section>
+        </section>
+    </main>
+
+    <script>
+        var changeStyle_1 = document.getElementById("changeStyle_1");
+        var changeStyle_2 = document.getElementById("changeStyle_2");
+        var changeStyle_3 = document.getElementById("changeStyle_3");
+        var css = document.getElementById("cssfile");
+        changeStyle_1.onclick = function () {
+            css.href="style_1.css"
+            changeStyle_1.style.backgroundColor = "#BEBEBE";
+            changeStyle_2.style.backgroundColor = "";
+            changeStyle_3.style.backgroundColor = "";
+            document.getElementById("hobby-btn").style.display="block";
+        }
+        changeStyle_2.onclick = function () {
+            css.href = "style_2.css";
+            changeStyle_1.style.backgroundColor = "";
+            changeStyle_2.style.backgroundColor = "#BEBEBE";
+            changeStyle_3.style.backgroundColor = "";
+        }
+        changeStyle_3.onclick = function () {
+            css.href = "style_3.css";
+            changeStyle_1.style.backgroundColor = "";
+            changeStyle_2.style.backgroundColor = "";
+            changeStyle_3.style.backgroundColor = "#BEBEBE";
+        }
+
+
+        document.getElementById("hobby-btn").onclick=function(){
+            document.getElementById("hobby").innerHTML='唱，跳，RAP，篮球';
+            document.getElementById("hobby-details").innerHTML="练习时长两年半的练习生";
+         }
+    </script>
+</body>
+
+</html>

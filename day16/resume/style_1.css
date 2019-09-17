@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+
+h1,
+h2,
+section,
+div,
+p {
+    margin: 0;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #333;
+}
+nav {
+    text-align: center;   
+}
+nav div {
+    display: inline;
+}
+p {
+    line-height: 1.5em;
+}
+h1 {
+    font-size: 2em;
+}
+section {
+    margin: 12px 0;
+}
+.title {
+    margin-top: 2px;
+}
+.info {
+    overflow: hidden;
+}
+.content > div {   
+    margin-bottom: 12px;
+}
+.info_content div {
+    float: left;
+    margin-top: 12px;
+    margin-right: 30px;
+}

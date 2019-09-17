@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{ 
+            margin: 0px;
+            padding: 0px;
+        }
+        #divbody{
+            width: 550px;
+            margin: 30px auto;
+        }
+        #divbody p{
+            font-size: 10pt;
+            line-height: 1.5em;
+            text-indent: 2em;
+        }
+        h3{
+            width: 500px;
+            margin-right: auto;
+            margin-left: auto;
+            line-height: 40px;
+        }
+        #divbody p span{
+            background: #ff0;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            //1.文本框绑定keyup事件
+            var keyword=document.getElementById("keyword");
+            var divbody=document.getElementById("divbody");
+            var str=divbody.innerHTML;
+            keyword.addEventListener("keyup",fnsearch)
+            //2.在事件处理函数中进行如下处理
+            function fnsearch(){
+                 //2.1将段落中所有的关键字替换成<span>关键字</span>
+                 var strkey=keyword.value;
+                 var str1=str.replace(eval("/"+strkey+"/ig"),"<span>"+strkey+"</span>");
+                 divbody.innerHTML=str1;
+            }
+
+           
+
+
+
+
+
+        }
+
+    
+    </script>
+</head>
+<body>
+    <div id="divbody">
+        <p>首先我们要了解浏览器的渲染机制（也就是我们写的HTML文件和CSS文件是经过怎样的一个流程后，得到浏览器显示给我们的最终页面）。
+                浏览器的渲染流程：
+                (1)创建DOM Tree：浏览器请求到HTML文件后，将HTML解析成树形的数据结构，通常我们称为DOM树；在生成DOM树的开始阶段就会对HTML文件内的CSS、JavaScript文件、图片等资源发起请求；
+                (2)创建CSSOM：浏览器请求下载到CSS文件（这里我们不纠结是不是外部引入CSS文件，因为通过外部引用CSS文件编写CSS样式是最规范的写法），将CSS解析成树形的数据结构，CSS Object Model；
+                (3)创建Render Tree:所有的CSS都被解析成CSS Object Model后和DOM树共同组合生成渲染树（Render Tree）；
+                (4)布局Layout：上一步有了渲染树，浏览器已经知道了页面中的所有节点和每个节点的样式以及各个节点之间的从属关系，之一步就是要计算出各个节点在页面中应该显示的位置；
+                (5)绘制页面Painting： 现在我们已经知道了页面中每个节点、节点的结构、每个节点的样式和位置，现在就可以通过这些数据绘制出我们的页面了。
+            </p>
+        <p> 什么是重排/回流（reflow），什么又是重绘(repaint)？重排的定义：每个页面都必须经过一次重排（就是页面首次渲染），哪些操所会造成重排呢？我们在这里不说实际的具体操作，我们只要知道凡是改变了DOM结构后，既要重新创建DOM Tree 也要必须把后续的流程都走一遍才能最终成为我们改变后的页面，所有那么这个开销是不是很大（是的）。总之只要是改变了元素的大小、位置的操作都会发生重排。只要是重排就可能要重新计算页面的布局、重新创建Render Tree、重新创建CSSOM、重新创建DOM Tree等某些操作。
+                重绘的定义：重绘就是在浏览器已经把各个元素在页面中显示的位置、大小、外观确定下来后，不再改变元素的位置和大小，只是改变除了元素位置和大小以外的外观。只是执行了渲染过程的最后一步。所以相对于重排的开销要小得多。重排和重绘的关系：凡是重排一定会重绘。因为重绘就是页面渲染的最后一步，不进行这一步页面就不能显示。 </p>
+    </div>  
+         <h3>关键词：<input name="" type="text" id="keyword"/>
+        </h3> 
+</body>
+</html>

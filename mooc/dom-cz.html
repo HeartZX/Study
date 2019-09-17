@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+    html,
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    div:not(:nth-of-type(2)){
+     width: 500px;
+     height: 100%;
+     background-color: #a0e4ff;
+     margin: 0 auto
+    }
+    ul{
+        width: 300px;
+        height: 100%;
+        background-color: #ecc7ea;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        margin: 20px auto;
+        margin-bottom: 30px;    
+    }
+    li{
+        width: 200px;
+        height: 30px;
+        line-height: 30px;
+        margin: 30px auto;
+        background-color: #cdffc0
+    }
+
+
+    
+    
+    
+    
+    </style>
+
+
+
+</head>
+
+<script>
+    window.onload=function(){
+        var  div=document.getElementById("box");
+        var Data=document.createAttribute("data");
+     
+        div.setAttribute("data","wrap");
+
+
+
+
+
+
+
+        /* var lis=[];
+        lis=document.getElementsByTagName("li");
+        console.log(lis);
+        var btnAdd=document.getElementById("btnAdd");
+        var btnRemove=document.getElementById("btnRemove");
+        var ul=document.getElementById("list");
+
+        btnAdd.onclick=function(){
+             var newli=document.createElement("li");
+             var node=document.createTextNode("new");
+             newli.appendChild(node);
+             ul.appendChild(newli);
+        }
+        
+        btnRemove.onclick=function(){
+         
+            ul.removeChild(ul.lastChild);            
+} */
+
+ /*        var s="";
+        function bianli(space,node){
+            //判断节点是否有标签名名称，如果有进行拼接
+            if(node.tagName){
+                s+=space+node.tagName+"<br>"
+            }
+            //获取节点中子节点的长度
+            var len=node.childNodes.length;
+            //对子节点进行循环遍历
+            for(var i=0;i<len;i++){
+                //重复调用封装的bianli方法
+                bianli(space+"*",node.childNodes[i]);
+            }
+        }
+        bianli("",document);
+            document.write(s);
+ */
+         /*  var div=document.getElementById("wrap");
+          var ul=document.getElementById("list");
+        
+          var newul=document.createElement("ul");
+          for(var i=0;i<=3;i++){
+              var newli=document.createElement("li");
+              var node=document.createTextNode("This is new"+(i+1));
+              newul.appendChild(newli);
+              newli.appendChild(node);
+          }
+     /*      newul.appendChild(node); 
+           div.replaceChild(newul,ul);  */
+    }
+
+
+</script>
+<body>
+
+    <div id="box">
+
+    </div>
+
+
+
+    <!-- <div id="box">
+        <button id="btnAdd">添加元素</button>
+        <button id="btnRemove">删除元素</button>
+        <ul id="list">
+            <li>11111</li>
+            <li>22222</li>
+            <li>33333</li>
+        </ul>
+    </div> -->
+    <!-- <div>
+        <p>
+            <span>
+                <a href=""></a>
+                <a href=""></a>
+                <a href=""></a>
+            </span>
+            <span>
+                 <a href=""></a>
+                 <a href=""></a>
+                 <a href=""></a>
+                </span>
+                <span>
+                  <a href=""></a>
+                  <a href=""></a>
+                  <a href=""></a>
+                </span>
+        </p>
+    </div> -->
+    <!-- <div id="wrap">
+        <ul id="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div> -->
+
+
+    
+</body>
+
+
+
+</html>

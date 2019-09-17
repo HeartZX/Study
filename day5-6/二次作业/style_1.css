@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+    margin: 0;
+}
+.content-info_content div{
+    float: left;
+}
+.info{
+    overflow: hidden;
+}
+.content-info_content div{
+    float: left;
+}
+
+
+
+

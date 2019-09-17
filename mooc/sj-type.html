@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <P>字数限制在30字内，<span>您还可以输入<b>30</b>字</span></P>
+    <textarea cols="50" rows="7" id="text"></textarea>
+</body>
+<script>
+    var text=document.getElementById("text");
+   
+
+    text.addEventListener("keyup",function(e){
+
+          var num=e.target.value.length;
+          var b=document.getElementsByTagName("b")[0];
+          var span=document.getElementsByTagName("span")[0];
+          if(num<=30){
+          b.innerHTML=30-num;
+        }
+          else if(num>30){
+              span.innerHTML="您已超出"+(num-30)+"字"
+
+
+
+          }
+
+
+
+
+
+
+    })
+
+    
+    
+
+
+
+</script>
+</html>

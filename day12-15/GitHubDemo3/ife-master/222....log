@@ -1,0 +1,8 @@
+error renaming ".git/GITGUI_BCK": no such file or directory
+error renaming ".git/GITGUI_BCK": no such file or directory
+    while executing
+"file rename -force [gitdir GITGUI_BCK] $save"
+    (procedure "do_quit" line 15)
+    invoked from within
+"do_quit"
+    (command for "WM_DELETE_WINDOW" window manager protocol)

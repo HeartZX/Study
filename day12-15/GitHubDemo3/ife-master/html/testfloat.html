@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.parent{
+			border:3px dashed #f99;
+			display:flex;
+			padding:15px 20px;
+			align-items: flex-start;
+		}
+		.left,.right{
+			border:3px solid #99f; 
+			
+			
+		}
+		.left{
+			flex:0 0 auto;
+			margin-right:20px;
+			width:120px;
+		}
+		.right{
+			flex:1 1 auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="left">
+			<p>左边固定宽度，高度不固定<br><br><br><br><br><br><br>左边固定宽度，高度不固定</p>
+		</div>
+		<div class="right">
+			<p>这里的内容可能比左侧高，也可能比左侧低。宽度需要自适应。<br>
+基本的样式是，两个div相距20px, 左侧div宽 120px</p>
+		</div>
+	</div>
+</body>
+</html>

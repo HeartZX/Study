@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+h1,
+h2,
+section,
+div,
+p {
+    margin: 0;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #333;
+}
+nav {
+    text-align: center;   
+}
+nav div {
+    display: inline;
+}
+b {
+    line-height: 1.2em;
+}
+p {
+    line-height: 1.2em;
+}
+h1 {
+    font-size: 1.6em;
+}
+.title_total {
+    color: #FFF;
+    background-color: #708090;
+    padding: 10px;
+}
+.info {
+    border: 1px solid #DCDCDC;
+    overflow: hidden;
+}
+.title {
+    background-color: #D3D3D3;
+    float: left;
+    padding: 40px 20px;
+    margin-bottom: 1px;
+    margin-right: 5px;
+}
+.content {
+    padding-top: 10px;
+}
+.content > div {   
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+.content > div div {
+    float: left;
+}
+.info_content div {
+    float: left;
+    margin-top: 12px;
+    margin-right: 30px;
+}

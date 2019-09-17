@@ -1,0 +1,415 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+    <style type="text/css">
+        /*    .purple{color: purple;background-color: pink;}
+    #yellow{color: yellow;background-color: orange;}
+    #div{
+        width: 300px;
+        height: 300px;
+        border: 2px solid gray;
+        margin: 100px 0 0 200px;
+    } */
+        /*     #div{overflow:auto;width: 200px;height: 200px;border: 2px solid gray;margin-bottom:20px}
+    #content{width:200px;height: 100px; border: 2px solid gray} */
+        /*   .red{
+        border: 1px solid red;
+    } */
+      #text {
+            width: 200px;
+            height: 200px;
+            line-height: 200px; 
+            border: solid gray 2px;
+             text-align: center; 
+            color: red;
+        }
+        .li{
+            list-style: none;
+            height: 50px;
+            line-height: 50px;
+            width: 100px;
+            background-color: lightblue;
+            text-align: center;
+        }
+      
+
+
+    </style>
+    <script>
+        window.onload = function () {
+      
+
+
+/*             var div=document.getElementById("text");
+            var twinkle=0;
+           setInterval(function(){
+               if(twinkle==0){
+                   div.innerHTML="123";
+                   twinkle=1;
+               }
+               else if(twinkle==1){
+                 div.innerHTML="456";
+                   twinkle=0;
+               } 
+           },500); */
+
+
+     /*        var ul=document.createElement("ul");
+
+            for(var i=0;i<3;i++){
+                var commet=document.createComment('创建节点');
+                var lis=document.createElement('li');
+                var text=document.createTextNode('第'+(i+1)+"个li");
+                lis.appendChild(text);
+                lis.className="li";
+                ul.appendChild(lis);
+            }
+
+            document.body.appendChild(ul);
+            document.body.insertBefore(commet,ul); */
+
+           /*  var btn = document.getElementById('browser');
+            btn.onclick = function () {
+                var browser = navigator.userAgent;
+                console.log(browser);
+                if (browser.indexOf('MSIE') > -1) {
+                    alert('IE浏览器');
+
+                } else if (browser.indexOf('Chrome') > -1) {
+                    alert('谷歌浏览器');
+                }
+            }
+ */
+
+
+            /*     var btn=document.getElementById("ck");
+            btn.onclick=function(){
+                if(confirm("刷新页面么")){
+                 location.reload();
+
+
+                }
+                else{
+                location.replace("http://www.imooc.com");
+                }
+            }
+ */
+
+
+
+            /*  var text=document.getElementById("text");
+          var start=document.getElementById("start");
+          var end=document.getElementById("end");
+          start.onclick=function(){
+            var time123=setInterval(function(){
+              text.innerHTML+="hello"+"<br/>";
+              end.onclick=function(){
+            clearInterval(time123);
+        }
+
+          },1000)
+        } */
+
+       
+              /*       var text=document.getElementById("text");
+                        var nowcount=document.getElementById("nowcount");
+                        var count=30;
+                        text.onkeyup=function(){
+                           var len=text.value.length;
+                            console.log(len);
+                            nowcount.innerHTML=count-len;
+
+                        }   */
+
+            /*   var delete1=document.getElementById("delete");
+            var div=document.getElementById("div");
+            var undelete1=document.getElementById("undelete");
+            var time;
+            delete1.onclick=function(){
+                time=setTimeout(function(){
+                    div.innerHTML="";
+                },3000);
+            }
+            undelete1.onclick=function(){
+                clearTimeout(time);
+         
+            } */
+            /*  var open=document.getElementById("open");
+            var close=document.getElementById("close");
+            open.addEventListener("click",function(){
+                if( confirm("确认打开么")){
+                    window.open("js.html",'newwindow',"width=300,height=300，top=200,left=600,scrollbars=no,menubar=no,location=no"); 
+                }
+                else{
+                    window.close();
+                }  
+            });
+            close.addEventListener("click",function(){
+                window.close();
+            });
+ */
+            /*  var red=document.getElementById("red");
+             var span=document.getElementById("span");
+             red.addEventListener('focus',function(){
+                      if(red.value==""){ 
+                    span.innerHTML="请输入你的姓名";
+                   } 
+                    else{
+                     span.innerHTML="";
+                 } 
+                 }); */
+
+            /*  red.onfocus=function(){
+                if(red.value==""){
+                   span.innerHTML="请输入你的姓名";
+                }
+                else{
+                    span.innerHTML="";
+                }
+            }
+                red.onblur=function(){
+                if(red.value==""){
+                   span.innerHTML="用户名不能为空";
+                   red.setAttribute("class","red");
+
+                }
+                else{
+                    span.innerHTML="";
+                    red.setAttribute("class","");
+
+                }
+            }
+            
+ */
+
+
+
+
+
+
+
+            /*  var btn=document.getElementById("btn");
+             btn.onclick=function(){
+                btn.style.color="red";
+            } 
+             btn.onmouseout=function(){
+                btn.style.color="blue";
+            } 
+           btn.onblur=function(){
+                btn.style.color="yellow";
+            }
+ */
+
+
+
+
+
+
+            /*  var div=document.getElementById("div");
+         var content=document.getElementById("content");
+         div.onscroll=function(){
+             this.style.color="red";
+             content.innerHTML="内容被滚动了"
+ 
+         }
+         div.onmouseout=function(){
+             this.style.color="green";
+             content.innerHTML="";
+         }
+         div.onmousemove=function(){
+             this.style.color="blue";
+         } */
+
+
+            /*    var color=document.getElementById("color");
+               var div=document.getElementById("div");
+               
+               color.onchange=function(){
+                   var colorid=color.selectedIndex;
+                   div.style.backgroundColor=color[colorid].value;
+                   div.innerHTML="我的背景颜色是"+color[colorid].innerHTML;
+                if(this.value==0){
+                   div.style.backgroundColor="white";
+                   div.innerHTML="我没有什么变化";
+                  }
+               } */
+
+
+
+
+            /* input1.onmousemove=function(){
+ 
+            input1.style.color="red";
+         }
+         input1.onmouseout=function(){
+ 
+           input1.style.color="blue";
+ } */
+            /* var input1=document.getElementById("btn1");
+                   function change1(){
+                    input1.style.color="red";
+                   }
+                   function change2(){
+                   input1.style.color="blue";
+                  }
+                   input1.onmousemove=change1;
+                   input1.onmouseout=change2; */
+            /*     var inputs=document.getElementById("button");
+                inputs.onclick=function(){
+                    this.style.backgroundColor="red";
+                } */
+
+
+            /*  var inputs=document.getElementById("button");
+         inputs.onclick=entryFn;
+         function entryFn(){
+             var input;
+           var arr=[];
+           while(input!=-1){
+               input=(prompt("请输入"));
+               arr.push(input);
+ 
+           }
+           document.write(arr);
+         }
+          */
+            /*    var btn=document.getElementById("btn");
+        
+          console.log(btn.getAttribute("value"));
+          function btnclick(){
+ 
+           if(btn.getAttribute("value")=="全选"){ 
+             btn.setAttribute("value","反选");
+              }  
+             else{ 
+             btn.setAttribute("value","全选");
+              }  
+             
+         }
+        btn.onclick=btnclick; */
+            /*    var div1=document.getElementById("div1");
+               var div2=document.getElementById("div2");
+               var div3=document.getElementById("div3");
+               var div4=document.getElementById("div4");
+               div1.style.color="red";
+               div2.style.backgroundColor="green";
+               div3.style.fontWeight="bold";
+               div4.style.fontSize="30px"; */
+
+            /*  var Arryli=document.getElementsByTagName("li");
+         console.log(Arryli);
+         for(var i=0;i<Arryli.length;i++) {
+ 
+             if(i%2==0){
+             Arryli[i].style.color="red";
+             }
+          Arryli[i].innerHTML="第"+(i+1)+"名："+ Arryli[i].innerHTML;
+         }
+  */
+            /*     var div=document.getElementsByTagName("div");
+                for(var i=0;i<div.length;i++){
+                    div[i].innerHTML="蔡徐坤"+ div[i].innerHTML;
+                } */
+
+            /*  var Arryli=document.getElementsByTagName("li");
+             for(var i=0;i<Arryli.length;i++){
+                 if(i%2==0){
+                     Arryli[i].setAttribute("class","purple");
+                 }
+                 if(i%2==1){
+                     Arryli[i].setAttribute("class","yellow");
+                 }
+             } */
+            /*     var Arryli=document.getElementsByTagName("li");
+                for(var i=0;i<Arryli.length;i++){
+                    if(i%2==0){
+                        Arryli[i].removeAttribute("class","purple");
+                    }
+                    if(i%2==1){
+                        Arryli[i].removeAttribute("id","yellow");
+                    }
+                } 
+                      */
+
+            /* 
+                    var listweb=document.getElementById("listWeb");
+                    var Arryli =listweb.getElementsByTagName("li");
+                    for(var i=0;i<Arryli.length;i++){
+                        alert("书籍第"+(i+1)+"本："+Arryli[i]);
+            
+                    }
+                    alert("书籍共计"+i+"本"); */
+
+
+        }
+    </script>
+</head>
+
+<body>
+        
+    <!-- <input type="button" value="点击获取浏览器信息" id="browser"> -->
+      <div id="text"></div>
+    <!--     <input type="button" id="start" value="开始">
+    <input type="button" id="end" value="结束">
+ -->
+
+    <!--   <input type="button" id="delete" value="删除">
+        <input type="button" id="undelete" value="取消删除">
+        <div id="div">11111111111111111111111111111111111111</div> -->
+    <!--    <input type="button" id="close" value="关闭">
+    <input type="button" id="open" value="打开"> -->
+<!--     <p>字数限制在30字内，<span>您还可以输入<b id="nowcount">30</b>字</span></p>
+    <textarea cols="50" rows="7" id="text"></textarea> -->
+    <!--   姓名：<input type="text" id="red"> <span id="span"></span>
+ -->
+    <!--  <input type="text" value="点击改变" id="btn"> -->
+    <!--     <div id="div1">123456790</div>
+    <div id="div2">123456790</div>
+    <div id="div3">123456790</div>
+    <div id="div4">123456790</div>  -->
+    <!--     <ul id="listWeb">
+        <li class="purple">1111111</li>
+        <li id="yellow">2222222</li>
+        <li class="purple">333333333</li>
+        <li id="yellow">444444444</li>
+        <li class="purple">55555555</li>
+        <li id="yellow">66666666</li>
+        <li class="purple">777777777</li>
+        <li id="yellow">888888888</li>
+    </ul>  -->
+    <!-- <div>唱</div>
+        <div>跳</div>
+        <div>rap</div>
+        <div>篮球</div> -->
+    <!-- <input value="全选" type="button" id="btn"> -->
+    <!--   <input type="button" value="录入" id="button"> -->
+    <!--   <input value="开始" type="button" id="btn1">
+     <input value="结束" type="button" id="btn2"> -->
+
+    <!--      <span>请选择你喜欢的颜色：</span>
+     <select id="color">
+         <option value="0">请选择</option>
+         <option value="yellow">黄色</option>
+         <option value="orange">橙色</option>
+         <option value="pink">粉色</option>
+         <option value="purple">紫色</option>
+     </select>
+     <div id="div">我是div</div> -->
+    <!-- <div id="div">
+         <p>wwwwwwwwww
+             wwwwwwwww
+             wwwwwwwwwww
+             wwwwwwwwww
+             wwwwwwwww
+             wwwwwwww
+             wwwwwwwwww
+       
+         </p>
+     </div>
+     <div id="content">
+     </div> -->
+</body>
+
+</html>

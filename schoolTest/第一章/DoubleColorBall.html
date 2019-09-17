@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style type="text/css">
+.red{
+    background-color: red;   
+}
+.blue{
+    background-color: blue;
+}
+#main>div{
+     float: left; width: 50px; height: 50px; color: white;
+     text-align: center;
+     line-height: 50px;
+     margin-right: 20px;
+     border-radius: 50%;
+}
+
+</style>
+<script>
+    window.onload=function(){
+         getLotteryTime();//得到开奖时间
+         var reds=getRedBalls(); //得到红球数字
+         var blue=getBlueBalls(); ///得到蓝球数字
+         outHTML(reds,blue) ;    //输出html代码
+
+           function getLotteryTime(){
+               var curTime=new Date();
+               var str=curTime.toLocaleString();
+               document.getElementById("time").innerHTML+=str;
+           }
+
+           function getBlueBalls(){
+               //1-16的随机整数
+                 var blue=Math.ceil(Math.random()*16);
+                 console.log(blue);
+                 return blue
+           }
+
+           function getRedBalls(){
+            var ballCnts=6
+             var reds=new Array(ballCnts);
+              var i=0;
+             while(i<ballCnts){
+                var red=Math.ceil(Math.random()*33);
+                var bExisted=false;
+                for( var j=0;j<i;j++){
+                    if(reds[j]==red){
+                        bExisted=true;
+                        break;
+                    }
+                }
+                if(!bExisted){
+                     reds[i]=red;
+                     i++;
+                }  
+             }
+              reds=reds.sort(function(a,b){
+                  return a-b;})
+              console.log(reds);
+              return reds;
+           }
+
+           function outHTML(reds ,blue){
+            var strHTML="";
+            console.log(1243);
+            for( var i=0;i<reds.length;i++){
+            strHTML+="<div class='red'>"+reds[i]+"</div>"
+            }
+            strHTML+="<div class='blue'>"+blue+"</div>"
+            document.getElementById("main").innerHTML=strHTML;
+        }
+
+    }
+</script>
+<body>
+    <h1 id="time">双色球开奖时间:</h1>
+    <div id="main">
+
+
+    </div>
+    
+</body>
+</html>

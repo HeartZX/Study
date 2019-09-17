@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+    #main{
+        width: 60%;
+        margin: 0 auto;
+        border: 1px solid #f00;
+    }
+    #main ul{
+        list-style: none;
+        overflow: hidden;
+    }
+    #main li{
+        width: 25%;
+        text-align: center;
+        float: left;
+    }
+    
+    </style>
+    <script>
+        window.onload=function(){
+            var list=document.getElementById("listImg");
+            var  str="";
+            var count=8;
+            for( var i=1;i<=count;i++){
+                str+= "<li><img src="+"image/flower"+i+".jpg"+"></li>"
+
+            }
+            list.innerHTML=str;
+
+
+
+
+
+        }
+    
+    
+    
+    </script>
+</head>
+<body>
+    <div id="main">
+        <ul id="listImg">
+          <!--   <li><img src="image/flower1.jpg"></li>
+            <li><img src="image/flower2.jpg"></li>
+            <li><img src="image/flower3.jpg"></li>
+            <li><img src="image/flower4.jpg"></li>
+ -->
+        </ul>
+
+    
+
+
+    </div>
+    
+</body>
+</html>

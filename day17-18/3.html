@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<style type="text/css">
+    div {
+        text-align: center;
+        width: 1210px;
+        margin: 0 auto;
+    }
+    
+    table {
+        margin: 0 auto;
+        border: 4px solid #5CB85C;
+        padding: 5px;
+    }
+    
+    td {
+        border: 1px solid #5CB85C;
+        color:#2096EF;
+        padding:0 5px;
+    } 
+</style>
+<body>        
+   
+    
+    <script>
+        var str = ""; 
+        document.write("<div>");
+		document.write("<h3>" + "九九乘法表" + "</h3>");
+		document.write('<table>'); //添加table开始标签
+        for(var n=1;n<=9;n++){
+            document.write('<tr>'); 
+            for(var m=1;m<=n;m++){
+
+               var t=m*n;
+               str = m + "*" + n + "=" + t + " ";
+               console.log(str);
+				document.write("<td>" + str + "</td>"); //让其在td标签中显示
+            }
+
+
+            document.write('</tr>'); 
+        }
+        document.write('</table>'); //添加table结束标签
+        document.write('</div>');
+       
+        
+    </script>
+</body>
+</html>

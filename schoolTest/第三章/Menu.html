@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+  *{
+    margin: 0px;
+    padding: 0px;
+  }
+  #navigator{
+    width: 260px;
+    margin: 50px;
+  }
+  ul{
+    list-style: none;
+  }
+  a{
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+  }
+  #listUL>li>a{
+    border-right: 1px solid #711515;
+    border-left:15px solid #711515;
+    border-bottom:1px solid #fff; background: #c11136;
+  }
+  #listUL>li>ul>li>a{
+    border-right: 1px solid #711515;
+    border-left:25px solid #711515;
+    border-bottom:1px solid #fff; background: #e85070;
+  }
+   a:hover{
+     color: yellow;
+   }
+  #listUL>li>a:hover{
+    background: #990022;  
+  }
+  #listUL>li>ul>li>a:hover{
+    background: #c2425d;
+  }
+  .hide{
+    display: none;
+  }
+</style>
+<script>
+  window.onload=function(){
+    var as=document.querySelectorAll("#listUL>li>a");
+    for(i=0;i<as.length;i++){
+      as[i].addEventListener("click",toggle);
+    }
+    function toggle(){
+      var subul=this.nextElementSibling;
+       if(subul!=null){
+        if(subul.className==""){
+          subul.className="hide"
+        }
+        else{
+          subul.className="";
+
+        }
+
+
+       }   
+    }
+
+
+
+
+  }
+
+
+</script>
+
+
+
+</head>
+
+<body>
+<div id="navigator">
+  <ul id="listUL">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">News</a>
+      <ul>
+        <li><a href="#">Lastest News</a></li>
+        <li><a href="#">All News</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Sports</a>
+      <ul>
+        <li><a href="#">Basketball</a></li>
+        <li><a href="#">Football</a></li>
+        <li><a href="#">Volleyball</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Weather</a>
+      <ul>
+        <li><a href="#">Today's Weather</a></li>
+        <li><a href="#">Forecast</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Contact Me</a></li>
+  </ul>
+</div>
+<script>
+
+</script>
+</body>
+</html>

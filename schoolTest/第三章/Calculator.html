@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+	#keys{width:200px;margin:50px;overflow:hidden;}
+	#keys button{width:40px;height:40px;margin:5px;float:left;}
+</style>
+<script>
+	window.onload=function(){
+		//1.给按键绑定点击事件，应用事件委托
+		var keys=document.getElementById("keys");
+		 keys.addEventListener("click",calc);
+		 var sc=document.getElementById("sc");
+		 var flag=0; //0表示最后一个按键是数字，1表示最后一个按键是操作符
+
+		 function calc(event){
+			
+		//2.在事件处理函数中做以下操作
+			 var t=event.target
+			 if(t.tagName=="BUTTON"){
+				 switch(t.innerHTML){
+					 case "0":{
+						 if(flag==0){
+						 if(sc.innerHTML!="0"){
+                             sc.innerHTML+="0";
+						 }
+						}
+						 break;
+					 }	//2.1点击数字或操作符，创建表达式
+					 case "1":{
+						 
+					 }
+					 case "2":{
+						 
+						}
+					 case "3":{
+						 
+						}
+					 case "4":{
+						 
+						}
+					 case "5":{
+						 
+						}
+					 case "6":{
+						 
+						}
+					 case "7":{
+						 
+						}
+					 case "8":{
+						 
+						}
+					 case "9":{
+						 if(sc.innerHTML=="0"){
+                            sc.innerHTML=t.innerHTML;
+						 }else{
+							sc.innerHTML+=t.innerHTML;
+						 }
+						 flag=0;
+						 break; 
+						}
+					 case "+":{
+						 
+						}
+					 case "-":{
+						 
+						}
+					 case "*":{
+						 
+						}
+					 case "/":{
+						 if(flag==0){
+						if(sc.innerHTML=="0"){
+                            sc.innerHTML=t.innerHTML;
+						 }else{
+							sc.innerHTML+=t.innerHTML;
+						 }
+						}
+						 flag=1;
+						 break;
+						}
+					 case "=":{
+						 if(flag==0){
+						 sc.innerHTML=eval(sc.innerHTML);
+						 }
+						 break;	 
+						}//2.2 点击“=”，计算表达式
+		             case "C":{
+						 sc.innerHTML="0"
+						 break;
+						}//2.3 点击“c”，置为0
+
+				 }
+			 }
+		 }
+
+
+	
+
+	
+
+
+		
+
+
+
+
+
+	}
+
+
+
+
+
+</script> 
+
+</head>
+
+<body>
+<div id="keys">
+	<button>0</button>
+	<button>1</button>
+	<button>2</button>
+	<button>3</button>
+	<button>4</button>
+    <button>5</button>
+    <button>6</button>
+	<button>7</button>
+	<button>8</button>
+	<button>9</button>
+	<button>C</button>
+	<button>+</button>
+	<button>-</button>
+    <button>*</button>
+	<button>/</button>
+	<button>=</button>
+	<textarea id="sc" style="width:95%; height:40px;" readonly>0</textarea>
+</div>
+
+</body>
+</html>

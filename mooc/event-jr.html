@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent">
+
+        <div id="child">点击我</div>
+    </div>
+    <a href="http://ife.baidu.com/course/all" id="a">跳转</a>
+    
+</body>
+<script>
+    var EventUtil={
+        addHandler:function(element,type,handler){
+            //绑定事件
+            if(element.addEventListener){
+                element.addEventListener(type,handler,false);
+
+            }
+            else if(element.attachEvent){
+                element.attachEvent("on"+type,handler);
+            }else{
+                element["on"+type]=null
+            }
+        },
+        removeHandler:function(element,type,handler){
+            //移除事件
+            if( element.removeEventListener){
+                element.removeEventListener(type,handler,false);
+
+            }else if(element.detachEvent){
+                element.detachEvent("on"+type,handler);
+
+            }else{
+                element["on"+type]=null
+
+            }
+
+        },
+        getTarget:function(event){
+            return event.target||event.srcElement;
+        },
+        preventDefault:function(event){
+           if(event.preventDefault){
+               event.preventDefault();
+           }else{
+               event.returnValue=false;
+           }
+        },
+        stopPropagation:function(event){
+              if(event.stopPropagation){
+                  event.stopPropagation();
+
+              }else{
+                event.cancelBubble=true;
+              }
+        }
+    }
+    var child=document.getElementById("child");
+    EventUtil.addHandler(child,"click",function(e){
+        var target=EventUtil.getTarget(e);
+        console.log(target);
+    })
+    var a=document.getElementById("a");
+    EventUtil.addHandler(a,"click",function(e){
+     
+        EventUtil.preventDefault(e);
+    })
+    
+    
+ 
+
+
+
+</script>
+</html>
