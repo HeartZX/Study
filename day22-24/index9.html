@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+
+    //将上面数组分别按从大到小以及从小到大进行排序后在console中输出
+    //1.使用经典的冒泡排序再使用reverse函数颠倒数组顺序
+    //从小到大
+    for(var i=0;i<arr.length-1;i++){
+        for(var j=0;j<arr.length-1-i;j++){
+              if(arr[j]>arr[j+1]){
+              var tmp=arr[j];
+               arr[j]=arr[j+1];
+               arr[j+1]=tmp;
+
+              }
+        }
+      
+    }
+    console.log(arr/* .reverse() */);
+
+  //从大到小
+    for(var i=0;i<arr.length-1;i++){
+        for(var j=0;j<arr.length-1-i;j++){
+              if(arr[j]<arr[j+1]){
+              var tmp=arr[j];
+               arr[j]=arr[j+1];
+               arr[j+1]=tmp;
+
+              }
+
+       
+        }
+      
+    }
+    console.log(arr); 
+
+   //2.使用sort()函数 
+
+   //从小到大
+  console.log(arr.sort((a,b)=> a-b));
+  //从大到小    
+  console.log(arr.sort((a,b)=> b-a));
+
+
+
+    var arr1 = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+   //将上面数组分别按字母顺序a-z及z-a进行排序，在console中输出
+
+  //字母顺序a-z
+   var newarr1= arr1.sort(function(a, b) {
+  var A = a.toUpperCase(); // ignore upper and lowercase
+  var B = b.toUpperCase(); // ignore upper and lowercase
+  if (A < B) {
+    return -1;
+  }
+  if (A > B) {
+    return 1;
+  }
+
+  
+// names must be equal
+
+  return 0;
+});
+console.log(newarr1);
+
+//字母顺序z-a
+var newarr2= arr1.sort(function(a, b) {
+  var A = a.toUpperCase(); // ignore upper and lowercase
+  var B = b.toUpperCase(); // ignore upper and lowercase
+  if (A < B) {
+    return 1;
+  }
+  if (A > B) {
+    return -1;
+  }
+
+  
+// names must be equal
+
+  return 0;
+});
+console.log(newarr2);
+
+
+
+
+
+
+
+    
+    var arr2=[[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]];
+    //将上面的二维数组，按照每个元素中第二个数从大到小的顺序进行排序输出，输出结果应该为：
+    for(var i=0;i<arr2.length-1;i++){
+        for(var j=0;j<arr2.length-1-i;j++){
+              if(arr2[j][1]<arr2[j+1][1]){
+              var tmp=arr2[j];
+               arr2[j]=arr2[j+1];
+               arr2[j+1]=tmp;
+
+              }
+
+       
+        }
+      
+    }
+    console.log(arr2); 
+    document.write(arr2);
+
+
+
+
+
+
+    var arr3 = [
+    {
+        id: 1,
+        name: 'candy',
+        value: 40
+    }, {
+        id: 2,
+        name: 'Simon',
+        value: 50
+    }, {
+        id: 3,
+        name: 'Tony',
+        value: 45
+    }, {
+        id: 4,
+        name: 'Annie',
+        value: 60
+    }
+];
+
+ var newarr3=arr3.sort((a,b)=>a.value-b.value);
+ console.log(newarr3);
+
+
+ var scoreObject = {
+    "Tony": {
+        "Math": 95,
+        "English": 79,
+        "Music": 68
+    }, 
+    "Simon": {
+        "Math": 100,
+        "English": 95,
+        "Music": 98
+    }, 
+    "Annie": {
+        "Math": 54,
+        "English": 65,
+        "Music": 88
+    }
+}
+
+//如上有一个用来存储学习成绩的对象，编写一个函数，将其转为如下的二维数组
+    var scoreArray = JSON.parse(scoreObject);
+    console.log(scoreArray[0]);
+    
+
+
+</script>
+</html>

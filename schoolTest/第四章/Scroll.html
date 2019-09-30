@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+          margin: 0px;
+          padding: 0px;
+    }
+    #main{
+        width: 300px;
+        border: 1px solid green;
+    
+    }
+    #main h3{
+        color: #080;
+        border-bottom: 1px solid #080;
+
+    }
+    #scrollU{
+             height: 160px;
+              overflow: hidden;
+    }
+
+
+</style>
+<body>
+    <div id="main">
+          <h3>集团新闻</h3>
+          <div id="scrollU">
+              <div id="div1">
+                  <p>111111111111111111111111111</p>
+                  <p>222222222222222222222222222</p>
+                  <p>333333333333333333333333333</p>
+                  <p>444444444444444444444444444</p>
+                  <p>555555555555555555555555555</p>
+                  <p>666666666666666666666666666</p>
+                  <p>777777777777777777777777777</p>
+                  <p>888888888888888888888888888</p>
+              </div>
+              <div id="div2">
+                   
+                </div>
+  
+
+          </div>
+
+    </div>
+    
+</body>
+<script>
+
+    window.onload=function(){
+    //1.复制div1里的内容到div2
+       var div1=document.getElementById("div1");
+       var div2=document.getElementById("div2");
+       div2.innerHTML=div1.innerHTML;
+        ///
+        var scrollU=document.getElementById("scrollU");
+    //2.设置时钟，在时钟处理函数中做以下操作 
+        var speed=30;
+        scrollU.scrollTop=0;
+         var time=setInterval(scrollUp,speed);
+
+        function scrollUp(){
+           //2.1设置scrollU的scrollTop++
+           scrollU.scrollTop++;
+           //2.2等到scrollTop==div1的高度时
+             if( scrollU.scrollTop==div1.offsetHeight)
+           //2.3设置scrollTop=0
+           scrollU.scrollTop=0;
+           
+        }
+        
+        
+        //3.给scroll绑定移入，移出
+           scrollU.addEventListener("mouseover",function(){
+                     clearInterval(time);
+           });
+
+           scrollU.addEventListener("mouseout",function(){
+
+            time=setInterval(scrollUp,speed);
+           })
+        
+
+
+
+    }
+
+
+</script>
+</html>

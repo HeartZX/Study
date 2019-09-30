@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input id="queue-input" type="text">
+<p id="queue-cont">队列内容：apple&lt;-pear</p>    
+<button id="in-btn">入队</button>
+<button id="out-btn">出队</button>
+<button id="font-btn">打印队头元素内容</button>
+<button id="empty-btn">判断队列是否为空</button>
+
+
+</body>
+<script>
+    //队头对应数组中第一个元素
+    //入队和出队操作后，需要在 id 为 queue-cont 的 p 标签中更新显示队列中的内容，
+    //队头在最左侧，中间用 <- 连接（练习使用数组的join方法）
+
+    var queue = ["apple", "pear"];
+    
+    var cont=document.getElementById("queue-cont");
+    var inBtn=document.getElementById("in-btn");
+    var outBtn=document.getElementById("out-btn");
+    var fontBtn=document.getElementById("font-btn");
+    var emptyBtn=document.getElementById("empty-btn");
+    var input=document.getElementById("queue-input");
+
+
+//入队 push
+function  In(){
+     queue.push(input.value);
+       cont.innerHTML="队列内容"+queue.join("&lt;-");
+        
+
+    }
+    inBtn.addEventListener("click",In);
+    //出队
+    function Out(){
+        queue.pop();
+        cont.innerHTML="队列内容"+queue.join("&lt;-");
+
+
+    }
+    outBtn.addEventListener("click",Out);
+
+    //打印队头元素内容
+    function Font(){
+          
+        cont.innerHTML="队头元素"+queue[0];
+
+    }
+    fontBtn.addEventListener("click",Font);
+    //判断队列是否为空
+    function Empty(){
+        if(queue.length==0){
+            cont.innerHTML="队列为空"
+        }
+        else{
+            cont.innerHTML="队列不为空"
+
+        }
+
+    }
+    emptyBtn.addEventListener("click",Empty);
+
+
+    
+    </script>
+</html>
