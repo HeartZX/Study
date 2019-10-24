@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="date"></p>
+    <p id="date2"></p>
+    <select id="year-select">
+     
+    </select>
+
+    <select id="month-select">
+        
+    </select>
+
+    <select id="day-select">
+              
+    </select>
+
+    <select id="hour-select" >
+        
+    </select>
+
+    <select id="minute-select">
+       
+    </select>
+
+    <select id="second-select" >
+       
+    </select>
+
+    <p id="result-wrapper"></p>
+</body>
+<script>
+    var yearSelect = document.getElementById("year-select");
+    var monthSelect = document.getElementById("month-select");
+    var daySelect = document.getElementById("day-select");
+    var hourSelect = document.getElementById("hour-select");
+    var minuteSelect = document.getElementById("minute-select");
+    var secondSelect = document.getElementById("second-select");
+    var resultWrapper = document.getElementById("result-wrapper");
+
+
+ 
+        for (var i = 2019; i <= 2020; i++) {
+            var option = document.createElement("option");
+            yearSelect.appendChild(option);
+
+            option.value = i;
+            option.innerHTML = i + "年";
+        }
+
+        for (var i = 1; i <= 12; i++) {
+            var option = document.createElement("option");
+            monthSelect.appendChild(option);
+            if (i < 10) {
+                i = "0" + i;
+            }
+            option.value = i;
+            option.innerHTML = i + "月";
+        }
+   
+   
+        for (var i = 1; i <= 31; i++) {
+            var option = document.createElement("option");
+            daySelect.appendChild(option);
+            if (i < 10) {
+                i = "0" + i;
+            }
+            option.value = i;
+            option.innerHTML = i + "日";
+        }
+
+    
+
+        for (var i = 0; i <= 23; i++) {
+            var option = document.createElement("option");
+            hourSelect.appendChild(option);
+            if (i < 10) {
+                i = "0" + i;
+            }
+            option.value = i;
+            option.innerHTML = i + "时";
+        }
+
+
+        for (var i = 0; i <= 59; i++) {
+            var option = document.createElement("option");
+            minuteSelect.appendChild(option);
+            if (i < 10) {
+                i = "0" + i;
+            }
+            option.value = i;
+            option.innerHTML = i + "分";
+        }
+
+
+        for (var i = 0; i <= 59; i++) {
+            var option = document.createElement("option");
+            secondSelect.appendChild(option);
+            if (i < 10) {
+                i = "0" + i;
+            }
+            option.value = i;
+            option.innerHTML = i + "秒";
+        }
+
+
+
+
+
+    function showDate() {
+     
+        var yearvalue = yearSelect.options[yearSelect.selectedIndex].value;
+        var monthvalue = monthSelect.options[monthSelect.selectedIndex].value;
+        var dayvalue = daySelect.options[daySelect.selectedIndex].value;
+        var hourvalue = hourSelect.options[hourSelect.selectedIndex].value;
+        var minutevalue = minuteSelect.options[minuteSelect.selectedIndex].value;
+        var secondvalue = secondSelect.options[secondSelect.selectedIndex].value;
+
+        var dateStr = yearvalue + "/" + monthvalue + "/" + dayvalue + " " + hourvalue + ":" + minutevalue + ":" +
+            secondvalue;
+        var selectDate = new Date(dateStr);
+        var selectWeek = getWeek(selectDate.getDay());
+        var nowDate = new Date();
+        var total = (nowDate.getTime() - selectDate.getTime()) / 1000;
+        console.log(total);
+        if (total < 0) {
+            var str = "还有";
+            total = -total; //转换为正整数方便计算
+        } else {
+            var str = "已经过去"
+        }
+        var daym = parseInt(total / (24 * 60 * 60)); //计算整数天数
+        console.log(daym);
+        var afterDay = total - daym * 24 * 60 * 60; //取得算出天数后剩余的秒数
+        var hourm = parseInt(afterDay / (60 * 60)); //计算整数小时数
+        var afterHour = total - daym * 24 * 60 * 60 - hourm * 60 * 60; //取得算出小时数后剩余的秒数
+        var min = parseInt(afterHour / 60); //计算整数分
+
+        var afterMin = parseInt(total - daym * 24 * 60 * 60 - hourm * 60 * 60 - min * 60); //取得算出分后剩余的秒数
+
+        resultWrapper.innerHTML = "现在距离" + yearvalue + "年" + monthvalue + "月" + dayvalue + "日" + selectWeek +
+            hourvalue + ":" +
+            minutevalue + ":" + secondvalue + str + daym + "天" + hourm + "小时 " + min + "分" + afterMin + "秒";
+
+
+    }
+    setInterval(showDate, 1000);
+
+
+
+
+    /*     function Go() {
+    console.log("Go");
+} */
+
+    /* function GoSteps(n) {
+     if(n===undefined){
+         Go();
+       }  */
+    /*  else if(n<0){
+      
+      }  */
+
+    /*  else if(n==true){
+        Go();
+     } */
+    /*  else{ 
+         N=Math.floor(n);
+        while(N--){
+          Go();
+        } 
+       }  */
+
+
+
+    /* } */
+
+    /* GoSteps(10); // Go 10次
+    GoSteps(1); // Go 1次
+    GoSteps(); // Go 1次，认为缺少参数时，默认参数为1
+    GoSteps(0);  // 0次
+    GoSteps(-1);  // 0次 */
+    /* GoSteps(1.4);  // Go 1次 */
+    /* GoSteps(1.6);  // Go 1次
+    GoSteps(-1);  // 0次 
+    /* GoSteps(false);  // 0次 */
+    /* GoSteps(true);  // Go 1次 */
+    /* GoSteps("Test");  // 0次 */
+    /* GoSteps(NaN);  // 0次 */
+    /*  GoSteps(null);  // 0次  */
+
+
+    /* var date = new Date();
+    //封装一个函数，获取年
+    function Year(date) {
+        var date = this.date
+        var year = date.getFullYear();
+        return year;
+    }
+    //封装一个函数，获取月
+    function Month(date) {
+        var date = this.date
+        var month = date.getMonth();
+        return month + 1;
+    }
+    //封装一个函数，获取日
+    function Day(date) {
+        var date = this.date
+        var day = date.getDate();
+        return day;
+    }
+
+    
+    //封装一个函数，获取时
+
+    function Hour(date) {
+        var date = this.date;
+        var hour = date.getHours();
+        return hour;
+    }
+    //封装一个函数，获取分
+    function Minute(date) {
+        var date = this.date;
+
+        var minute = date.getMinutes();
+        return minute;
+    }
+    //封装一个函数，获取秒
+    function Second(date) {
+        var date = this.date;
+        var second = date.getSeconds();
+        return second;
+    } */
+
+    //封装一个函数，来根据某个日期返回这一天是英文星期
+    function getWeekWithEnglish(weekday) {
+        switch (weekday) {
+            case 0:
+                week = "Sunday";
+                break;
+            case 1:
+                week = "Monday";
+                break;
+            case 2:
+                week = "Tuesday";
+                break;
+            case 3:
+                week = "Wednesday";
+                break;
+            case 4:
+                week = "Thursday";
+                break;
+            case 5:
+                week = "Friday ";
+                break;
+            case 6:
+                week = "Saturday";
+                break;
+        }
+        return week;
+    }
+
+    function getWeek(weekday) {
+
+        switch (weekday) {
+            case 0:
+                week = "星期天";
+                break;
+            case 1:
+                week = "星期一";
+                break;
+            case 2:
+                week = "星期二";
+                break;
+            case 3:
+                week = "星期三";
+                break;
+            case 4:
+                week = "星期四";
+                break;
+            case 5:
+                week = "星期五";
+                break;
+            case 6:
+                week = "星期六";
+                break;
+        }
+        return week;
+    }
+
+
+    // 封装一个函数，把月、日、小时等出现个位数的情况前面补充0，补充为两位，比如1变为01
+    function addZero(a) {
+        if (a < 10) {
+            a = "0" + a;
+        }
+        return a;
+    }
+
+    //判断时间超过12点就-12
+    function changeHour(hour) {
+        if (hour >= 12) {
+            hour = hour - 12;
+           
+        }
+        return hour;
+    }
+
+    /* //封装一个函数，把最后的日期时间，按照要求的格式进行包装
+    function out() {
+        document.write(Year(date) + "年" + addZero(Month(date)) + "月" + addZero(Day(date)) + "日" + Week(date)+ Hour(date)+":"+addZero(Minute(date))+":"+addZero(Second(date)));
+    }
+
+    setInterval(out(),1000); */
+
+
+
+    //封装一个函数，把最后的日期时间，按照要求的格式进行包装
+    function out() {
+        var p = document.getElementById("date")
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var weekday = getWeek(date.getDay());
+        console.log(weekday);
+        var hour = addZero(date.getHours());
+        var minute = addZero(date.getMinutes());
+        var second = addZero(date.getSeconds());
+        p.innerHTML = year + "年" + month + "月" + day + "日" + weekday + " " + hour + ":" + minute + ":" + second;
+    }
+    setInterval(out, 1000);
+    //封装一个函数，把最后的日期时间，按照要求的格式进行包装
+    function out2() {
+        var p2 = document.getElementById("date2");
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var weekday = getWeekWithEnglish(date.getDay());
+        /*      console.log(weekday); */
+        var hour = addZero(date.getHours());
+        console.log(hour);
+        var minute = addZero(date.getMinutes());
+        var second = addZero(date.getSeconds());
+        var h =changeHour(hour);
+        console.log(h);
+        if (hour < 12) {
+            var meridiem = "AM";
+        } else {
+            meridiem = "PM";
+        }
+        p2.innerHTML = year + "-" + month + "-" + day + " " + weekday + " " + h + ":" + minute + ":" + second +
+            " " +
+            meridiem;
+    }
+    setInterval(out2, 1000);
+</script>
+
+</html>

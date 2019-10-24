@@ -1,23 +1,30 @@
-/*清零*/
+
 *{
 	margin: 0;
 	padding: 0;
-	font-family:"arial, helvetica, sans-serif","微软雅黑"
+	
 	
 }
-li{
-	list-style-type: none;
+body,div,dl,dt,ul,li,h1,h2,h3,h4,h5,h6,input,form,a,p,textarea{
+	margin:0;
+	padding:0;
+
 }
-.clearfloat{
-	zoom:1;
+
+ol,ul,li{
+	list-style:none;
 }
-.clearfloat:after{
+
+a{
+	text-decoration:none;
 	display:block;
-	clear:both;
-	content: "";
-	visibility:hidden;
-	height:0;
+	color:#fff;
 }
+img{
+	border:none;
+	display:block;
+}
+
 .main-wrapper{
 	display: flex;
 /* 	border: solid 1px red; */
@@ -40,14 +47,7 @@ li{
 }
 .menu-left ul{
 position: absolute;
-	/* left: 20px;
- 	top: 20px;
-	bottom: 60px;
-	overflow: auto; 
-	padding:0 20px;
-	display: flex;
-	flex-direction: column;
-	align-items: center; */
+
 	top: 20px;
 
 	display: flex;

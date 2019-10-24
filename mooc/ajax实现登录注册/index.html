@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+         .form{
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            background-color: darkgrey;
+            position: relative;
+        }
+          #group1{
+             width: 400px;
+             position: absolute;
+             left: 100px;
+             top:100px;    
+        }
+        #group2{
+             width: 400px;
+             position: absolute;
+             left: 100px;
+             top:200px;    
+        }
+        #btn{
+             width: 300px;
+             height: 50px;
+             position: absolute;
+             left: 150px;
+             top:300px;    
+
+
+        }
+     
+    </style>
+</head>
+
+<body>
+
+
+    <form action=""  class="form">
+        <div class="input-group input-group-lg" id="group1">
+            <span class="input-group-addon" id="basic-addon1">+86</span>
+            <input type="text" class="form-control" placeholder="请输入你的手机号" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group  input-group-lg" id="group2">
+          <!--   <span class="input-group-addon" id="basic-addon1">密码</span> -->
+            <input type="text" class="form-control" placeholder="请输入的密码" aria-describedby="basic-addon1">
+        </div>
+        <button  class="btn btn-success" id="btn">注册</button>
+ 
+
+
+
+
+    </form>
+
+</body>
+
+</html>

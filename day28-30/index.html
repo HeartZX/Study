@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .email-sug {
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+        width: 150px;
+        height: 22px;
+        line-height: 22px;
+        font-size: 14px;
+    }
+
+    li:hover {
+        background-color: antiquewhite;
+    }
+
+    .active {
+        background-color: #ffb6c3;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <input id="email-input" type="text">
+        <ul id="email-sug-wrapper" class="email-sug"></ul>
+    </div>
+</body>
+<script>
+    var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+    var emailInput = document.getElementById("email-input");
+    var ul = document.getElementById("email-sug-wrapper");
+    // 增加一个变量，用于存储当前选中的提示Li的序号
+    var nowSelectTipIndex = 0;
+
+  /*      emailInput.oninput = function () {
+           getInput();
+           addPrompt();
+           displayOrHide();
+
+       };  */
+    /*     选择一个合适的DOM节点.监听鼠标点击 = function () {
+            if 被点击的是不是提示框中的Li节点 {
+                获取被点击Li对应的提示内容
+                将内容放到input输入框中
+                隐藏输入框
+            }
+        } */
+    ul.onclick = function (e) {
+        var ev = e || window.event;
+        var target = ev.target || ev.srcElement;
+        if (target.nodeName.toUpperCase() == 'LI') {
+            emailInput.value = target.innerText;
+            hide();
+        }
+    }
+/*     ul.onclick = function (event) {
+        if (event.target.tagName.toLowerCase() == "li") {
+            emailInput.value = event.target.innerHTML;
+            hide();
+        }
+
+    } */
+
+    function resetIndex() {
+        nowSelectTipIndex = 0;
+    }
+
+    emailInput.onkeyup = function (event) {
+      
+        var event = event || window.event;　
+        if (event.keyCode != 13 && event.keyCode != 108 && event.keyCode != 38 && event.keyCode != 40) {
+            resetIndex();
+        }
+
+        if (event.keycode = 38) {
+
+            if (nowSelectTipIndex !== 0) {
+                nowSelectTipIndex = ul.children.length - 1; //设置为当前提示框的Li的个数 - 1
+            } else {
+                nowSelectTipIndex--;
+            }
+        }
+        if (event.keycode = 40) {
+            if (nowSelectTipIndex < ul.children.length - 1) //小于Li的最大索引 
+            {
+                nowSelectTipIndex = 0;
+            } else {
+                nowSelectTipIndex++;
+            }
+        }
+ 
+        addPrompt();
+        displayOrHide();
+
+        if (event.keycode = 13) {
+
+            //从当前提示框中选第 nowSelectTipIndex 个Li，将其HTML内容解码后填到input中
+            ul.children[nowSelectTipIndex].innerText = emailInput.value;
+            hide();
+        }
+    }
+
+    function getInput() {
+        //拿到input输入框的输入内容trim后返回
+
+        var inputValue = emailInput.value.trim();
+        return inputValue;
+    }
+
+
+
+    function setPrompt() {
+        var input1 = getInput();
+        var input2, input3;
+        var flag = 0; //“@”后的字符串能否在postfixList中找到匹配
+        if (input1.indexOf("@") == -1) {
+            input2 = input1;
+        } else {
+            input2 = input1.slice(0, input1.indexOf("@")); // 用来拼接的用户输入内容 = @之前的字符串
+            input3 = input1.slice(input1.indexOf("@") + 1); // 用来前缀匹配的用户输入内容 = @之后的字符串     
+        }
+        var res = new Array();
+        for (var i = 0; i < postfixList.length; i++) {
+            console.log(postfixList[i].indexOf(input3));
+            if (postfixList[i].indexOf(input3) == 0) {
+
+                res[i] = input2 + '@' + postfixList[i];
+                flag = 1;
+            }
+
+        }
+        if (flag == 0) {
+            for (var i = 0; i < postfixList.length; i++) {
+                res[i] = input2 + '@' + postfixList[i];
+            }
+        }
+        //去除res数组中的空值
+        for (var i = 0; i < res.length; i++) {
+            if (typeof res[i] == "undefined" || res[i] == "") {
+                res.splice(i, 1);
+                i--;
+            }
+        }
+
+        res[nowSelectTipIndex].className = 'active';
+        return res;
+    }
+
+
+
+    function addPrompt() {
+        var prompt = setPrompt();
+        var len = ul.childNodes.length;
+        //removechild()正常的删除全部节点，应该从后面往前删除。
+        //原因是当你把索引为0的子节点删除后，那么原来索引为1节点此时它的索引变成0了，而这时变量i已经变成1了，程序继续走时就会删除原先索引为２的现在为1的节点，这样程序运行的结果就是只删除了一半的子节点。
+        for (var i = len - 1; i >= 0; i--) {
+            ul.removeChild(ul.childNodes[i]);
+        }
+        for (var i = 0; i < prompt.length; i++) {
+            var li = document.createElement('li');
+            li.innerHTML = prompt[i];
+            /*   if (i == 0) {
+                  li.className = 'active';
+              } */
+
+            ul.appendChild(li);
+        }
+
+    }
+
+
+    function displayOrHide() {
+        var input1 = getInput();
+        if (input1 == "") {
+            hide();
+        } else {
+            display();
+        }
+
+    }
+
+    function hide() {
+        ul.style.display = "none";
+    }
+
+    function display() {
+        ul.style.display = "block";
+    }
+
+    function getInput() {
+        //拿到input输入框的输入内容trim后返回
+
+        var inputValue = emailInput.value.trim();
+        return inputValue
+    }
+</script>
+
+</html>
