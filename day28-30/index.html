@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +16,6 @@
         line-height: 22px;
         font-size: 14px;
     }
-
     /* 
     li:hover {
         background-color: antiquewhite;
@@ -26,12 +24,10 @@
         width: 150px;
         height: 22px;
     }
-
     .active {
         background-color: #ffb6c3;
     }
 </style>
-
 <body>
     <div class="wrapper">
         <input id="email-input" type="text">
@@ -44,12 +40,10 @@
     var ul = document.getElementById("email-sug-wrapper");
     // 增加一个变量，用于存储当前选中的提示Li的序号
     var nowSelectTipIndex = 0;
-
     /*      emailInput.oninput = function () {
              getInput();
              addPrompt();
              displayOrHide();
-
          };  */
     /*     选择一个合适的DOM节点.监听鼠标点击 = function () {
             if 被点击的是不是提示框中的Li节点 {
@@ -71,61 +65,61 @@
                 emailInput.value = event.target.innerHTML;
                 hide();
             }
-
         } */
-
     function resetIndex() {
         nowSelectTipIndex = 0;
     }
 
     emailInput.onkeyup = function (event) {
-        addPrompt();
-        displayOrHide();
-       
+        
      /*    var event = event  || window.event; */
         if (event.keyCode !== 13 && event.keyCode !== 108 && event.keyCode !== 38 && event.keyCode !== 40) {
-            resetIndex();
+            resetIndex();  
+          /*   console.log(nowSelectTipIndex); */
          
-            console.log(nowSelectTipIndex);
+           
         }
+     
         if (event.keyCode == 38) {
-            console.log(38);
+           /*  console.log(38); */
             if (nowSelectTipIndex == 0) {
                 nowSelectTipIndex = ul.children.length - 1; //设置为当前提示框的Li的个数 - 1
             } else {
                 nowSelectTipIndex--;
+                ul.children[nowSelectTipIndex].className = 'active'; 
             }
+           
         }
         if (event.keyCode == 40) {
-            
+    
             if (nowSelectTipIndex>=ul.children.length - 1) //小于Li的最大索引 
             {
                 nowSelectTipIndex = 0;
-                console.log(nowSelectTipIndex);
+              /*   console.log(nowSelectTipIndex); */
             } else {
-                nowSelectTipIndex++;
-                console.log(nowSelectTipIndex);
+               nowSelectTipIndex++;      
             }
+           
         }
-   
-
+        addPrompt();
+        displayOrHide(); 
+        
+        
         if (event.keyCode == 13) {
-            console.log(13);
+          /*   console.log(13); */
             //从当前提示框中选第 nowSelectTipIndex 个Li，将其内容填到input中
             emailInput.value = ul.children[nowSelectTipIndex].innerText;
             hide();
         }
+  
     }
+    
 
     function getInput() {
         //拿到input输入框的输入内容trim后返回
-
         var inputValue = emailInput.value.trim();
         return inputValue;
     }
-
-
-
     function setPrompt() {
         var input1 = getInput();
         var input2, input3;
@@ -140,17 +134,16 @@
         for (var i = 0; i < postfixList.length; i++) {
             /* console.log(postfixList[i].indexOf(input3)); */
             if (postfixList[i].indexOf(input3) == 0) {
-
                 res[i] = input2 + '@' + postfixList[i];
                 flag = 1;
             }
-
         }
         if (flag == 0) {
             for (var i = 0; i < postfixList.length; i++) {
                 res[i] = input2 + '@' + postfixList[i];
             }
         }
+
         //去除res数组中的空值
         for (var i = 0; i < res.length; i++) {
             if (typeof res[i] == "undefined" || res[i] == "") {
@@ -158,14 +151,11 @@
                 i--;
             }
         }
-
-
         return res;
     }
 
-
-
     function addPrompt() {
+       /*  console.log(nowSelectTipIndex); */
         var prompt = setPrompt();
         var len = ul.childNodes.length;
         //removechild()正常的删除全部节点，应该从后面往前删除。
@@ -173,19 +163,17 @@
         for (var i = len - 1; i >= 0; i--) {
             ul.removeChild(ul.childNodes[i]);
         }
-        for (let j = 0; j < prompt.length; j++) {
+        for (var j = 0; j < prompt.length; j++) {
             var li = document.createElement('li');
-            li.innerHTML = prompt[j];
-          
+            li.innerHTML = prompt[j]; 
             ul.appendChild(li);
-
+           
         }
-      /*   console.log(nowSelectTipIndex); */
-        ul.children[nowSelectTipIndex].className = 'active';
-       
+        console.log(nowSelectTipIndex);
+        ul.children[nowSelectTipIndex].className='active'
+        
+      
     }
-
-
     function displayOrHide() {
         var input1 = getInput();
         if (input1 == "") {
@@ -205,7 +193,6 @@
 
     function getInput() {
         //拿到input输入框的输入内容trim后返回
-
         var inputValue = emailInput.value.trim();
         return inputValue
     }
