@@ -1,39 +1,124 @@
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>无标题文档</title>
-<style>
-	*{margin:0px;padding:0px;}
-	#title{width:480px;margin-top:30px auto;}
-	#gridPanel{width:480px;height:480px; background:#bbada0; margin: 30px auto; border-radius:10px;}
-	#gridPanel div{width:100px;height:100px;border-radius:10px;margin:16px 0px 0px 16px; float:left;background:#ccc0b3;
-font-size:28px; text-size:28px; text-align:center; line-height:100px;
-}
-	#gridPanel div.n2{background:#eee3da;}
-	#gridPanel div.n4{background:#eee0c8;}
-	#gridPanel div.n8{background: #FCF878;}
-	#gridPanel div.n16{background: #3CFef1;}
-	#gridPanel div.n32{background: #0FC12w;}
-	#gridPanel div.n64{background: #C99a11;}
-	#gridPanel div.n128{background: #6CFcaa;}
-	#gridPanel div.n256{background: #9C35sw;}
-	#gridPanel div.n521{background: #969134;}
-	#gridPanel div.n1024{background: #63C871;}
-	#gridPanel div.n2048{background: #C0ed09;}
-	
-	#mask{width: 100%; height: 100%; background: rgba(0,0,0,0.3); position: absolute; left: 0px; top: 0px; display: none;}
-	#divAgain{width: 400px; background: rgba(150,150,150,0.7); border-radius: 5px; border: 1px solid #edcf72; position: absolute; text-align: center; padding: 20px;}
-	#divAgain h1{line-height: 1.5em;}
-	#btnAgain{width: 200px; color: #fff; background: #9f8d77; padding: 20px 0px; font-size: 20px; border: none;}
 
-</style>
-<script type="text/javascript" src="05.js"></script>
+<head>
+	<meta charset="utf-8">
+	<title>无标题文档</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+
+		#title {
+			width: 480px;
+			margin-top: 30px auto;
+		}
+
+		#gridPanel {
+			width: 480px;
+			height: 480px;
+			background: #bbada0;
+			margin: 30px auto;
+			border-radius: 10px;
+		}
+
+		#gridPanel div {
+			width: 100px;
+			height: 100px;
+			border-radius: 10px;
+			margin: 16px 0px 0px 16px;
+			float: left;
+			background: #ccc0b3;
+			font-size: 28px;
+			text-size: 28px;
+			text-align: center;
+			line-height: 100px;
+		}
+
+		#gridPanel div.n2 {
+			background: #eee3da;
+		}
+
+		#gridPanel div.n4 {
+			background: #eee0c8;
+		}
+
+		#gridPanel div.n8 {
+			background: #FCF878;
+		}
+
+		#gridPanel div.n16 {
+			background: #3CFef1;
+		}
+
+		#gridPanel div.n32 {
+			background: #0FC12w;
+		}
+
+		#gridPanel div.n64 {
+			background: #C99a11;
+		}
+
+		#gridPanel div.n128 {
+			background: #6CFcaa;
+		}
+
+		#gridPanel div.n256 {
+			background: #9C35sw;
+		}
+
+		#gridPanel div.n521 {
+			background: #969134;
+		}
+
+		#gridPanel div.n1024 {
+			background: #63C871;
+		}
+
+		#gridPanel div.n2048 {
+			background: #C0ed09;
+		}
+
+		#mask {
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.3);
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			display: none;
+		}
+
+		#divAgain {
+			width: 400px;
+			background: rgba(150, 150, 150, 0.7);
+			border-radius: 5px;
+			border: 1px solid #edcf72;
+			position: absolute;
+			text-align: center;
+			padding: 20px;
+		}
+
+		#divAgain h1 {
+			line-height: 1.5em;
+		}
+
+		#btnAgain {
+			width: 200px;
+			color: #fff;
+			background: #9f8d77;
+			padding: 20px 0px;
+			font-size: 20px;
+			border: none;
+		}
+	</style>
+	<script type="text/javascript" src="05.js"></script>
 </head>
 
 <body>
 	<h1 id="title">分数：<span id="score"></span></h1>
-    <div id="gridPanel"></div>
+	<div id="gridPanel"></div>
 	<div id="mask">
 		<div id="divAgain">
 			<h1>游戏结束</h1>
@@ -42,4 +127,5 @@ font-size:28px; text-size:28px; text-align:center; line-height:100px;
 		</div>
 	</div>
 </body>
+
 </html>
