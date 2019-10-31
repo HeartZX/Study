@@ -2,28 +2,6 @@
 	margin: 0;
 	padding: 0;
 }
-
-body,
-div,
-dl,
-dt,
-ul,
-li,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-input,
-form,
-a,
-p,
-textarea {
-	margin: 0;
-	padding: 0;
-}
-
 ol,
 ul,
 li {
@@ -383,7 +361,6 @@ img {
 .message-item {
 	/* 	height: 300px; */
 	border-bottom: 1px solid #e6e9ec;
-
 }
 
 .item-top {
