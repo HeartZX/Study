@@ -5,7 +5,7 @@ window.onload=function(){
 	var gridPanel=document.getElementById("gridPanel");
 	init();//初始化
 	gameStart()//游戏开始
-	gameEnd()//游戏结束
+	/* gameEnd()//游戏结束 */
 	function init(){
 		initGrid();//初始化格子
 		randNum();//随机位置出现随机数

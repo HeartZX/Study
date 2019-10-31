@@ -16,7 +16,6 @@
         var numB=document.getElementById("num-b");
         var result=document.getElementById("result");
         var button=document.getElementsByTagName("button");
- 
         button[0].addEventListener("click",contentLength);
         button[1].addEventListener("click",contentThird);
         button[2].addEventListener("click",concat);
@@ -30,19 +29,14 @@
         button[10].addEventListener("click",ENsPAcE);
         button[11].addEventListener("click",replace);
         
-
-
-
         //获取当前选中输入的内容长度
         function contentLength(){
             if(radioA.checked){
               result.innerHTML=strA.value.length
-        
             }else if(radioB.checked){
                 result.innerHTML=strB.value.length
             }
         }
-        
         //当前选中输入中的第3个字符
         function contentThird(){
             if(radioA.checked){
@@ -70,8 +64,7 @@
         // 使用slice获取选中输入框内容的部分内容，参数为num-a及num-b
         function slice(){
         if(radioA.checked){
-              result.innerHTML=strA.value.slice(numA.value,numB.value);
-        
+              result.innerHTML=strA.value.slice(numA.value,numB.value);  
             }else if(radioB.checked){
                 result.innerHTML=strB.value.slice(numA.value,numB.value);
             }
@@ -79,10 +72,8 @@
       
         // 当前选中输入框的行数   有问题做不出来啊
         function line(){
-         if(radioA.checked){
-          
-            }else if(radioB.checked){
-                
+         if(radioA.checked){   
+            }else if(radioB.checked){         
             }
        }
       
@@ -122,8 +113,6 @@
         }else if(radioB.checked){
             result.innerHTML= strB.value.replace(/\s/g, '');
         }
-
-
         }
         
         //把所选输入框中内容的a全部替换成另外一个输入框中的内容
@@ -135,14 +124,6 @@
               result.innerHTML=strB.value.replace("a",strA.value);
         }   
          }
-       
-      
-
-
-
-
-
-
     }
 
 </script>

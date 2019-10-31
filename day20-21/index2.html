@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8">    
+    <meta charset="UTF-8">
     <title>IFE ECMAScript</title>
     <style>
-     select {
+        select {
             display: none;
-        }   
+        }
     </style>
 </head>
-<body>            
+
+<body>
     <label>
         <input id="school" name="status" type="radio">
         School
@@ -19,49 +21,40 @@
         Company
     </label>
 
-    <select id="school-select">        
+    <select id="school-select">
         <option>北京邮电大学</option>
         <option>黑龙江大学</option>
         <option>华中科技大学</option>
     </select>
 
-    <select id="company-select">        
+    <select id="company-select">
         <option>百度</option>
-        <option>爱奇艺</option>        
+        <option>爱奇艺</option>
     </select>
 </body>
 <script>
-    var school=document.getElementById("school");
-    var company=document.getElementById("company");
-    var schoolSelect=document.getElementById("school-select");
-    var companySelect=document.getElementById("company-select");
+    var school = document.getElementById("school");
+    var company = document.getElementById("company");
+    var schoolSelect = document.getElementById("school-select");
+    var companySelect = document.getElementById("company-select");
     console.log(schoolSelect);
     console.log(companySelect);
 
-
-    function changeStatus(e){
-        if(e.target.id==="school"/*  &&  e.target.checked  */){
-        var schoolSelect=document.getElementById("school-select");
-        var companySelect=document.getElementById("company-select");
-         schoolSelect.style.display="block"; 
-         companySelect.style.display="none";   
+    function changeStatus(e) {
+        if (e.target.id === "school" /*  &&  e.target.checked  */ ) {
+            var schoolSelect = document.getElementById("school-select");
+            var companySelect = document.getElementById("company-select");
+            schoolSelect.style.display = "block";
+            companySelect.style.display = "none";
+        } else if (e.target.id === "company" /* &&  e.target.checked */ ) {
+            var schoolSelect = document.getElementById("school-select");
+            var companySelect = document.getElementById("company-select");
+            schoolSelect.style.display = "none";
+            companySelect.style.display = "block";
         }
-        else if(e.target.id==="company"/* &&  e.target.checked */ ){
-         var schoolSelect=document.getElementById("school-select");
-         var companySelect=document.getElementById("company-select");
-          schoolSelect.style.display="none"; 
-          companySelect.style.display="block";     
-        }
-
-
     }
-    school.addEventListener("click",changeStatus);
-    company.addEventListener("click",changeStatus);
-
-
-
-
-
+    school.addEventListener("click", changeStatus);
+    company.addEventListener("click", changeStatus);
 </script>
 
 </html>

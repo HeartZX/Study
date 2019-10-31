@@ -1,259 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
-
 <body>
- 
-  
-  
-  
 </body>
-
- <script>
-    var arr = [43, 54, 4, -4, 84, 100, 58, 27, 140];
-
-    //将上面数组分别按从大到小以及从小到大进行排序后在console中输出
-    //1.使用经典的冒泡排序再使用reverse函数颠倒数组顺序
-    //从小到大
-    for(var i=0;i<arr.length-1;i++){
-        for(var j=0;j<arr.length-1-i;j++){
-              if(arr[j]>arr[j+1]){
-              var tmp=arr[j];
-               arr[j]=arr[j+1];
-               arr[j+1]=tmp;
-
-              }
-        }
-      
+<script>
+  var arr = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+  //将上面数组分别按从大到小以及从小到大进行排序后在console中输出
+  //1.使用经典的冒泡排序再使用reverse函数颠倒数组顺序
+  //从小到大
+  for (var i = 0; i < arr.length - 1; i++) {
+    for (var j = 0; j < arr.length - 1 - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        var tmp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = tmp;
+      }
     }
-    console.log(arr/* .reverse() */);
+  }
+  console.log(arr /* .reverse() */ );
 
   //从大到小
-    for(var i=0;i<arr.length-1;i++){
-        for(var j=0;j<arr.length-1-i;j++){
-              if(arr[j]<arr[j+1]){
-              var tmp=arr[j];
-               arr[j]=arr[j+1];
-               arr[j+1]=tmp;
-
-              }
-
-       
-        }
-      
+  for (var i = 0; i < arr.length - 1; i++) {
+    for (var j = 0; j < arr.length - 1 - i; j++) {
+      if (arr[j] < arr[j + 1]) {
+        var tmp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = tmp;
+      }
     }
-    console.log(arr); 
+  }
+  console.log(arr);
 
-   //2.使用sort()函数 
+  //2.使用sort()函数 
 
-   //从小到大
-  console.log(arr.sort((a,b)=> a-b));
+  //从小到大
+  console.log(arr.sort((a, b) => a - b));
   //从大到小    
-  console.log(arr.sort((a,b)=> b-a));
+  console.log(arr.sort((a, b) => b - a));
 
-
-
-    var arr1 = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
-   //将上面数组分别按字母顺序a-z及z-a进行排序，在console中输出
+  var arr1 = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+  //将上面数组分别按字母顺序a-z及z-a进行排序，在console中输出
 
   //字母顺序a-z
-   var newarr1= arr1.sort(function(a, b) {
-  var A = a.toUpperCase(); // ignore upper and lowercase
-  var B = b.toUpperCase(); // ignore upper and lowercase
-  if (A < B) {
-    return -1;
-  }
-  if (A > B) {
-    return 1;
-  }
-
-  
-// names must be equal
-
-  return 0;
-});
-console.log(newarr1);
-
-//字母顺序z-a
-var newarr2= arr1.sort(function(a, b) {
-  var A = a.toUpperCase(); // ignore upper and lowercase
-  var B = b.toUpperCase(); // ignore upper and lowercase
-  if (A < B) {
-    return 1;
-  }
-  if (A > B) {
-    return -1;
-  }
-
-  
-// names must be equal
-
-  return 0;
-});
-console.log(newarr2);
-
-
-
-
-
-
-
-    
-    var arr2=[[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]];
-    //将上面的二维数组，按照每个元素中第二个数从大到小的顺序进行排序输出，输出结果应该为：
-    for(var i=0;i<arr2.length-1;i++){
-        for(var j=0;j<arr2.length-1-i;j++){
-              if(arr2[j][1]<arr2[j+1][1]){
-              var tmp=arr2[j];
-               arr2[j]=arr2[j+1];
-               arr2[j+1]=tmp;
-
-              }
-
-       
-        }
-      
+  var newarr1 = arr1.sort(function (a, b) {
+    var A = a.toUpperCase(); // ignore upper and lowercase
+    var B = b.toUpperCase(); // ignore upper and lowercase
+    if (A < B) {
+      return -1;
     }
-    console.log(arr2); 
-    /* document.write(arr2); */
-
-
-
-
-
-
-    var arr3 = [
-    {
-        id: 1,
-        name: 'candy',
-        value: 40
-    }, {
-        id: 2,
-        name: 'Simon',
-        value: 50
-    }, {
-        id: 3,
-        name: 'Tony',
-        value: 45
-    }, {
-        id: 4,
-        name: 'Annie',
-        value: 60
+    if (A > B) {
+      return 1;
     }
-];
+    // names must be equal
+    return 0;
+  });
+  console.log(newarr1);
 
- var newarr3=arr3.sort((a,b)=>a.value-b.value);
- console.log(newarr3);
+  //字母顺序z-a
+  var newarr2 = arr1.sort(function (a, b) {
+    var A = a.toUpperCase(); // ignore upper and lowercase
+    var B = b.toUpperCase(); // ignore upper and lowercase
+    if (A < B) {
+      return 1;
+    }
+    if (A > B) {
+      return -1;
+    }
 
+    // names must be equal
+    return 0;
+  });
+  console.log(newarr2);
 
- var scoreObject = {
+  var arr2 = [
+    [10, 14],
+    [16, 60],
+    [7, 44],
+    [26, 35],
+    [22, 63]
+  ];
+  //将上面的二维数组，按照每个元素中第二个数从大到小的顺序进行排序输出，输出结果应该为：
+  for (var i = 0; i < arr2.length - 1; i++) {
+    for (var j = 0; j < arr2.length - 1 - i; j++) {
+      if (arr2[j][1] < arr2[j + 1][1]) {
+        var tmp = arr2[j];
+        arr2[j] = arr2[j + 1];
+        arr2[j + 1] = tmp;
+      }
+    }
+  }
+  console.log(arr2);
+  /* document.write(arr2); */
+  var arr3 = [{
+    id: 1,
+    name: 'candy',
+    value: 40
+  }, {
+    id: 2,
+    name: 'Simon',
+    value: 50
+  }, {
+    id: 3,
+    name: 'Tony',
+    value: 45
+  }, {
+    id: 4,
+    name: 'Annie',
+    value: 60
+  }];
+
+  var newarr3 = arr3.sort((a, b) => a.value - b.value);
+  console.log(newarr3);
+
+  var scoreObject = {
     "Tony": {
-        "Math": 95,
-        "English": 79,
-        "Music": 68
-    }, 
+      "Math": 95,
+      "English": 79,
+      "Music": 68
+    },
     "Simon": {
-        "Math": 100,
-        "English": 95,
-        "Music": 98
-    }, 
+      "Math": 100,
+      "English": 95,
+      "Music": 98
+    },
     "Annie": {
-        "Math": 54,
-        "English": 65,
-        "Music": 88
+      "Math": 54,
+      "English": 65,
+      "Music": 88
     }
-}
+  }
 
-//如上有一个用来存储学习成绩的对象，编写一个函数，将其转为如下的二维数组
-
-
-/*  function objToArray(obj) { 
-     var arr = []
-       for (let i in this.scoreObject) {
-    let o = {};
-    o[i] = scoreObject[i]; //即添加了key值也赋了value值 o[i] 相当于o.name 此时i为变量
-    arr.push(o)
-}
-
-  return arr;
-
-}
-console.log('对象转数组',objToArray(scoreObject));  */
-
-
-/* function objToArray(obj) {
-    var arr=[];
-    for (const key in obj) {
-        if (obj.hasOwnProperty(key)) {
-            const element = obj[key];
-            var tempArr=[];
-            tempArr.push(key);
-            for (const key1 in element) {
-                if (element.hasOwnProperty(key1)) {
-                    const element1 = element[key1];
-                    tempArr.push(element1);
-                }
-            }
-            arr.push(tempArr);
-        }
-    }
+  //如上有一个用来存储学习成绩的对象，编写一个函数，将其转为如下的二维数组
+  /*  function objToArray(obj) { 
+       var arr = []
+         for (let i in this.scoreObject) {
+      let o = {};
+      o[i] = scoreObject[i]; //即添加了key值也赋了value值 o[i] 相当于o.name 此时i为变量
+      arr.push(o)
+  }
     return arr;
-}
-console.log('对象转数组',objToArray(scoreObject)); 
- */
- var arr6=[];
-for(var i in scoreObject){ //第一次使用这种for循环，这里i并不是i=1,i=2,i=3....这种数字，而是i=Tony，i=Simon，i=Annie
-    var arr7=[];
+  }
+  console.log('对象转数组',objToArray(scoreObject));  */
+  /* function objToArray(obj) {
+      var arr=[];
+      for (const key in obj) {
+          if (obj.hasOwnProperty(key)) {
+              const element = obj[key];
+              var tempArr=[];
+              tempArr.push(key);
+              for (const key1 in element) {
+                  if (element.hasOwnProperty(key1)) {
+                      const element1 = element[key1];
+                      tempArr.push(element1);
+                  }
+              }
+              arr.push(tempArr);
+          }
+      }
+      return arr;
+  }
+  console.log('对象转数组',objToArray(scoreObject)); 
+   */
+  var arr6 = [];
+  for (var i in scoreObject) { //第一次使用这种for循环，这里i并不是i=1,i=2,i=3....这种数字，而是i=Tony，i=Simon，i=Annie
+    var arr7 = [];
     arr7.push(i);
-    for(var j in scoreObject[i]){ //同理这里的for循环里的 j 也不是 1,2,3.。。
-        arr7.push(scoreObject[i][j]);
+    for (var j in scoreObject[i]) { //同理这里的for循环里的 j 也不是 1,2,3.。。
+      arr7.push(scoreObject[i][j]);
     }
     arr6.push(arr7);
-}
-console.log(arr6);
-//数组转为对象
-var menuArr = [ 
- [1, "Area1", -1], 
- [2, "Area2", -1], 
- [3, "Area1-1", 1], 
- [4, "Area1-2", 1], 
- [5, "Area2-1", 2], 
- [6, "Area2-2", 2], 
- [7, "Area1-2-3", 4], 
- [8, "Area2-2-1", 6], 
- ]; 
- 
-/* function arrToObj(arr,root) { 
- var obj={}; 
- for (const iterator of arr) { 
- if (iterator[2]==root) { 
- obj[iterator[0]]={}; 
- obj[iterator[0]].name=iterator[1]; 
- var tempObj=arrToObj(arr,iterator[0]); 
- if (Object.keys(tempObj).length>0) { 
- obj[iterator[0]].subMenu=tempObj; 
- } 
- } 
- } 
- return obj; 
- } 
- console.log('数组转对象',arrToObj(menuArr,-1));  */
+  }
+  console.log(arr6);
+  //数组转为对象
+  var menuArr = [
+    [1, "Area1", -1],
+    [2, "Area2", -1],
+    [3, "Area1-1", 1],
+    [4, "Area1-2", 1],
+    [5, "Area2-1", 2],
+    [6, "Area2-2", 2],
+    [7, "Area1-2-3", 4],
+    [8, "Area2-2-1", 6],
+  ];
 
-var menuObject={};
- function arrToObj(){
-
-
-   
- }
-
-
-
-
+  /* function arrToObj(arr,root) { 
+   var obj={}; 
+   for (const iterator of arr) { 
+   if (iterator[2]==root) { 
+   obj[iterator[0]]={}; 
+   obj[iterator[0]].name=iterator[1]; 
+   var tempObj=arrToObj(arr,iterator[0]); 
+   if (Object.keys(tempObj).length>0) { 
+   obj[iterator[0]].subMenu=tempObj; 
+   } 
+   } 
+   } 
+   return obj; 
+   } 
+   console.log('数组转对象',arrToObj(menuArr,-1));  */
+  var menuObject = {};
+  function arrToObj() {
+  }
 </script>
 </html>

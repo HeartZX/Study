@@ -15,8 +15,7 @@
         height: 300px; 
         background: url("erik_ce204002.jpg")  0px -2px  no-repeat ;
         overflow: hidden;
-        background-size: cover;
-        
+        background-size: cover;      
       }
 
 </style>
@@ -31,36 +30,23 @@
  var img=document.getElementById("img");
  img.style.backgroundPositionY="-2px";
  var back=false;
- 
  setInterval(() => {
    const y=parseInt(img.style.backgroundPositionY);
    if(back){
      if(y<-600){
        img.style.backgroundPositionY=y+300+"px";
-
      }else{
       img.style.backgroundPositionY=y+300+"px";
       back=false;
      }
-
    }else{
      if(y>-4500){
        img.style.backgroundPositionY=y-300+"px";
-
      }else{
       img.style.backgroundPositionY=y-300+"px";
       back=true
-
      } 
-
-   }
- 
-
-   
+   } 
  }, 100);
-
-
-  
-
 </script>
 </html>

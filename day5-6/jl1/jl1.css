@@ -4,42 +4,54 @@
 body {
 	margin: 0 auto;
 }
-.jianli { 
+
+.jianli {
 	margin: 0 auto;
 	border: 1px solid #000;
 	width: 600px;
-	font-weight:bold;
+	font-weight: bold;
 
 }
+
 .header {
-	width:200px
-	/*height: 50px;*//*border: 1px solid #000;*/
-	
+	width: 200px
+		/*height: 50px;*/
+		/*border: 1px solid #000;*/
+
 }
+
 .Information {
-	height: 80px;/*border: 1px solid #000;*/
-	
-		
+	height: 80px;
+	/*border: 1px solid #000;*/
+
+
 }
+
 .Contact {
-	height: 80px;/*border: 1px solid #000;*/
+	height: 80px;
+	/*border: 1px solid #000;*/
 }
+
 .Information ul {
 	margin: 0px;
 	padding: 0px;
 }
+
 .Information ul li {
 	float: left;
 	list-style-type: none;
 }
+
 .Contact ul {
 	margin: 0px;
 	padding: 0px;
 }
+
 .Contact ul li {
 	float: left;
 	list-style-type: none;
 }
+
 .list {
 	margin-left: 30px;
 }

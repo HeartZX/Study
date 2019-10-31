@@ -1,72 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-        <input id="stack-input" type="text">
-        <p id="stack-cont">栈内容：apple&lt;-pear</p>    
-        <button id="push-btn">进栈</button>
-        <button id="pop-btn">退栈</button>
-        <button id="font-btn">打印栈顶元素内容</button>
-        <button id="empty-btn">判断栈是否为空</button>
-        
-   
-    
+    <input id="stack-input" type="text">
+    <p id="stack-cont">栈内容：apple&lt;-pear</p>
+    <button id="push-btn">进栈</button>
+    <button id="pop-btn">退栈</button>
+    <button id="font-btn">打印栈顶元素内容</button>
+    <button id="empty-btn">判断栈是否为空</button>
+
+
+
 </body>
 <script>
-  //栈顶对应数组中第一个元素
-  //进栈和退栈操作后，需要在 id 为 stack-cont 的 p 标签中更新显示栈中的内容，栈顶在最左侧，中间用 -< 连接（练习使用数组的join方法）
-        
-        var stack = ["apple", "pear"];
-       
-    
-    var cont=document.getElementById("stack-cont");
-    var pushBtn=document.getElementById("push-btn");
-    var popBtn=document.getElementById("pop-btn");
-    var fontBtn=document.getElementById("font-btn");
-    var emptyBtn=document.getElementById("empty-btn");
-    var input=document.getElementById("stack-input");
+    //栈顶对应数组中第一个元素
+    //进栈和退栈操作后，需要在 id 为 stack-cont 的 p 标签中更新显示栈中的内容，栈顶在最左侧，中间用 -< 连接（练习使用数组的join方法）
+    var stack = ["apple", "pear"];
+    var cont = document.getElementById("stack-cont");
+    var pushBtn = document.getElementById("push-btn");
+    var popBtn = document.getElementById("pop-btn");
+    var fontBtn = document.getElementById("font-btn");
+    var emptyBtn = document.getElementById("empty-btn");
+    var input = document.getElementById("stack-input");
 
-
-//入队 push
-function  In(){
-    stack.push(input.value);
-       cont.innerHTML="队列内容"+stack.join("-&lt;");
+    //入队 push
+    function In() {
+        stack.push(input.value);
+        cont.innerHTML = "队列内容" + stack.join("-&lt;");
     }
-    pushBtn.addEventListener("click",In);
+    pushBtn.addEventListener("click", In);
     //出队
-    function Out(){
-       stack.pop();
-        cont.innerHTML="队列内容"+ stack.join("-&lt;");
-
-
+    function Out() {
+        stack.pop();
+        cont.innerHTML = "队列内容" + stack.join("-&lt;");
     }
-    popBtn.addEventListener("click",Out);
+    popBtn.addEventListener("click", Out);
 
     //打印队头元素内容
-    function Font(){
-          
-        cont.innerHTML="队头元素"+stack[0];
-
+    function Font() {
+        cont.innerHTML = "队头元素" + stack[0];
     }
-    fontBtn.addEventListener("click",Font);
+    fontBtn.addEventListener("click", Font);
     //判断队列是否为空
-    function Empty(){
-        if(stack.length==0){
-            cont.innerHTML="队列为空"
+    function Empty() {
+        if (stack.length == 0) {
+            cont.innerHTML = "队列为空"
+        } else {
+            cont.innerHTML = "队列不为空"
         }
-        else{
-            cont.innerHTML="队列不为空"
-
-        }
-
     }
-    emptyBtn.addEventListener("click",Empty);
+    emptyBtn.addEventListener("click", Empty);
+</script>
 
-        
-        </script>
 </html>

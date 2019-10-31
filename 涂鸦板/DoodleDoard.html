@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<style>
+    .wrap {
+        width: 600px;
+        margin: 0 auto;
+
+    }
+
+    #myCanvas {
+        /* width: 500px;
+        height: 500px; */
+        border: 1px solid #000;
+        cursor: pointer;
+    }
+
+    #selColor {
+
+        width: 100px;
+        height: 25px;
+    }
+
+    #btnClear {
+
+        width: 80px;
+        height: 25px;
+    }
+</style>
+
+<body>
+    <div class="wrap">
+        <canvas id="myCanvas" width="500px" height="500px"></canvas><br>
+        <select name="" id="selColor">
+            <option value="#f00" selected>红色</option>
+            <option value="#0f0">绿色</option>
+            <option value="#00f">蓝色</option>
+            <option value="#0ff">青色</option>
+            <option value="#f0f">紫色</option>
+            <option value="#ff0">黄色</option>
+        </select>
+        <button id="btnClear">清空</button>
+    </div>
+</body>
+<script>
+    //取到画布对象
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    //确定画笔颜色、粗细
+    var selcolor = document.getElementById("selColor");
+    var clr = selcolor.value;
+    console.log(clr);
+    var linewidth = 1;
+    //触发select的change事件  取到画笔颜色
+    selcolor.onchange = function () {
+        clr = selcolor.value;
+        console.log(clr);
+    }
+    //mousedown事件确定绘画是否开始   
+    var bDraw = false;
+    canvas.onmousedown = function (event) {
+        console.log("down");
+        bDraw = true;
+        ctx.lineWidth = linewidth; //定义粗细
+        ctx.strokeStyle = clr; //定义颜色
+        //应用beginpath(),确定正式开始绘画
+        ctx.beginPath();
+        ctx.moveTo(event.x - canvas.offsetLeft, event.y - canvas.offsetTop);
+        /*   ctx.moveTo(0,0); */
+
+    }
+
+    canvas.onmousemove = function (event) {
+        console.log("move");
+        if (bDraw) {
+            ctx.lineTo(event.x - canvas.offsetLeft, event.y - canvas.offsetTop);
+            ctx.stroke(); //绘制线段
+        }
+    }
+    canvas.onmouseup = function (event) {
+        console.log("up");
+        bDraw = false;
+    }
+
+    //清空事件
+    var btnclear = document.getElementById("btnClear");
+    btnclear.onclick = function () {
+            ctx.fillStyle="#fff";
+            ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    }
+</script>
+
+</html>

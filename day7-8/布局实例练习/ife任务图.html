@@ -1,151 +1,175 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<style type="text/css">
-* {
-	padding: 0;
-	margin: 0;
-}
-body {
-	margin: 0 auto;
-}
-.header {
-	width: 100%;
-	height: 80px;
-	background-color: dimgrey;
-	color: white;
-}
-.header-logo {
-	width: 960px;
-	margin: 0 auto;
-	height: 80px;
-}
-.header-logo span {
-	font-size: 30px;
-	line-height: 75px;
-}
-.ul-header {
-	position: relative;
-	margin-left: 700px;
-	margin-top: -70px;
-}
-.ul-header li {
-	list-style-type: none;
-	float: left;
-	margin-left: 20px;
-}
-.ul-header li a {
-	color: white;
-}
-.banner {
-	width: 100%;
-	background-color: lawngreen;
-	height: 300px;
-}
-.ul-banner li {
-	list-style-type: none;
-	float: left;
-	margin-left: 20px;
-}
-.ul-banner {
-	margin-left: 1010px;
-	padding-top: 260px
-}
-.ul-banner li span {
-	display: block;
-	height: 35px;
-	width: 30px;
-	border: solid #000 0.2px;
-	text-align: center;
-	line-height: 35px;
-	background-color: #6C6;
-}
-.nav {
-	width: 100%;
-	height: 70px;
-}
-.content {
-	width: 100%;
-	height: 580px;
-}
-section {
-	/*align-items: center;
-	justify-content: space-around;*/
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	width: 971px;
-	height: 560px;
-	margin: 0 auto;
-}
-article {
-	border: 1px solid #CCC;
-	padding: 5px;
-	margin: 5px;
-	flex: 280px;
-	height: 165px;
-	text-align: center;
-	line-height: 165px;
-}
-article:nth-of-type(3) {
-	flex: 240px;
-}
-article:nth-of-type(4) {
-	flex: 150px;
-}
-article:nth-of-type(5) {
-	flex: 150px;
-}
-article:nth-of-type(6) {
-	flex: 150px;
-}
-article:nth-of-type(7) {
-	flex: 150px;
-}
-.footer {
-	width: 100%;
-	height: 120px;
-	background-color: #666;
-	font-size: 18px;
-	color: #FFF;
-	text-align: center;
-	line-height: 50px;
-}
-</style>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			margin: 0 auto;
+		}
+
+		.header {
+			width: 100%;
+			height: 80px;
+			background-color: dimgrey;
+			color: white;
+		}
+
+		.header-logo {
+			width: 960px;
+			margin: 0 auto;
+			height: 80px;
+		}
+
+		.header-logo span {
+			font-size: 30px;
+			line-height: 75px;
+		}
+
+		.ul-header {
+			position: relative;
+			margin-left: 700px;
+			margin-top: -70px;
+		}
+
+		.ul-header li {
+			list-style-type: none;
+			float: left;
+			margin-left: 20px;
+		}
+
+		.ul-header li a {
+			color: white;
+		}
+
+		.banner {
+			width: 100%;
+			background-color: lawngreen;
+			height: 300px;
+		}
+
+		.ul-banner li {
+			list-style-type: none;
+			float: left;
+			margin-left: 20px;
+		}
+
+		.ul-banner {
+			margin-left: 1010px;
+			padding-top: 260px
+		}
+
+		.ul-banner li span {
+			display: block;
+			height: 35px;
+			width: 30px;
+			border: solid #000 0.2px;
+			text-align: center;
+			line-height: 35px;
+			background-color: #6C6;
+		}
+
+		.nav {
+			width: 100%;
+			height: 70px;
+		}
+
+		.content {
+			width: 100%;
+			height: 580px;
+		}
+
+		section {
+			/*align-items: center;
+	        justify-content: space-around;*/
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			width: 971px;
+			height: 560px;
+			margin: 0 auto;
+		}
+
+		article {
+			border: 1px solid #CCC;
+			padding: 5px;
+			margin: 5px;
+			flex: 280px;
+			height: 165px;
+			text-align: center;
+			line-height: 165px;
+		}
+
+		article:nth-of-type(3) {
+			flex: 240px;
+		}
+
+		article:nth-of-type(4) {
+			flex: 150px;
+		}
+
+		article:nth-of-type(5) {
+			flex: 150px;
+		}
+
+		article:nth-of-type(6) {
+			flex: 150px;
+		}
+
+		article:nth-of-type(7) {
+			flex: 150px;
+		}
+
+		.footer {
+			width: 100%;
+			height: 120px;
+			background-color: #666;
+			font-size: 18px;
+			color: #FFF;
+			text-align: center;
+			line-height: 50px;
+		}
+	</style>
 </head>
+
 <body>
-<div class="header">
-  <div class="header-logo"> <span>Logo</span>
-    <ul class="ul-header">
-      <li><a href="#">Github</a></li>
-      <li><a href="#">Register</a></li>
-      <li><a href="#">Login</a></li>
-    </ul>
-  </div>
-</div>
-<div class="banner">
-  <ul class="ul-banner">
-    <li><span>1</span></li>
-    <li><span>2</span></li>
-    <li><span>3</span></li>
-    <li><span>4</span></li>
-  </ul>
-</div>
-<div class="nav"> </div>
-<div class="content">
-  <section>
-    <article>Content1</article>
-    <article>Content2</article>
-    <article>Content3</article>
-    <article>Content4</article>
-    <article>Content5</article>
-    <article>Content6</article>
-    <article>Content7</article>
-    <article>Content8</article>
-    <article>Content9</article>
-    <article>Content10</article>
-  </section>
-</div>
-<div class="footer"> <span>www.baidu.com</span> </div>
+	<div class="header">
+		<div class="header-logo"> <span>Logo</span>
+			<ul class="ul-header">
+				<li><a href="#">Github</a></li>
+				<li><a href="#">Register</a></li>
+				<li><a href="#">Login</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="banner">
+		<ul class="ul-banner">
+			<li><span>1</span></li>
+			<li><span>2</span></li>
+			<li><span>3</span></li>
+			<li><span>4</span></li>
+		</ul>
+	</div>
+	<div class="nav"> </div>
+	<div class="content">
+		<section>
+			<article>Content1</article>
+			<article>Content2</article>
+			<article>Content3</article>
+			<article>Content4</article>
+			<article>Content5</article>
+			<article>Content6</article>
+			<article>Content7</article>
+			<article>Content8</article>
+			<article>Content9</article>
+			<article>Content10</article>
+		</section>
+	</div>
+	<div class="footer"> <span>www.baidu.com</span> </div>
 </body>
+
 </html>

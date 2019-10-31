@@ -1,155 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
 </body>
 <script>
-      var tree = {
-    "id": 0,
-    "name": "root",
-    "left": {
-        "id": 1,
-        "name": "Simon",
+    var tree = {
+        "id": 0,
+        "name": "root",
         "left": {
-            "id": 3,
-            "name": "Carl",
+            "id": 1,
+            "name": "Simon",
             "left": {
-                "id": 7,
-                "name": "Lee",
+                "id": 3,
+                "name": "Carl",
                 "left": {
-                    "id": 11,
-                    "name": "Fate"
+                    "id": 7,
+                    "name": "Lee",
+                    "left": {
+                        "id": 11,
+                        "name": "Fate"
+                    }
+                },
+                "right": {
+                    "id": 8,
+                    "name": "Annie",
+                    "left": {
+                        "id": 12,
+                        "name": "Saber"
+                    }
                 }
             },
             "right": {
-                "id": 8,
-                "name": "Annie",
+                "id": 4,
+                "name": "Tony",
                 "left": {
-                    "id": 12,
-                    "name": "Saber"
+                    "id": 9,
+                    "name": "Candy"
                 }
             }
         },
         "right": {
-            "id": 4,
-            "name": "Tony",
+            "id": 2,
+            "name": "right",
             "left": {
-                "id": 9,
-                "name": "Candy"
+                "id": 5,
+                "name": "Carl",
+            },
+            "right": {
+                "id": 6,
+                "name": "Carl",
+                "right": {
+                    "id": 10,
+                    "name": "Kai"
+                }
             }
         }
-    },
-    "right": {
-        "id": 2,
-        "name": "right",
-        "left": {
-            "id": 5,
-            "name": "Carl",
-        },
-        "right": {
-            "id": 6,
-            "name": "Carl",
-            "right": {
-                "id": 10,
-                "name": "Kai"
-            }        
+    }
+
+    /* console.log(tree); */
+
+
+    // 假设id和name均不会重复，根据输入name找到对应的id
+    function findIdByName(myName) {
+        function find(obj) {
+            if (obj.name === myName) {
+                console.log(obj.id);
+                //如果在此设return返回值，那么只有在Tony的分支函数返回结束了。而其他的函数还在继续
+                //递归是多个函数的嵌套执行，一个函数的return不会让整体结束
+            } else {
+                if (obj.left) {
+                    find(obj.left);
+                }
+                if (obj.right) {
+                    find(obj.right);
+                }
+            }
+        }
+        find(tree);
+    }
+    findIdByName("Tony");
+
+    // 假设id和name均不会重复，根据输入id找到对应的name
+    function findNameById(myId) {
+        function find(obj) {
+            if (obj.id == myId) {
+                console.log(obj.name);
+            } else {
+                if (obj.left) {
+                    find(obj.left);
+                }
+                if (obj.right) {
+                    find(obj.right);
+                }
+            }
+        }
+        find(tree);
+
+    }
+    findNameById("8");
+
+    // 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
+    function getListWithDLR(obj) {
+        console.log(obj.name);
+        if (obj.left) {
+            getListWithDLR(obj.left);
+        }
+        if (obj.right) {
+            getListWithDLR(obj.right);
         }
     }
-}
+    getListWithDLR(tree);
 
-/* console.log(tree); */
-
-
-// 假设id和name均不会重复，根据输入name找到对应的id
-function findIdByName(myName) {
-    function find(obj){
-        if(obj.name===myName){
-            console.log(obj.id);
-            //如果在此设return返回值，那么只有在Tony的分支函数返回结束了。而其他的函数还在继续
-            //递归是多个函数的嵌套执行，一个函数的return不会让整体结束
+    // 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
+    function getListWithLDR(obj) {
+        if (obj.left) {
+            getListWithLDR(obj.left);
         }
-         else{
-        	if(obj.left){
-        		find(obj.left);
-        	}
-        	if(obj.right){
-        		find(obj.right);
-        	}
-            
-        } 
-        
-
+        console.log(obj.name);
+        if (obj.right) {
+            getListWithLDR(obj.right);
+        }
 
     }
-    find(tree);
+    getListWithLDR(tree);
 
-}
-findIdByName("Tony");
+    // 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
+    function getListWithLRD(obj) {
+        if (obj.left) {
+            getListWithLRD(obj.left);
+        }
+        if (obj.right) {
+            getListWithLRD(obj.right);
+        }
+        console.log(obj.name);
 
-// 假设id和name均不会重复，根据输入id找到对应的name
-function findNameById(myId) {
-    function find(obj){
-    	if(obj.id==myId){
-    		console.log(obj.name);
-    	}
-    	 else{
-    		if(obj.left){
-    			find(obj.left);
-    		}
-    		if(obj.right){
-    			find(obj.right);
-    		}
-    	} 
     }
-    find(tree);
-
-}
-findNameById("8");
-
-// 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
-function getListWithDLR(obj) {
-    console.log(obj.name);
-    if(obj.left){
-    	getListWithDLR(obj.left);
-    }
-    if(obj.right){
-    	getListWithDLR(obj.right);
-    }
-}
-getListWithDLR(tree);
-
-// 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
-function getListWithLDR(obj) {
-    if(obj.left){
-    	getListWithLDR(obj.left);
-    }
-    console.log(obj.name);
-    if(obj.right){
-    	getListWithLDR(obj.right);
-    }
-
-}
-getListWithLDR(tree);
-
-// 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
-function getListWithLRD(obj) {
-    if(obj.left){
-    	getListWithLRD(obj.left);
-    }
-    if(obj.right){
-    	getListWithLRD(obj.right);
-    }
-    console.log(obj.name);
-
-}
-getListWithLRD(tree);
-
-
+    getListWithLRD(tree);
 </script>
+
 </html>
