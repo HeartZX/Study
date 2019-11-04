@@ -6,6 +6,8 @@
     width: 100%;
     height: 80px;
     background-color: #f7f7f7;
+    color: #292f35;
+
 }
 
 .header_wrap {
@@ -23,7 +25,7 @@
     font-size: 20px;
     color: #07111b;
     top: 21px;
-    background: url("./myimg/logo.png") no-repeat center;
+    background: url("../img/logo.png") no-repeat center;
     left: 20px;
 }
 
@@ -46,10 +48,11 @@
 }
 
 .nav_item {
-    color: #292f35;
+  
     font-size: 14px;
     height: 38px;
     line-height: 38px;
+   
 }
 
 .nav_item_button {
@@ -66,7 +69,7 @@
 .screen_one {
     width: 100%;
     height: 800px;
-    background: url(./img/bg-screen-1.png) no-repeat center;
+    background: url('../img/bg-screen-1.png') no-repeat center;
     background-color: #e7e7e7;
     background-size: cover;
     position: relative;
@@ -91,7 +94,7 @@
     position: absolute;
     width: 100%;
     height: 305px;
-    background: url(./img/screen-1-phone.png) no-repeat;
+    background: url(../img/screen-1-phone.png) no-repeat;
     background-size: cover;
     top: 315px;
     z-index: 1;
@@ -99,7 +102,7 @@
 
 .screen_one_shadow {
     position: absolute;
-    background: url(./img/screen-1-shadow.png) no-repeat;
+    background: url(../img/screen-1-shadow.png) no-repeat;
     background-size: cover;
     width: 100%;
     height: 411px;
@@ -135,7 +138,7 @@
 .screen_two_phone {
     width: 928px;
     height: 873px;
-    background: url(./img/screen-2-phone.png) no-repeat center;
+    background: url(../img/screen-2-phone.png) no-repeat center;
     background-size: cover;
     position: absolute;
     left: 50%;
@@ -155,7 +158,7 @@
 }
 
 .img_right {
-    background: url(./img/icon-point-right.png) no-repeat right;
+    background: url(../img/icon-point-right.png) no-repeat right;
     background-size: cover;
     width: 115px;
     height: 29px;
@@ -163,7 +166,7 @@
 }
 
 .img_left {
-    background: url(./img/icon-point-left.png) no-repeat left;
+    background: url(../img/icon-point-left.png) no-repeat left;
     background-size: cover;
     width: 115px;
     height: 29px;
@@ -197,7 +200,7 @@
     height: 800px;
     background-color: red;
     position: relative;
-    background: url(./img/bg-screen-3.png) no-repeat;
+    background: url(../img/bg-screen-3.png) no-repeat;
     background-size: cover;
     overflow: hidden;
 }
@@ -254,7 +257,7 @@
 }
 
 .screen_three_phone {
-    background: url(./img/screen-3-phone.png) no-repeat;
+    background: url(../img/screen-3-phone.png) no-repeat;
     width: 750px;
     height: 873px;
     position: absolute;
@@ -301,28 +304,28 @@
 .screen_four_typeItem1 {
     width: 220px;
     height: 270px;
-    background: url(./img/phone-1.png) no-repeat;
+    background: url(../img/phone-1.png) no-repeat;
     background-size: cover;
 }
 
 .screen_four_typeItem2 {
     width: 220px;
     height: 270px;
-    background: url(./img/phone-2.png) no-repeat;
+    background: url(../img/phone-2.png) no-repeat;
     background-size: cover;
 }
 
 .screen_four_typeItem3 {
     width: 220px;
     height: 270px;
-    background: url(./img/phone-3.png) no-repeat;
+    background: url(../img/phone-3.png) no-repeat;
     background-size: cover;
 }
 
 .screen_four_typeItem4 {
     width: 220px;
     height: 270px;
-    background: url(./img/phone-4.png) no-repeat;
+    background: url(../img/phone-4.png) no-repeat;
     background-size: cover;
 }
 
@@ -404,7 +407,7 @@
 }
 
 .screen_five_bg {
-    background: url(./img/bg-screen-5.png) no-repeat;
+    background: url(../img/bg-screen-5.png) no-repeat;
     width: 1920px;
     height: 433px;
     position: absolute;
@@ -418,7 +421,7 @@
 .screen_buy {
     width: 100%;
     height: 320px;
-    background: url(./img/bg-screen-buy.png) no-repeat center;
+    background: url(../img/bg-screen-buy.png) no-repeat center;
     background-size: cover;
     position: relative;
 }
