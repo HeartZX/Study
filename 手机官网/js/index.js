@@ -95,6 +95,9 @@ window.onload=function(){
         console.log('onload');
       setScreenAnimateInit(k);
     }
+    ;
+    this.setTimeout(function(){playScreenAnimateDone('.screen_one')},1000)
+  
 }
 
 //第二步：滚动的到哪里，就播放到哪里
@@ -107,12 +110,11 @@ window.onscroll=function(){
             delCls(getElem('.header'),'header_status_black');
             switchNavItemsActive(0); // 后面添加的，不需要
       }
-
-
+/* 
     if(top>0){
      
         playScreenAnimateDone('.screen_one');
-    }
+    }  */
     if(top>700){
        
         playScreenAnimateDone('.screen_two');
