@@ -1,0 +1,367 @@
+/* 第一屏 */
+.screen_one_heading,
+.screen_one_phone,
+.screen_one_shadow {
+    transition: all 1s;
+
+}
+
+.screen_one_heading_animate_init,
+.screen_one_shadow_animate_init {
+    opacity: 0;
+    transform: translate(0, 100%);
+}
+
+.screen_one_phone_animate_init {
+    opacity: 0;
+    transform: translate(0, -100%);
+}
+
+.screen_one_heading_animate_done,
+.screen_one_phone_animate_done,
+.screen_one_shadow_animate_done {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+/* 第二屏 */
+.screen_two_heading,
+.screen_two_subheading,
+.screen_two_phone
+{
+    transition: all 1s;
+}
+.screen_two_point1,
+.screen_two_point2,
+.screen_two_point3
+{
+    transition: all 1s 0.5s;
+}
+.screen_two_heading_animate_done,
+.screen_two_subheading_animate_done,
+.screen_two_phone_animate_done,
+.screen_two_point1_animate_done,
+.screen_two_point2_animate_done,
+.screen_two_point3_animate_done
+{
+    opacity: 1;
+    transform: translate(0, 0);
+}
+.screen_two_heading_animate_init,
+.screen_two_subheading_animate_init
+{
+    opacity: 0;
+    transform: translate(0, 100%);
+}
+.screen_two_phone_animate_init{
+    opacity: 0;
+    transform: translate(0, -100%);
+}
+.screen_two_point1_animate_init
+{
+    opacity: 0;
+    transform: translate(-100%, 0);
+}
+.screen_two_point2_animate_init,
+.screen_two_point3_animate_init
+{
+    opacity: 0;
+    transform: translate(100%, 0);
+}
+/* 第三屏动画 */
+.screen_three_heading,
+.screen_three_subheading,
+.screen_three_phone
+{
+    transition: all 1s;
+}
+
+.screen_three_features
+{
+    transition: all 1s;
+}
+.screen_three_heading_animate_done,
+.screen_three_subheading_animate_done,
+.screen_three_phone_animate_done
+{
+    opacity: 1;
+    transform: translate(0, 0);
+}
+.screen_three_features_animate_done
+{
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
+.screen_three_heading_animate_init,
+.screen_three_subheading_animate_init
+{
+    opacity: 0;
+    transform: translate(-100%, 0);
+}
+.screen_three_phone_animate_init{
+    opacity: 0;
+    transform: translate(100%, 0);
+}
+.screen_three_features_animate_init
+{
+    opacity: 0;
+    transform: translate(0, 0);
+}
+.fearures_item{
+    transition: all 0.5s;
+}
+.fearures_item:hover{
+   transform: scale(1.1);
+   cursor: pointer;
+   border-color: #fff;
+}
+/* 第四屏 */
+.screen_four_heading{
+    transition: all 1s;
+}
+.screen_four_heading_animate_done
+{
+    opacity: 1;
+    transform: translate(0,0);
+}
+.screen_four_heading_animate_init
+{
+    opacity: 0;
+    transform: translate(0,100%);
+}
+
+.screen_four_subheading{
+    transition: all 1s;
+}
+.screen_four_subheading_animate_done
+{
+    opacity: 1;
+    transform: translate(0, 0);
+}
+.screen_four_subheading_animate_init
+{
+    opacity: 0;
+    transform: translate(0, 100%);
+}
+
+.screen_four_typeItem1
+{
+    transition: all 1s 0.5s;
+}
+.screen_four_typeItem2
+{
+    transition: all 1s 1s;
+}
+.screen_four_typeItem3
+{
+    transition: all 1s 1.5s;
+}
+.screen_four_typeItem4
+{
+    transition: all 1s 2s;
+}
+.screen_four_typeItem1_animate_init
+{
+opacity: 0;
+
+}
+.screen_four_typeItem2_animate_init
+{
+    opacity: 0;
+}
+.screen_four_typeItem3_animate_init
+{
+    opacity: 0;
+}
+.screen_four_typeItem4_animate_init
+{
+    opacity: 0;
+}
+
+.screen_four_typeItem1_animate_done
+{
+    opacity: 1;
+}
+.screen_four_typeItem2_animate_done
+{
+    opacity: 1;
+}
+.screen_four_typeItem3_animate_done
+{
+    opacity: 1;
+}
+.screen_four_typeItem4_animate_done
+{
+    opacity: 1;
+}
+
+.screen_four_typeContent1
+{
+    transition: all 1s 0.5s;
+}
+.screen_four_typeContent2
+{
+    transition: all 1s 1s;
+}
+.screen_four_typeContent3
+{
+    transition: all 1s 1.5s;
+}
+.screen_four_typeContent4
+{
+    transition: all 1s 2s;
+}
+.screen_four_typeContent1_animate_init
+{
+opacity: 0;
+
+}
+.screen_four_typeContent2_animate_init
+{
+    opacity: 0;
+}
+.screen_four_typeContent3_animate_init
+{
+    opacity: 0;
+}
+.screen_four_typeContent4_animate_init
+{
+    opacity: 0;
+}
+
+.screen_four_typeContent1_animate_done
+{
+    opacity: 1;
+}
+.screen_four_typeContent2_animate_done
+{
+    opacity: 1;
+}
+.screen_four_typeContent3_animate_done
+{
+    opacity: 1;
+}
+.screen_four_typeContent4_animate_done
+{
+    opacity: 1;
+}
+
+.screen_five_heading,
+.screen_five_subheading,
+.screen_five_bg
+{
+    transition: all 1s;
+}
+.screen_five_heading_animate_init,
+.screen_five_subheading_animate_init,
+.screen_five_bg_animate_init
+{
+    opacity: 0;
+    transform: translate(0, 100%);
+}
+.screen_five_heading_animate_done,
+.screen_five_subheading_animate_done,
+.screen_five_bg_animate_done
+{
+    opacity: 1;
+    transform: translate(0,0);
+}
+
+/* 定义帧动画 */
+@-webkit-keyframes bounce {
+    0%{
+          transform: scale(0);
+    }
+    50%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
+/* 使用帧动画 */
+.screen_two_point1::before,
+.screen_two_point1::after{
+    content: ' ';
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top:4px;
+    right:4px ;
+    background-color: rgba(255,0,0,0.4);
+    -webkit-animation: bounce 2s infinite;
+    border-radius: 50%;
+}
+.screen_two_point1::before
+{
+    -webkit-animation: bounce 2s infinite 1s;
+}
+
+.screen_two_point2::before,
+.screen_two_point2::after{
+    content: ' ';
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top:4px;
+    left: 4px;
+    background-color: rgba(255,0,0,0.4);
+    -webkit-animation: bounce 2s infinite;
+    border-radius: 50%;
+}
+.screen_two_point2::before
+{
+    -webkit-animation: bounce 2s infinite 1s;
+}
+
+.screen_two_point3::before,
+.screen_two_point3::after{
+    content: ' ';
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top:4px;
+    left: 4px;
+    background-color: rgba(255,0,0,0.4);
+    -webkit-animation: bounce 2s infinite;
+    border-radius: 50%;
+}
+.screen_two_point3::before
+{
+    -webkit-animation: bounce 2s infinite 1s;
+}
+
+.header{
+   transition: all 1s;
+}
+.header_status_black{
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    color: #fff;
+}
+/* 当前高亮 */
+.nav_item_active{
+    color: red;
+    border-bottom: solid 3px red ;
+}
+.outline_item_active{
+    color: red;
+    border-bottom: solid 3px red ;
+}
+
+
+.outline{
+ transition: all 1s;
+
+ transform: translate(100%,0);
+}
+.outline_status_in{
+   /*  opacity: 1; */
+    transform: translate(0,0);
+}
