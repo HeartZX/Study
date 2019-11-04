@@ -345,3 +345,10 @@ opacity: 0;
     z-index: 3;
     color: #fff;
 }
+/* 当前高亮 */
+.nav_item_active{
+    color: red;
+}
+.outline_item_active{
+    color: red;
+}

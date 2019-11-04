@@ -91,44 +91,100 @@ var playScreenAnimateDone=function(screenCls){
 }
 
 window.onload=function(){
+    var navItem=document.querySelectorAll('.nav_item');
+    console.log(navItem);
+    var outlineItem=document.querySelectorAll(".outline_item");
     for (k in screenAnimateElements) {
         console.log('onload');
       setScreenAnimateInit(k);
     }
     ;
     this.setTimeout(function(){playScreenAnimateDone('.screen_one')},1000)
-  
+    addCls(navItem[0],'nav_item_active')
+    addCls(outlineItem[0],'outline_item_active')
 }
 
 //第二步：滚动的到哪里，就播放到哪里
 
 window.onscroll=function(){
+    var navItem=document.querySelectorAll('.nav_item');
+    console.log(navItem);
+    var outlineItem=document.querySelectorAll(".outline_item");
     var top=document.body.scrollTop || document.documentElement.scrollTop;//浏览器兼容的写法
       if(top>80){
             addCls(getElem('.header'),'header_status_black');
       }else{
             delCls(getElem('.header'),'header_status_black');
-            switchNavItemsActive(0); // 后面添加的，不需要
-      }
-/* 
+      }    
+
     if(top>0){
-     
+        for(var i=0;i<navItem.length;i++){
+            console.log(navItem[i]);
+            delCls(navItem[i],'nav_item_active');   
+            delCls(outlineItem[i],'outline_item_active');   
+          }
+        addCls(navItem[0],'nav_item_active');
+        addCls(outlineItem[0],'outline_item_active');
         playScreenAnimateDone('.screen_one');
-    }  */
+    } 
     if(top>700){
-       
+        for(var i=0;i<navItem.length;i++){
+            console.log(navItem[i]);
+            delCls(navItem[i],'nav_item_active');   
+            delCls(outlineItem[i],'outline_item_active');   
+          }
+        addCls(navItem[1],'nav_item_active');
+        addCls(outlineItem[1],'outline_item_active');
         playScreenAnimateDone('.screen_two');
     }
     if(top>1400){
-     
+        for(var i=0;i<navItem.length;i++){
+            console.log(navItem[i]);
+            delCls(navItem[i],'nav_item_active');   
+            delCls(outlineItem[i],'outline_item_active');   
+          }
+        addCls(navItem[2],'nav_item_active');
+        addCls(outlineItem[2],'outline_item_active');
         playScreenAnimateDone('.screen_three');
     }
     if(top>2100){
-      
+        for(var i=0;i<navItem.length;i++){
+            console.log(navItem[i]);
+            delCls(navItem[i],'nav_item_active');   
+            delCls(outlineItem[i],'outline_item_active');   
+          }
+        addCls(navItem[3],'nav_item_active');
+        addCls(outlineItem[3],'outline_item_active');
         playScreenAnimateDone('.screen_four');
     }
     if(top>2800){
-     
+        for(var i=0;i<navItem.length;i++){
+            console.log(navItem[i]);
+            delCls(navItem[i],'nav_item_active');   
+            delCls(outlineItem[i],'outline_item_active');   
+          }
+        addCls(navItem[4],'nav_item_active');
+        addCls(outlineItem[4],'outline_item_active');
         playScreenAnimateDone('.screen_five');
     }
 }
+// 3.1 导航条 - 点击页面跳转
+var navItem=document.querySelectorAll('.nav_item');
+console.log(navItem);
+var outlineItem=document.querySelectorAll(".outline_item");
+var setNavJump = function(i,lib){
+    var elem = lib[i];
+    elem.onclick = function(){
+      document.documentElement.scrollTop = i*800 + 1;
+    }
+  }
+  
+  for(var i=0;i<navItem.length;i++){
+    setNavJump(i,navItem);
+  }
+  // 3.2  大纲-点击跳转
+  
+  for(var i=0;i<outlineItem.length;i++){
+    setNavJump(i,outlineItem);
+  }
+
