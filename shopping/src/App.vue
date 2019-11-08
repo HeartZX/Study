@@ -29,9 +29,7 @@ export default {
   overflow: hidden;
   position: relative;
   width: 100%;
-  max-width: 640px;
-  min-width: 320px;
-  height: 100%;
+  /* height: 100%; */
 }
 .g-footer-container{
    position: fixed;

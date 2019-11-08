@@ -34,7 +34,7 @@
   display: flex;
   justify-content: space-around;
   border-top: 1px gray solid;
-  width: 100%; 
+  /* width: 750px;  */
   font-size: 30px;
 
 }
