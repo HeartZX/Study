@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .grid-container * {
+        box-sizing: border-box;
+    }
+
+    .grid-container {
+        width: 100%;
+        max-width: 1440px;
+    }
+
+    /*  伪类给行元素清除浮动 */
+    .row::before,
+    .row::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    [class*='col-'] {
+        float: left;
+        min-height: 1px;
+        width: 12.5%;
+        padding: 12px;
+        background-color:#FFDCDC;
+        border: solid white 1px;
+        text-align: center;
+        color: #fff;
+    }
+
+    .col-1 {
+        width: 12.5%;
+    }
+
+    .col-2 {
+        width: 25%;
+    }
+
+    .col-3 {
+        width: 37.5%;
+    }
+
+    .col-4 {
+        width: 50%;
+    }
+
+    .col-5 {
+        width: 62.5%;
+    }
+
+    .col-6 {
+        width: 75%;
+    }
+
+    .col-7 {
+        width: 87.5%;
+    }
+
+    .col-8 {
+        width: 100%;
+    }
+</style>
+
+<body>
+    <div class="grid-container">
+        <div class="row">
+            <div class="col-1">1</div>
+            <div class="col-1">1</div>
+            <div class="col-1">1</div>
+            <div class="col-1">1</div>
+            <div class="col-1">1</div>
+            <div class="col-3">3</div>
+        </div>
+        <div class="row">
+            <div class="col-2">2</div>
+            <div class="col-2">2</div>
+            <div class="col-4">4</div>
+        </div>
+        <div class="row">
+            <div class="col-6">6</div>
+            <div class="col-2">2</div>
+        </div>
+        <div class="row">
+            <div class="col-2">2</div>
+            <div class="col-2">2</div>
+            <div class="col-2">2</div>
+            <div class="col-2">2</div>
+        </div>
+    </div>
+</body>
+</html>
