@@ -1,0 +1,86 @@
+.container {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.container * {
+  box-sizing: border-box;
+}
+.row::before,
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.col-1 {
+  width: 12.5%;
+  padding: 12px;
+  float: left;
+  background-color: #FFDCDC;
+  border: solid white 1px;
+  text-align: center;
+  color: #fff;
+}
+.col-2 {
+  width: 25%;
+  padding: 12px;
+  float: left;
+  background-color: #FFDCDC;
+  border: solid white 1px;
+  text-align: center;
+  color: #fff;
+}
+.col-3 {
+  width: 37.5%;
+  padding: 12px;
+  float: left;
+  background-color: #FFDCDC;
+  border: solid white 1px;
+  text-align: center;
+  color: #fff;
+}
+.col-4 {
+  width: 50%;
+  padding: 12px;
+  float: left;
+  background-color: #FFDCDC;
+  border: solid white 1px;
+  text-align: center;
+  color: #fff;
+}
+.col-5 {
+  width: 62.5%;
+  padding: 12px;
+  float: left;
+  background-color: #FFDCDC;
+  border: solid white 1px;
+  text-align: center;
+  color: #fff;
+}
+.col-6 {
+  width: 75%;
+  padding: 12px;
+  float: left;
+  background-color: #FFDCDC;
+  border: solid white 1px;
+  text-align: center;
+  color: #fff;
+}
+.col-7 {
+  width: 87.5%;
+  padding: 12px;
+  float: left;
+  background-color: #FFDCDC;
+  border: solid white 1px;
+  text-align: center;
+  color: #fff;
+}
+.col-8 {
+  width: 100%;
+  padding: 12px;
+  float: left;
+  background-color: #FFDCDC;
+  border: solid white 1px;
+  text-align: center;
+  color: #fff;
+}

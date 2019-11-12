@@ -1,0 +1,39 @@
+@container:container;
+@columns-padding:12px;
+@grid-count:8;
+@columns-name: col;
+.@{container}
+{
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.@{container} *
+{
+  box-sizing: border-box;
+}
+.row
+{
+     &::before,
+     &::after{
+       content: "";
+       display: table;
+       clear: both;
+     }
+}
+//定义
+.loop(@n, @i:1) when (@i <= @n) {
+  .@{columns-name}-@{i} {
+    width: @i/@n*100%; 
+    padding: @columns-padding; 
+    float: left;
+    background-color:#FFDCDC;
+    border: solid white 1px;
+    text-align: center;
+    color: #fff;
+  }
+  .loop(@n, (@i + 1));
+}
+//调用
+  .loop(@grid-count);
+
