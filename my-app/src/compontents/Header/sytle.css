@@ -1,0 +1,12 @@
+.app-header-logo{
+    position: absolute;
+    left: 10px;
+}
+.app-header-menu{
+    position: absolute;
+    left: 300px;
+    top: 26px;
+    border-bottom: none;
+}
+
+ 
