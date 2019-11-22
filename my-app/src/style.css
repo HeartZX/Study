@@ -1,17 +1,9 @@
 .header{
-    background: #fff;
-    text-align: center;
-    border-bottom: #999;
-    height: 100px;
-    position: relative;
+background: #fff;
+padding: 0;
+height: 100px;
+position: relative;
 }
 .content{
-    min-height: 600px;
-    margin: 10px;
-  
-}
-.footer{
-    text-align: center;
-    border-top: #fff;
-    background: #fff;
+
 }
