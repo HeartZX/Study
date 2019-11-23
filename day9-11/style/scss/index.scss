@@ -70,6 +70,7 @@ $border-bottom:2px solid rgba(220, 220, 220, 1);
         text-align: center;
         color: gainsboro;
         opacity: 0.5;
+        line-height: 30px;
     }
 
     &-form {
@@ -89,6 +90,7 @@ $border-bottom:2px solid rgba(220, 220, 220, 1);
             font-size: 16px;
             padding-top: 10px;
             @include font-color(0.3);
+            line-height: 30px;
         }
 
         &-input-1 {
@@ -131,6 +133,7 @@ $border-bottom:2px solid rgba(220, 220, 220, 1);
     &-text {
         padding-top: 20px;
         font-size: 30px;
+        line-height: 30px;
     }
 
     &-list {
@@ -164,7 +167,8 @@ $border-bottom:2px solid rgba(220, 220, 220, 1);
                 left: 100px;
                 font-size: 13px;
                 text-align: left;
-                color: grey
+                color: grey;
+                line-height:30px;
             }
 
             &-title {
@@ -197,6 +201,7 @@ $border-bottom:2px solid rgba(220, 220, 220, 1);
         top: 300px;
         left: 255px;
         font-size: 18px;
+        line-height: 30px;
     }
 
     &-btn-1 {
@@ -222,7 +227,7 @@ $border-bottom:2px solid rgba(220, 220, 220, 1);
     }
 
     &-list {
-        @include horizontal-center(140px);
+        @include horizontal-center(150px);
         width: 1000px;
         height: 300px;
         display: flex;
@@ -234,14 +239,37 @@ $border-bottom:2px solid rgba(220, 220, 220, 1);
             height: 300px;
             position: relative;
 
-            &-title {
-                font-size: 30px;
+            &-title1 {
                 padding-top: 30px;
+                background: url(../../img/21.png) no-repeat center;
+                width: 120px;
+                height: 10px;
+                background-size: 100% 100%;
+                display: inline-block;
+            }
+            &-title2 {
+                padding-top: 30px;
+                background: url(../../img/23.png) no-repeat center;
+                width: 120px;
+                height: 10px;
+                background-size: 100% 100%;
+                display: inline-block;
+            }
+            &-title3 {
+                padding-top: 30px;
+                background: url(../../img/26.png) no-repeat center;
+                width: 120px;
+                height: 10px;
+                background-size: 100% 100%;
+                display: inline-block;
             }
 
             &-text {
+                line-height: 30px;
+                word-break: break-all;
                 padding-top: 30px;
                 color: gray;
+                line-height: 30px;
             }
         }
     }
@@ -285,15 +313,17 @@ $border-bottom:2px solid rgba(220, 220, 220, 1);
             right: 0px;
             top: 0px;
             text-align: center;
+            line-height: 30px;
 
             &-title {
-                font-size: 30px;
+                font-size: 25px;
                 padding-top: 30px;
             }
 
             &-text {
                 padding-top: 30px;
                 color: gray;
+                line-height: 30px;
             }
         }
 
@@ -304,15 +334,17 @@ $border-bottom:2px solid rgba(220, 220, 220, 1);
             bottom: 0px;
             left: 0px;
             text-align: center;
+            line-height: 30px;
 
             &-title {
-                font-size: 30px;
+                font-size: 25px;
                 padding-top: 30px;
             }
 
             &-text {
                 padding-top: 30px;
                 color: gray;
+                line-height: 30px;
             }
         }
     }
@@ -333,6 +365,7 @@ $border-bottom:2px solid rgba(220, 220, 220, 1);
         padding-top: 20px;
         font-size: 20px;
         color: gray;
+        line-height: 30px;
     }
 
     &-list {
@@ -342,14 +375,25 @@ $border-bottom:2px solid rgba(220, 220, 220, 1);
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-
         @for $i from 9 through 12 {
             &-item#{$i} {
                 width: 410px;
                 height: 270px;
                 background: url(../../img/#{$i}.png) no-repeat;
+                cursor: pointer;
             }
         }
+
+        @for $i from 9 through 12 {
+            &-item#{$i}:hover {
+                width: 410px;
+                height: 270px;
+                background: url(../../img/#{$i}_a.png) no-repeat;
+                cursor: pointer;
+            }
+        }
+
+
     }
 }
 
@@ -422,6 +466,7 @@ $border-bottom:2px solid rgba(220, 220, 220, 1);
                 font-size: 19px;
                 color: gray;
                 margin-top: 35px;
+                line-height: 30px;
             }
 
             &-address {
@@ -443,6 +488,7 @@ $border-bottom:2px solid rgba(220, 220, 220, 1);
                     font-size: 20px;
                     top: 50%;
                     transform: translateY(-50%);
+                    line-height: 30px;
                 }
 
             }
@@ -468,6 +514,7 @@ $border-bottom:2px solid rgba(220, 220, 220, 1);
                     font-size: 20px;
                     top: 50%;
                     transform: translateY(-50%);
+                    line-height: 30px;
                 }
 
             }
@@ -493,6 +540,7 @@ $border-bottom:2px solid rgba(220, 220, 220, 1);
                     font-size: 20px;
                     top: 50%;
                     transform: translateY(-50%);
+                    line-height: 30px;
                 }
             }
         }
@@ -520,6 +568,22 @@ $border-bottom:2px solid rgba(220, 220, 220, 1);
             font-size: 18px;
             &-li{
                 padding-top: 20px;
+            /*      &-a{
+                    width: 20px;
+                    height: 20px;
+                    background:url(../../img/last_15.png) no-repeat center ;
+                    float: left;
+                    padding-right: 19px;
+                } */
+                @for $i from 1 through 6 {
+                    &-a#{$i} {
+                        width: 20px;
+                        height: 20px;
+                        background:url(../../img/last_#{$i}.png) no-repeat center ;
+                        float: left;
+                        padding-right: 19px;
+                    }
+                }
             }
         }
         &-ul4{
