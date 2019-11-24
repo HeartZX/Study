@@ -8,6 +8,7 @@ import {BrowserRouter , Route,Switch} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import AppList from './containers/AppList/';
 import Detail from './containers/Detail/';
+import Login from  './compontents/Login/';
 import TodoList from './TodoList'
 /* const { Header, Footer, Sider, Content } = Layout; */
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
@@ -63,6 +64,7 @@ class App extends React.Component{
           <Link to='/'>
           <Header className="header">
           <img src={logo} className="app-header-logo"></img>
+          <Login></Login>
           </Header>
           </Link>       
           <Content style={{ margin: '0 16px',height:1000 }} className='content'>
@@ -72,8 +74,7 @@ class App extends React.Component{
                     ></Route>
                     <Route  path= "/:id?" 
                     component={AppList}
-                    ></Route>
-              
+                    ></Route>     
             </Switch>   
             <div style={{ padding: 24, background: '#fff'}}>
 
