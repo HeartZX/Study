@@ -1,9 +1,8 @@
-.header{
-background: #fff;
-padding: 0;
-height: 100px;
-position: relative;
+.header {
+    background: #fff;
+    padding: 0;
+    height: 100px;
+    position: relative;
 }
-.content{
 
-}
+.content {}

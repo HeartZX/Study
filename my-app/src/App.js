@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 /* import {Component} from 'react';
 import React from 'react';
 const {Component}=React;
@@ -10,9 +10,7 @@ const Component=React.Component; */
 
 class App extends React.Component {
   render() {
-    return ( 
-    <div className = "App" >123 </div>
-    );
+    return <div className="App">123 </div>;
   }
 }
 
