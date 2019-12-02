@@ -206,11 +206,11 @@ body {
 .content {
     width: 100%;
     height: 100%;
-
+    position: relative;
     &-top {
         height: 80px;
         border-bottom: $border-style;
-       /*  line-height: 80px; */
+        /*  line-height: 80px; */
         width: 100%;
         position: relative;
         display: flex;
@@ -227,7 +227,7 @@ body {
             display: flex;
             align-items: center;
             margin-right: 40px;
-         /*    position: absolute;
+            /*    position: absolute;
             top: 50%;
             transform: translateY(-50%);
             right: 40px; */
@@ -248,7 +248,7 @@ body {
     }
 
     &-right {
-      /*   height: 100%; */
+        /*   height: 100%; */
         flex: 1;
         flex-shrink: 1;
         overflow: auto;
@@ -261,10 +261,9 @@ body {
             align-items: center;
             justify-content: space-between;
         }
-        &-main{
-            height: 100%;
-        
 
+        &-main {
+            height: 100%;
         }
     }
 
@@ -274,7 +273,7 @@ body {
     position: absolute;
     top: 80px;
     height: 100%;
-    /*   width:100%; */
+    width: 100%;
     display: flex;
 }
 
@@ -354,9 +353,9 @@ body {
 
 .message-list {
     width: 100%;
- /*    height: 100%; */
+    /*    height: 100%; */
     overflow: auto;
-  /*   max-height: 490px; */
+    /*   max-height: 490px; */
 }
 
 .message-item {
@@ -490,55 +489,67 @@ body {
     }
 
 }
-.content-item{
+
+.content-item {
     display: flex;
     margin-top: 20px;
 }
-.item-img{
+
+.item-img {
     margin-left: 20px;
 }
-.dec{
+
+.dec {
     flex: 1;
     flex-shrink: 1;
     margin-left: 20px;
 }
-.title-span1{
+
+.title-span1 {
     color: #585d68;
     font-size: 16px;
     font-weight: bold;
 }
-.title-span2{
+
+.title-span2 {
     margin-left: 10px;
     color: #909eb0;
-    font-size: 14px; 
+    font-size: 14px;
 }
-.content-text{
+
+.content-text {
     font-size: 14px;
     color: #585d68;
     margin-top: 15px;
 }
-.text-info{
+
+.text-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 30px;
 }
-.line{
+
+.line {
     display: inline-block;
     flex: 1;
     border-top: 1px solid #e6e9ec;
 }
-.txt{
+
+.txt {
     padding: 0 20px;
     color: #a1adbc;
 }
-.line-blue{
+
+.line-blue {
     border-top: 1px solid #a7d6f9
 }
-.txt-blue{
+
+.txt-blue {
     color: #2399f1;
 }
-.addMessaage{
+
+.addMessaage {
     width: 80%;
     height: 52px;
     display: flex;
@@ -546,13 +557,15 @@ body {
     margin-top: 40px;
     margin-left: 30px;
 }
-.add{
+
+.add {
     width: 54px;
     height: 54px;
     background: url(../../img/add2.png);
     position: absolute;
 }
-.addMessaage input{
+
+.addMessaage input {
     width: 100%;
     height: 100%;
     border: 1px solid #dfe3e9;
@@ -561,4 +574,3 @@ body {
     font-size: 14px;
     color: #585d68;
 }
-
