@@ -1,35 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">    
+  <head>
+    <meta charset="UTF-8" />
     <title>IFE ECMAScript</title>
-</head>
-<body>        
-   
-    <p id="content"></p>
+  </head>
+  <body>
     <button id="send-btn">发送</button>
+    <p id="content"></p>
     <script>
-        var arr=[];
-        for (var i=1;i<=100;i++) {
-          if (i%3==0|i.toString().match(3)) {
-              j="蔡徐坤";
-              
-          } else {
-              j=i;
-             
-          }
-       
+      var arr = [];
+      for (var i = 1; i <= 100; i++) {
+        if ((i % 3 == 0) | (i.toString() /* .match(3) */.indexOf(3) != -1)) {
+          j = "PA";
+        } else {
+          j = i;
+        }
         arr.push(j);
-        }
-        console.log(arr);
-
-
-
-        document.getElementById("send-btn").onclick=function(){
-                document.getElementById("content").innerHTML=arr;
-
-
-        }
+      }
+      console.log(arr);
+      document.getElementById("send-btn").onclick = function() {
+        document.getElementById("content").innerHTML = arr.join(",");
+      };
     </script>
-</body>
+  </body>
 </html>

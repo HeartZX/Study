@@ -36,7 +36,6 @@
     for (var i = 2019; i <= 2020; i++) {
         var option = document.createElement("option");
         yearSelect.appendChild(option);
-
         option.value = i;
         option.innerHTML = i + "年";
     }
@@ -123,80 +122,6 @@
             minutevalue + ":" + secondvalue + str + daym + "天" + hourm + "小时 " + min + "分" + afterMin + "秒";
     }
     setInterval(showDate, 1000);
-
-    /*     function Go() {
-    console.log("Go");
-} */
-    /* function GoSteps(n) {
-     if(n===undefined){
-         Go();
-       }  */
-    /*  else if(n<0){
-      }  */
-    /*  else if(n==true){
-        Go();
-     } */
-    /*  else{ 
-         N=Math.floor(n);
-        while(N--){
-          Go();
-        } 
-       }  */
-
-    /* } */
-    /* GoSteps(10); // Go 10次
-    GoSteps(1); // Go 1次
-    GoSteps(); // Go 1次，认为缺少参数时，默认参数为1
-    GoSteps(0);  // 0次
-    GoSteps(-1);  // 0次 */
-    /* GoSteps(1.4);  // Go 1次 */
-    /* GoSteps(1.6);  // Go 1次
-    GoSteps(-1);  // 0次 
-    /* GoSteps(false);  // 0次 */
-    /* GoSteps(true);  // Go 1次 */
-    /* GoSteps("Test");  // 0次 */
-    /* GoSteps(NaN);  // 0次 */
-    /*  GoSteps(null);  // 0次  */
-
-    /* var date = new Date();
-    //封装一个函数，获取年
-    function Year(date) {
-        var date = this.date
-        var year = date.getFullYear();
-        return year;
-    }
-    //封装一个函数，获取月
-    function Month(date) {
-        var date = this.date
-        var month = date.getMonth();
-        return month + 1;
-    }
-    //封装一个函数，获取日
-    function Day(date) {
-        var date = this.date
-        var day = date.getDate();
-        return day;
-    }
-    //封装一个函数，获取时
-    function Hour(date) {
-        var date = this.date;
-        var hour = date.getHours();
-        return hour;
-    }
-    //封装一个函数，获取分
-    function Minute(date) {
-        var date = this.date;
-
-        var minute = date.getMinutes();
-        return minute;
-    }
-    //封装一个函数，获取秒
-    function Second(date) {
-        var date = this.date;
-        var second = date.getSeconds();
-        return second;
-    } */
-
     //封装一个函数，来根据某个日期返回这一天是英文星期
     function getWeekWithEnglish(weekday) {
         switch (weekday) {

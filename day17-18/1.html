@@ -1,24 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">    
+  <head>
+    <meta charset="UTF-8" />
     <title>IFE ECMAScript</title>
-</head>
-<body>        
-    <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+  </head>
+  <body>
+    <input id="dec-number" type="number" placeholder="输入一个十进制非负整数" />
+    <input id="bin-bit" type="number" placeholder="输入转化后二进制数字位数" />
     <button id="trans-btn">转化为二进制</button>
     <p id="result">运算结果</p>
     <script>
+      function dec2bin(decNumber) {
+        // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
+        var decNumber = Number(document.getElementById("dec-number").value);
+        var binBit = Number(document.getElementById("bin-bit").value);
+        console.log(decNumber);
 
-function dec2bin(decNumber) {
-    // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
-        
-
-}
-
-// 实现党点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
-// Some coding
-
+        if (!/^\d+$/.test(decNumber)) {
+          document.getElementById("result").innerHTML = "请输入一个非负整数";
+        } else {
+          /*  document.getElementById("result").innerHTML = "输入正确"; */
+          var quotient = decNumber; //商
+          var remainder; //余
+          var bin_array = []; //余数的数组
+          if (quotient == 0) {
+            document.getElementById("result").innerHTML = "请输入要转换的数字";
+          } else {
+            while (quotient != 1) {
+              remainder = quotient % 2;
+              quotient = Math.floor(quotient / 2);
+              bin_array.unshift(remainder);
+            }
+            bin_array.unshift(1);
+            console.log(bin_array);
+            console.log(binBit);
+            if (bin_array.length > binBit && binBit != 0) {
+              document.getElementById("result").innerHTML = bin_array
+                .join("")
+                .substr(0, binBit);
+            } else {
+              document.getElementById("result").innerHTML = bin_array.join("")+',该数最大的位数只有'+ bin_array.length+'位';
+           
+            }
+          }
+        }
+      }
+      // 实现党点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
+      document.getElementById("trans-btn").addEventListener("click", dec2bin);
     </script>
-</body>
+  </body>
 </html>

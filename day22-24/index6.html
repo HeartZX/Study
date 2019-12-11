@@ -33,13 +33,15 @@
     //入队 push
     function In() {
         queue.push(input.value);
-        cont.innerHTML = "队列内容" + queue.join("&lt;-");
+        cont.innerHTML = "队列内容" + queue.join("&lt-");
+       /*  cont.innerHTML = "队列内容" + queue.join("<-"); */
     }
     inBtn.addEventListener("click", In);
     //出队
     function Out() {
         queue.pop();
-        cont.innerHTML = "队列内容" + queue.join("&lt;-");
+        cont.innerHTML = "队列内容" + queue.join("&lt-");
+       /*  cont.innerHTML = "队列内容" + queue.join("<-"); */
     }
     outBtn.addEventListener("click", Out);
 

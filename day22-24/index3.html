@@ -1,63 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
-<script>
-/*
+  </head>
+  <body></body>
+  <script>
+    /*
 实现一个字符串头尾去除空格的函数
 注意需要去除的空格，包括全角、半角空格
 暂时不需要学习和使用正则表达式的方式
 */
-function diyTrim(str) {
-    var result = "";
-    // do something
-   /*  result=str.replace(/^\s*|\s*$/g,""); */
-    result=str.trim()
-    return result
-}
+    function diyTrim(str) {
+      var result = "";
+      // do something
+      /*  result=str.replace(/^\s*|\s*$/g,""); */
+      result = str.trim();
+      return result;
+    }
 
-// 测试用例
-console.log(diyTrim(' a f b    ')); // ->a f b
-console.log(diyTrim('    ffdaf    ')); // ->ffdaf
-console.log(diyTrim('1    ')); // ->1
-console.log(diyTrim('　　f')); // ->f
-console.log(diyTrim('  　  a f b 　　 ')); // ->a f b
-console.log(diyTrim(' ')); // ->
-console.log(diyTrim('　')); // ->
-console.log(diyTrim('')); // ->
+    // 测试用例
+    console.log(diyTrim(" a f b    ")); // ->a f b
+    console.log(diyTrim("    ffdaf    ")); // ->ffdaf
+    console.log(diyTrim("1    ")); // ->1
+    console.log(diyTrim("　　f")); // ->f
+    console.log(diyTrim("  　  a f b 　　 ")); // ->a f b
+    console.log(diyTrim(" ")); // ->
+    console.log(diyTrim("　")); // ->
+    console.log(diyTrim("")); // ->
 
-/*
+    /*
 去掉字符串str中，连续重复的地方
 */
-function removeRepetition(str) {
-    var result = "";
-    // do something
-    var len=str.length;
-    for(var i=0;i<len;i++){
-        if(str[0]==str[1]){
-        str=str.slice(1)
-        }else{
-           result=result+str[0];
-           str=str.slice(1);
+    function removeRepetition(str) {
+      var result = "";
+      var len = str.length;
+      for (var i = 0; i < len; i++) {
+        //如果第一个和第二个是相同重复的  就从第二个开始截取字符串 赋值给str
+        if (str[0] == str[1]) {
+          str = str.substring(1);
         }
+        //如果没有相同重复  就把第一个加到result中  然后继续从第二个截取字符串 赋值给str
+        else {
+          result += str[0];
+          str = str.substring(1);
+        }
+      }
+      return result;
     }
-    return result;
-}
 
-// 测试用例
-console.log(removeRepetition("aaa")); // ->a
-console.log(removeRepetition("abbba")); // ->aba
-console.log(removeRepetition("aabbaabb")); // ->abab
-console.log(removeRepetition("")); // ->
-console.log(removeRepetition("abc")); // ->abc
-
-
-</script>
+    // 测试用例
+    console.log(removeRepetition("aaa")); // ->a
+    console.log(removeRepetition("abbba")); // ->aba
+    console.log(removeRepetition("aabbaabb")); // ->abab
+    console.log(removeRepetition("")); // ->
+    console.log(removeRepetition("abc")); // ->abc
+  </script>
 </html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+    <button id="fade-btn">淡出</button>
+  </body>
+  <script>
+
+
+    var fadeBtn = document.getElementById("fade-btn");
+    var fadeObj = document.getElementById("fade-obj");
+    var timer=null;
+    var alpha=1;
+
+    //淡出
+    function fadeOut() {
+      if(alpha>=0){
+        alpha-=0.01;
+        fadeObj.style.opacity=alpha;
+        fadeBtn.disabled=true;
+        timer=setTimeout(fadeOut,20);
+      }
+      else{
+        clearTimeout(timer);
+        fadeBtn.innerText='淡入';
+        fadeBtn.disabled=false;
+      }
+
+
+    }
+    //淡入
+    function fadeIn() {
+      if(alpha<=1){
+        alpha+=0.01;
+        fadeObj.style.opacity=alpha;
+        fadeBtn.disabled=true;
+        timer=setTimeout(fadeIn,20);
+      }
+      else{
+        clearTimeout(timer);
+        fadeBtn.innerText='淡出';
+        fadeBtn.disabled=false;
+      }
+    }
+    function fade() {
+      if (fadeBtn.innerText == "淡出") {
+        fadeOut();
+      } else {
+        fadeIn();
+      }
+    }
+
+    fadeBtn.addEventListener("click", fade);
+  </script>
+</html>

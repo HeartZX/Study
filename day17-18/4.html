@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>IFE ECMAScript</title>
-</head>
-<style type="text/css">
-
-</style>
-
-<body>
+  </head>
+  <style type="text/css"></style>
+  <body>
     <script>
-        var time = new Date();
-        if (time.getHours() <= 24 && time.getHours() >= 18) {
-            document.write(time.getHours());
-            document.write("晚上好");
-        } else if (time.getHours() <= 12 && time.getHours() >= 6) {
-            document.write("早上好");
-
-        }
+      var time = new Date();
+      if (time.getHours() <= 24 && time.getHours() >= 18) {
+        document.write("现在是" + time.getHours() + "点，");
+        document.write("晚上好");
+      } else if (time.getHours() <= 12 && time.getHours() >= 6) {
+        document.write("早上好");
+      }
     </script>
-</body>
-
+  </body>
 </html>
