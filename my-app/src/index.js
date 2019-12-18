@@ -2,18 +2,14 @@ import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
 import "./style.css";
-import logo from "./compontents/Header/logo.png";
-import AppHeader from "./compontents/Header/";
+import axios from "axios";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
-import AppList from "./containers/AppList/";
-import Detail from "./containers/Detail/";
-import Login from "./compontents/Login/";
-import TodoList from "./TodoList";
-/* const { Header, Footer, Sider, Content } = Layout; */
 import { Layout, Menu, Breadcrumb, Icon } from "antd";
-import axios from "axios";
+import { Item } from "rc-menu";
 const { Header, Content, Footer, Sider } = Layout;
+const { SubMenu } = Menu;
+
 class App extends React.Component {
   onCollapse = collapsed => {
     console.log(collapsed);
@@ -23,86 +19,101 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: [],
+      menulist: [
+        {
+          id: "spgl",
+          icon: "usergroup-delete",
+          title: "用户管理",
+          child: [
+            {
+              id: "splb",
+              title: "用户列表"
+            },
+            {
+              id: "spfz",
+              title: "用户管理"
+            }
+          ]
+        },
+        {
+          id: "ddgl",
+          icon: "usergroup-delete",
+          title: "图书管理",
+          child: [
+            {
+              id: "tsgl",
+              title: "图书列表"
+            },
+            {
+              id: "tsfz",
+              title: "图书分组管理"
+            }
+          ]
+        }
+      ],
       collapsed: false
     };
   }
   componentDidMount() {
-    axios.get("http://www.dell-lee.com/react/api/header.json").then(res => {
+    /*    axios.get("http://www.dell-lee.com/react/api/header.json").then(res => {
       this.setState({
         list: res.data.data
       });
       console.log(res.data.data);
-    });
+    }); */
   }
-
-  getMenuItems() {
-    return this.state.list.map(item => {
+  getSubMenu() {
+    return this.state.menulist.map(item => {
       return (
-        <Menu.Item key={item.id}>
-          <Link to={`/${item.id}`}>
-            <Icon type={item.icon} />
-            <span>{item.title}</span>
-          </Link>
-        </Menu.Item>
+        <SubMenu
+          key={item.id}
+          title={
+            <span>
+              <Icon type={item.icon} />
+              <span>{item.title}</span>
+            </span>
+          }
+        >
+          {/*  {item.child.map(menuItem => {
+            return <Menu.Item key={menuItem.id}>{menuItem.title}</Menu.Item>;
+          })} */}
+          {item.child.map(menuItem => (
+            <Menu.Item key={menuItem.id}>{menuItem.title}</Menu.Item>
+          ))}
+        </SubMenu>
       );
     });
   }
+
   render() {
     return (
-      <BrowserRouter>
-        <Layout style={{ minHeight: "100vh" }}>
-          <Sider
-            collapsible
-            collapsed={this.state.collapsed}
-            onCollapse={this.onCollapse}
-          >
-            <div className="logo" />
-            <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-              {this.getMenuItems()}
-            </Menu>
-          </Sider>
-          <Layout>
-            <Link to="/">
-              <Header className="header">
-                <img src={logo} className="app-header-logo"></img>
-                <Login></Login>
-              </Header>
-            </Link>
-            <Content
-              style={{ margin: "0 16px", height: 1000 }}
-              className="content"
-            >
-              <Switch>
-                <Route path="/detail/:id" component={Detail}></Route>
-                <Route path="/:id?" component={AppList}></Route>
-              </Switch>
-              <div style={{ padding: 24, background: "#fff" }}></div>
-            </Content>
-            <Footer style={{ textAlign: "center" }}>
-              copyright@2019 HeartZX
-            </Footer>
-          </Layout>
+      <Layout style={{ minHeight: "100vh" }}>
+        <Sider
+          collapsible
+          collapsed={this.state.collapsed}
+          onCollapse={this.onCollapse}
+        >
+          <div className="logo" />
+          <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
+            {this.getSubMenu()}
+          </Menu>
+        </Sider>
+        <Layout>
+          <Header style={{ background: "#fff", padding: 0 }} />
+          <Content style={{ margin: "0 16px" }}>
+            <Breadcrumb style={{ margin: "16px 0" }}>
+              <Breadcrumb.Item>User</Breadcrumb.Item>
+              <Breadcrumb.Item>Bill</Breadcrumb.Item>
+            </Breadcrumb>
+            <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
+              Bill is a cat.
+            </div>
+          </Content>
+          <Footer style={{ textAlign: "center" }}>
+            Ant Design ©2018 Created by Ant UED
+          </Footer>
         </Layout>
-        {/*            <Layout style={{minWidth:1300}}>
-                  <Header className="header">
-                    <AppHeader></AppHeader>
-                  </Header>
-                  <Content className="content">
-                    <Switch>
-                    <Route path= "/:id?" 
-                    component={AppList}
-                    ></Route>
-                    <Route path="/detail" 
-                       component={Detail }
-                    ></Route>
-                    </Switch>   
-                  </Content>
-                  <Footer className="footer">
-                  copyright@2019 HeartZX
-                    </Footer>
-                </Layout> */}
-      </BrowserRouter>
+      </Layout>
     );
   }
 }
@@ -110,12 +121,3 @@ export default App;
 
 //jsx语法
 ReactDOM.render(<App />, document.getElementById("root"));
-{
-  /*  ReactDOM.render( < TodoList / > , document.getElementById('cs')); */
-}
-{
-  /*  ReactDOM.render( < TodoList / > , document.getElementById('root'));
-ReactDOM.render( < Counter / > , document.getElementById('counter'));
- ReactDOM.render( < Antd / > , document.getElementById('antd')); 
- */
-}

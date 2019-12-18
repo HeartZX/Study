@@ -107,16 +107,25 @@
         if (total < 0) {
             var str = "还有";
             total = -total; //转换为正整数方便计算
+           
         } else {
             var str = "已经过去"
+           
         }
-        var daym = parseInt(total / (24 * 60 * 60)); //计算整数天数
+        var daym = parseInt(total / (24 * 60 * 60 )); //计算整数天数
         console.log(daym);
-        var afterDay = total - daym * 24 * 60 * 60; //取得算出天数后剩余的秒数
+        var afterDay = total - (daym * 24 * 60 * 60); //取得算出天数后剩余的秒数
         var hourm = parseInt(afterDay / (60 * 60)); //计算整数小时数
-        var afterHour = total - daym * 24 * 60 * 60 - hourm * 60 * 60; //取得算出小时数后剩余的秒数
-        var min = parseInt(afterHour / 60); //计算整数分
-        var afterMin = parseInt(total - daym * 24 * 60 * 60 - hourm * 60 * 60 - min * 60); //取得算出分后剩余的秒数
+        var afterHour = total - (daym * 24 * 60 * 60) - (hourm * 60 * 60); //取得算出小时数后剩余的秒数
+        var min = parseInt(afterHour / (60)); //计算整数分
+        if(str=='还有'){
+            var afterMin = Math.ceil(total - (daym * 24 * 60 * 60) - (hourm * 60 * 60) -(min * 60))//取得算出分后剩余的秒数;
+
+        }else{
+            var afterMin = Math.floor(total - (daym * 24 * 60 * 60) - (hourm * 60 * 60) -(min * 60))//取得算出分后剩余的秒数;
+        }
+       
+        console.log(afterMin);
         resultWrapper.innerHTML = "现在距离" + yearvalue + "年" + monthvalue + "月" + dayvalue + "日" + selectWeek +
             hourvalue + ":" +
             minutevalue + ":" + secondvalue + str + daym + "天" + hourm + "小时 " + min + "分" + afterMin + "秒";
