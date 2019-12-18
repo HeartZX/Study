@@ -337,13 +337,13 @@ a {
 }
 
 .airplane {
-    background: url(../images/sprite.png) no-repeat 5px -407px;
+    background: url(../images/sprite.png) no-repeat 20px -407px;
     background-size: 150px auto;
     flex: 1.5;
 }
 
 .travel {
-    background: url(../images/sprite.png) no-repeat 12px -253px;
+    background: url(../images/sprite.png) no-repeat 22px -253px;
     background-size: 150px auto;
     flex: 1.5;
 }
