@@ -1,0 +1,101 @@
+body {
+    min-width: 320px;
+    max-width: 750px;
+    width: 10rem;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    /*  为了解决 (移动端上）有事件监听的元素被点击的时候会被高亮显示 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 如果屏幕大于了750px  就按照750设计稿走 */
+@media screen and (min-width:750px) {
+    html {
+        font-size: 75px !important;
+    }
+
+}
+
+.div {
+    box-sizing: border-box;
+}
+
+
+.index-nav {
+    width: 10rem;
+    background: #ffdb47;
+    height: 1.173333rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+
+}
+
+.content-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    height: 1.173333rem;
+    width: 9.066667rem;
+}
+
+.classify {
+    display: block;
+    width: .586667rem;
+    height: .933333rem;
+}
+
+.search-nav {
+    display: flex;
+
+    align-items: center;
+    width: 6.666667rem;
+    height: .933333rem;
+    border-radius: .666667rem;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.classify img {
+    width: .586667rem;
+    height: .933333rem;
+}
+
+.login {
+    display: block;
+    width: .586667rem;
+    height: .933333rem;
+}
+
+.login img {
+    width: .586667rem;
+    height: .933333rem;
+}
+
+.search-icon {
+    display: block;
+    width: .4rem;
+    height: .4rem;
+    background: url(../images/search.png) no-repeat;
+    background-size: cover;
+    margin: 0 .133333rem 0 .266667rem;
+}
+
+.search-nav input {
+    border: none;
+    outline: none;
+    height: .4rem;
+    background: transparent;
+    width: 5.6rem;
+    font-size: .4rem;
+    color: #999;
+}
