@@ -79,6 +79,7 @@ body {
 .login img {
     width: .586667rem;
     height: .933333rem;
+    display: block;
 }
 
 .search-icon {
