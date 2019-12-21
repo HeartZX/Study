@@ -68,6 +68,7 @@ body {
 .classify img {
     width: .586667rem;
     height: .933333rem;
+    display: block;
 }
 
 .login {
