@@ -1,32 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title></title>
-    <link rel="stylesheet" href="./css/normalize.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/swiper.min.css" />
     <script src="./js/flexible.js"></script>
-</head>
+    <script src="./js/swiper.min.js"></script>
+    <script>
+      window.onload = function() {
+        var mySwiper = new Swiper(".swiper-container", {
+          direction: "horizontal", // 垂直切换选项
+          loop: true, // 循环模式选项
+          autoplay: {
+            stopOnLastSlide: true
+          },
+          // 如果需要分页器
+          pagination: {
+            el: ".swiper-pagination"
+          }
+        });
+      };
+    </script>
+  </head>
 
-<body>
+  <body>
     <div class="index-nav">
-        <div class="content-nav">
-       <a href="" class="classify">
-           <img src="./images/nav1.png" alt="">
-       </a>
+      <div class="content-nav">
+        <a href="" class="classify">
+          <img src="./images/nav1.png" alt="" />
+        </a>
         <form class="search-nav">
-            <i class="search-icon"></i>
-           
-                <input type="text" placeholder="商品/店铺">
-
+          <i class="search-icon"></i>
+          <input type="text" placeholder="商品/店铺" />
         </form>
         <a href="" class="login">
-            <img src="./images/nav2.png" alt="">
+          <img src="./images/nav2.png" alt="" />
         </a>
+      </div>
     </div>
+    <div class="banner">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./images/swiper1.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/swiper2.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/swiper3.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/swiper4.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/swiper5.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/swiper6.jpg" alt="" />
+          </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+      </div>
     </div>
-    
-</body>
+    <div class="enter-list">
+      <ul>
+        <li>
+          <a href="">
+            <img src="./images/1.png" alt="" class="list-img" />
+            <span class="title">限时抢购</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="./images/2.png" alt="" class="list-img" />
+            <span class="title">苏宁超市</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="./images/3.png" alt="" class="list-img" />
+            <span class="title">苏宁拼购</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="./images/4.png" alt="" class="list-img" />
+            <span class="title">爆款手机</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="./images/5.png" alt="" class="list-img" />
+            <span class="title">苏宁家电</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="./images/6.png" alt="" class="list-img" />
+            <span class="title">免费兑好物</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="./images/7.png" alt="" class="list-img" />
+            <span class="title">赚钱</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="./images/8.png" alt="" class="list-img" />
+            <span class="title">签到有礼</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="./images/9.png" alt="" class="list-img" />
+            <span class="title">领劵中心</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="./images/10.png" alt="" class="list-img" />
+            <span class="title">更多频道</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="sale">
+      <a href=""><img src="./images/1.gif" alt=""/></a>
+      <a href=""><img src="./images/2.gif" alt=""/></a>
+      <a href=""><img src="./images/3.gif" alt=""/></a>
+    </div>
+    <div class="newImgFloor">
+      <div class="newImgFloor-content">
+        <a href=""><img src="./images/newfloor1.png" alt=""/></a>
+        <a href=""><img src="./images/newfloor2.gif" alt=""/></a>
+        <a href=""><img src="./images/newfloor3.gif" alt=""/></a>
+      </div>
+    </div>
+    <div class="newImgFloor">
+      <div class="newImgFloor-content">
+        <a href=""><img src="./images/newfloor1.png" alt=""/></a>
+        <a href=""><img src="./images/newfloor2.gif" alt=""/></a>
+        <a href=""><img src="./images/newfloor3.gif" alt=""/></a>
+      </div>
+    </div>
+    <div class="newImgFloor">
+      <div class="newImgFloor-content">
+        <a href=""><img src="./images/newfloor1.png" alt=""/></a>
+        <a href=""><img src="./images/newfloor2.gif" alt=""/></a>
+        <a href=""><img src="./images/newfloor3.gif" alt=""/></a>
+      </div>
+    </div>
+    <div class="newImgFloor">
+      <div class="newImgFloor-content">
+        <a href=""><img src="./images/newfloor1.png" alt=""/></a>
+        <a href=""><img src="./images/newfloor2.gif" alt=""/></a>
+        <a href=""><img src="./images/newfloor3.gif" alt=""/></a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <a href="">
+        <img src="./images/footer1.png" alt="" class="footer-img" />
+        <span>猜你喜欢</span>
+      </a>
+      <a href="">
+        <img src="./images/footer2.png" alt="" class="footer-img" />
+        <span>分类</span>
+      </a>
+      <a href="">
+        <img src="./images/footer3.png" alt="" class="footer-img" />
+        <span>必抢清单</span>
+      </a>
+      <a href="">
+        <img src="./images/footer4.png" alt="" class="footer-img" />
+        <span>购物车</span>
+      </a>
+      <a href="">
+        <img src="./images/footer5.png" alt="" class="footer-img" />
+        <span>我的易购</span>
+      </a>
+    </div>
+  </body>
 </html>
