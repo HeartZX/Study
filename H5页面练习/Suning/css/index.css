@@ -32,7 +32,7 @@ img {
 
 a {
     text-decoration: none;
-    color: #000;
+    color: #666;
     font-size: .266667rem;
     display: block;
 }
@@ -177,4 +177,10 @@ a {
 .footer-img{
     width: .746667rem;
     height: .746667rem;
+}
+.newImgFloor3{
+    padding-bottom: 1.333333rem;
+}
+.setBottom{
+    bottom: -10px !important;
 }
