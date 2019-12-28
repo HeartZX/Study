@@ -4,24 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title></title>
   </head>
   <script src="ife31data.js"></script>
   <script src="index.js"></script>
   <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css" />
   <style>
-   .table{
-     margin:30px 0 0 0;
-   }
+    .table {
+      margin: 30px 0 0 0;
+    }
+    .main {
+      width: 80%;
+      margin: 30px auto 0;
+    }
   </style>
   <body>
-    <select id="region-select">
-      <option hidden="true">请选择地区</option>
-      <option value="华东">华东</option>
-      <option value="华南">华南</option>
-      <option value="华北">华北</option>
-    </select>
-    <div id="table-wrapper"></div>
+    <div class="main">
+      <select id="region-select">
+        <option hidden="true">请选择地区</option>
+        <option value="华东">华东</option>
+        <option value="华南">华南</option>
+        <option value="华北">华北</option>
+      </select>
+      <select id="product-select">
+        <option hidden="true">请选择商品</option>
+        <option value="手机">手机</option>
+        <option value="笔记本">笔记本</option>
+        <option value="智能音箱">智能音箱</option>
+      </select>
+      <div id="table-wrapper"></div>
+    </div>
   </body>
 </html>
