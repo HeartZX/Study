@@ -7,5 +7,5 @@
 
 [js实现图片轮播](https://heartzx.github.io/Study/JS实现图片轮播/myindex.html)
 
-[H5页面(flexible)](https://heartzx.github.io/Study/H5页面练习/Suning/index.html)
+[H5页面(flexible+swiper)](https://heartzx.github.io/Study/H5页面练习/Suning/index.html)
 
