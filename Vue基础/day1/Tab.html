@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .tab ul {
+      display: flex;
+    }
+    .tab ul li {
+      border: royalblue 1px solid;
+      padding: 10px 10px;
+      list-style-type: none;
+      display: block;
+    }
+    .main {
+      border: royalblue 1px solid;
+      width: 400px;
+      height: 200px;
+      display: none;
+    }
+    .active {
+      background: coral;
+    }
+    .current {
+      display: block;
+    }
+  </style>
+  <body>
+    <div id="app">
+      <div class="tab">
+        <ul>
+          <li
+            @click="changeActive(index)"
+            :key="item.id"
+            v-for="(item,index) in list"
+            :class='currentIndex==index?"active" :""'
+          >
+            {{item.title}}
+          </li>
+        </ul>
+      </div>
+      <div
+        class="main"
+        @click="changeActive(index)"
+        :key="item.id"
+        v-for="(item,index) in list"
+        :class='currentIndex==index?"current" :""'
+      >
+        背景是{{item.bgc}}
+      </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          currentIndex: 0, //选项卡当前索引
+          list: [
+            { id: 0, title: "apple", bgc: "red" },
+            { id: 1, title: "orange", bgc: "orange" },
+            { id: 2, title: "banana", bgc: "yellow" }
+          ]
+        },
+        methods: {
+          changeActive: function(index) {
+            /*    本质就是操作类名 */
+            /*       如何操作类名？ 就是通过curreIndex */
+            this.currentIndex = index;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title></title>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+      .active {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div v-cloak>{{msg}}</div>
+      <div v-text="msg"></div>
+      <!--  没有闪动问题 推荐使用 -->
+      <div v-html="msg1"></div>
+      <!-- 存在安全问题  -->
+      <div v-pre>{{msg}}</div>
+      <!-- 跳过编译 -->
+      <div v-once>{{info}}</div>
+      <!-- 应用场景 ：如果显示的信息后续不需要再修改 可以使用v-once 这样 可以提高性能 -->
+      <input
+        type="text"
+        name=""
+        id=""
+        v-model="uname"
+        v-bind:class="[activeClass]"
+      />
+      <div>{{uname}}</div>
+      <input type="button" value="点我+1" @click="numHandle" />
+      <div>{{num}}</div>
+      <input
+        type="button"
+        value="点我传递参数"
+        @click="Handle('123','456' ,$event)"
+      />
+      <input type="button" value="点我传递默认参数" @click="Handle1" />
+
+      <form action="">
+        <div>
+          用户名：
+          <input
+            type="text"
+            v-model="uname"
+            v-on:keyup.delete="Delete"
+            v-bind:class="{active:isActive}"
+          />
+        </div>
+        <div>
+          密码：
+          <input type="text" v-on:keyup.enter="Submit" v-model="pwd" />
+        </div>
+        <div>
+          <input type="button" value="提交" @click="Submit" />
+        </div>
+      </form>
+      <input type="button" value="切换字体颜色" @click="changeFontColor" />
+      <div v-bind:style="styleObject">YAYAYAY</div>
+
+      <ul>
+        <li :key="item.id" v-for="(item,index) in fruits">
+          {{item+'---'+index+'------'}}
+        </li>
+      </ul>
+      <ul>
+        <li :key="item.id" v-for="(item,index) in myFruits">
+          <span>{{item.ename}}</span>
+          <span>{{item.cname}}</span>
+        </li>
+      </ul>
+      <div v-for="(value,key,index) in person">
+        {{index+'--'+key+'--'+value}}
+      </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          msg: "Hello HeartZX",
+          msg1: "<h1>hello HeartZX</h1>",
+          info: "我只编译第一次",
+          uname: "HeartZX",
+          num: 0,
+          pwd: "",
+          isActive: false,
+          activeClass: "",
+          styleObject: {
+            border: "solid 1px red",
+            width: "100px",
+            height: "100px",
+            color: ""
+          },
+          fruits: ["apple", "orange", "banana"],
+          myFruits: [
+            { id: 0, ename: "apple", cname: "苹果" },
+            { id: 1, ename: "orange", cname: "橘子" },
+            { id: 2, ename: "banana", cname: "香蕉" }
+          ],
+          person: {
+            name: "jack",
+            age: 22,
+            gender: "male"
+          }
+        },
+        methods: {
+          numHandle: function() {
+            this.num++;
+            console.log(this === vm); /*  true */
+            /* this指向vm Vue的实例对象 */
+          },
+          Handle: function(p1, p2, event) {
+            console.log(p1, p2);
+            console.log(event.target);
+          },
+          Handle1: function(event) {
+            /*   console.log(p1, p2); */
+            console.log(event.target);
+          },
+          Submit: function() {
+            console.log(
+              "表单已经提交了, 账号：" + this.uname + ",密码：" + this.pwd
+            );
+          },
+          Delete: function() {
+            this.uname = "";
+          },
+          changeFontColor: function() {
+            this.isActive = !this.isActive;
+            if (this.activeClass == "") {
+              this.activeClass = "active";
+            } else {
+              this.activeClass = "";
+            }
+            if (this.styleObject.color == "") {
+              this.styleObject.color = "red";
+            } else {
+              this.styleObject.color = "";
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .body {
+      border: solid 1px black;
+      margin: 0 auto;
+      width: 80%;
+    }
+    .header {
+      height: 100px;
+      border-bottom: solid 1px black;
+    }
+    .main {
+      display: flex;
+      border-bottom: solid 1px black;
+      height: 600px;
+    }
+    .content-left {
+      width: 20%;
+      border-right: solid 1px black;
+    }
+    .content-right {
+      flex: 1;
+      text-align: center;
+    }
+    .footer {
+      width: 500px;
+      height: 100px;
+    }
+    ul {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    li {
+      list-style: none;
+      flex: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: solid 1px black;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    .table {
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+  <script src="./vue.js"></script>
+  <script src="./vue-router.js"></script>
+  <body>
+    <div id="app">
+      <router-view></router-view>
+    </div>
+  </body>
+  <script>
+    const App = {
+      template: `
+        <div class='body'>
+        <header class='header'></header>
+        <div class="main">
+            <div class="content-left">
+                <ul>
+                    <li><router-link to='/users'>用户管理</router-link></li>
+                    <li><router-link to='/rights'>权限管理</router-link></li>
+                    <li><router-link to='/goods'>商品管理</router-link></li>
+                    <li><router-link to='/orders'>订单管理</router-link></li>
+                    <li><router-link to='/settings'>系统设置</router-link></li>
+                </ul>
+            </div>
+            <div class="content-right">
+                    <router-view></router-view>
+            </div>
+        </div>
+        <footer class='footer'></footer>
+        </div>
+        `
+    };
+    const Users = {
+      data: function() {
+        return {
+          userList: [
+            { id: 0, name: "hzx", age: 20 },
+            { id: 1, name: "qqq", age: 21 },
+            { id: 2, name: "www", age: 22 },
+            { id: 3, name: "eee", age: 18 }
+          ]
+        };
+      },
+      template: `
+        <div>
+            <h3>用户管理区域</h3>
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>姓名</th>
+                        <th>年龄</th>
+                        <th>操作</th>
+                    </tr>
+                </thead> 
+                <tbody>
+                    <tr v-for='item in userList' :key='item.id'>
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.age}}</td>
+                        <td>
+                            <a href='javascript:;' @click='goDetail(item.id)'>
+                                详情
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>      
+            </table>   
+        </div>
+        `,
+      methods: {
+        goDetail: function(id) {
+          console.log(id);
+          this.$router.push("/userdetail/" + id);
+        }
+      }
+    };
+    const Rights = {
+      template: `
+          <div>权限</div>
+        `
+    };
+    const Goods = {
+      template: `
+          <div>商品</div>
+        `
+    };
+    const Orders = {
+      template: `
+          <div>订单</div>
+        `
+    };
+    const Settings = {
+      template: `
+          <div>系统设置</div>
+        `
+    };
+    const userDetail = {
+      props: ["id"],
+      methods: {
+        goBack: function() {
+          this.$router.go(-1);
+        }
+      },
+      template: `
+          <div> 
+            <div>{{'用户详情页---用户id是'+id}}</div>
+            <button @click='goBack'>返回列表</button>     
+          </div>
+    `
+    };
+    const router = new VueRouter({
+      routes: [
+        {
+          path: "/",
+          redirect: "/users",
+          component: App,
+          children: [
+            { path: "/users", component: Users },
+            { path: "/rights", component: Rights },
+            { path: "/goods", component: Goods },
+            { path: "/orders", component: Orders },
+            { path: "/settings", component: Settings },
+            { path: "/userdetail/:id", component: userDetail, props: true }
+          ]
+        }
+      ]
+    });
+    const vm = new Vue({
+      el: "#app",
+      router,
+      data: {}
+    });
+  </script>
+</html>

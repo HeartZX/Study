@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+      .current{
+          color: coral;
+      }
+  
+  </style>
+  <body>
+    <div id="app">
+      <button-counter></button-counter>
+      <button-counter></button-counter>
+      <button-counter></button-counter>
+      <hello-word></hello-word>
+      <div :style='{fontSize:fontSize+"px"}'>{{rootMsg}}</div>
+      <menu-item
+        :menu-title="rootMsg"
+        :content="pContent"
+        :p-num="12"
+        :p-boo="false"
+        :p-arr="pArr"
+        :p-obj="pObj"
+        @entarge="handle($event)"
+      ></menu-item>
+      <alert-box>有危险</alert-box>
+      <alert-box></alert-box>
+      <base-layout>
+        <p slot="header">我是标题</p>
+        <p>我是内容</p>
+        <p slot="footer">我是底部</p>
+      </base-layout>
+
+      <base-layout>
+        <template slot="header">
+          <p>我是标题1</p>
+          <p>我是标题2</p>
+        </template>
+        <template>
+          <p>我是内容1</p>
+          <p>我是内容2</p>
+        </template>
+        <template slot="footer">
+          <p>我是底部1</p>
+          <p>我是底部2</p>
+        </template>
+      </base-layout>
+      <fruit-list :list="fruitList">
+          <template slot-scope='slotProps'>
+              <strong class="current" v-if='slotProps.info.id==2'>{{slotProps.info.name}}</strong>
+               <span v-else>{{slotProps.info.name}} </span>
+          </template>
+      </fruit-list>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      //局部组件注册
+      var helloWorld = {
+        data: function() {
+          return {
+            msg: "HelloWorld"
+          };
+        },
+        template: "<div>{{msg}}</div>"
+      };
+
+      //全局组件
+      Vue.component("button-counter", {
+        data: function() {
+          return {
+            count: 0
+          };
+        },
+        methods: {
+          handle: function() {
+            this.count += 2;
+          }
+        },
+        components: {
+          "hello-word": helloWorld
+        },
+        template: `<div>
+            <button @click="handle ">点击了{{count}}次</button>
+            <button>测试</button>
+            <hello-word></hello-word>
+            </div>`
+      });
+      Vue.component("menu-item", {
+        props: ["menuTitle", "content", "pNum", "pBoo", "pArr", "pObj"],
+        data: function() {
+          return {
+            msg: "我是子组件"
+          };
+        },
+        template: `
+         <div>
+            <div>
+             {{msg+'---'+menuTitle+'-----'+content+'---'+(12+pNum)+'---'+pBoo+'---'+pObj.name+'---'+pObj.age}}
+            </div>
+            <ul>
+                <li :key='index' v-for='(item,index) in pArr'>{{item}}</li>
+            </ul>
+            <button @click='$emit("entarge",5)'>点击</button>
+         </div>
+        `
+      });
+      Vue.component("alert-box", {
+        template: `
+          <div>
+            <strong>ERROR:</strong>
+            <slot>默认内容</slot>  
+          </div>
+          `
+      });
+      Vue.component("base-layout", {
+        template: `
+          <div>
+            <header>
+                <slot name='header'></slot>      
+           </header>
+           <main>
+                <slot></slot>      
+           </main>
+           <footer>
+                <slot name='footer'></slot>      
+           </footer>
+          </div>
+          `
+      });
+      Vue.component("fruit-list", {
+        props: ["list"],
+        template: `
+        <div>
+            <li :key='item.id' v-for='item in list'>
+              <slot :info='item'>{{item.name}}</slot> 
+                </li>
+        </div>
+        `
+      });
+
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          rootMsg: "我是父组件",
+          pContent: "我是父组件的内容",
+          pArr: ["apple", "orange", "banana"],
+          pObj: {
+            name: "hzx",
+            age: 22
+          },
+          fontSize: 10,
+          fruitList: [
+            { id: 0, name: "apple" },
+            { id: 1, name: "orange" },
+            { id: 2, name: "banana" }
+          ]
+        },
+        methods: {
+          handle: function(val) {
+            this.fontSize += val;
+          }
+        },
+        components: {
+          "hello-word": helloWorld
+        }
+      });
+    </script>
+  </body>
+</html>

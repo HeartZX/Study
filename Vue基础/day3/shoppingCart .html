@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title></title>
+  </head>
+  <style>
+    .container {
+      width: 300px;
+      margin: 0 auto;
+      border: solid 1px black;
+    }
+    .title {
+      height: 50px;
+      text-align: center;
+      border-bottom: solid 1px black;
+      line-height: 50px;
+    }
+
+    .total {
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+    }
+    .listItem {
+      height: 50px;
+      border-bottom: solid 1px black;
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    input {
+      width: 60px;
+      height: 20px;
+    }
+  </style>
+  <body>
+    <div id="app">
+      <div class="container">
+        <my-cart></my-cart>
+      </div>
+    </div>
+  </body>
+  <script src="./vue.js"></script>
+  <script>
+    var CartTitle = {
+      props: ["name"],
+      template: `
+         <div class='title'>{{name}}的商品</div>
+         `
+    };
+    var CartList = {
+      props: ["list"],
+      template: `
+         <div class='list'>
+            <li :key='item.id' v-for='item in list' class='listItem'>
+                 <span>{{item.name}}</span>
+                 <span @click='add(item.id,$event)'>+</span>
+                 <input type='text' :value='item.num' @blur='changeNum(item.id,$event)' />
+                 <span @click='sub(item.id,$event)'>-</span> 
+                 <span @click='del(item.id)'>删除</span> 
+             </li>
+            </div>
+         `,
+      methods: {
+        del: function(id) {
+          //把id传给父组件
+          this.$emit("cart-del", id);
+        },
+        changeNum: function(id, event) {
+          console.log(id, event.target.value);
+          this.$emit("change-num", {
+            id: id,
+            num: event.target.value
+          });
+        },
+        sub: function(id) {
+          console.log(id, event.target.value);
+          this.$emit("cart-sub", {
+            id: id,
+            num: event.target.value
+          });
+        },
+        add: function(id) {
+          console.log(id, event.target.value);
+          this.$emit("cart-add", {
+            id: id,
+            num: event.target.value
+          });
+        }
+      }
+    };
+    var CartTotal = {
+      props: ["list"],
+      template: `
+         <div class='total'>
+            <span>总价：{{total}}</span>
+            <button>结算</button>
+         </div>
+         `,
+      computed: {
+        total: function() {
+          let t = 0;
+          this.list.forEach(item => {
+            t += item.price * item.num;
+          });
+          return t;
+        }
+      }
+    };
+    Vue.component("my-cart", {
+      template: `
+          <div class='cart'>
+            <cart-title :name='name'></cart-title>
+            <cart-list :list='list' @cart-del='delCart($event)' @change-num='changeNum($event)' @cart-sub='cartSub($event)' @cart-add='cartAdd($event)' ></cart-list>
+            <cart-total :list='list'></cart-total>
+         </div>
+        `,
+      components: {
+        "cart-title": CartTitle,
+        "cart-list": CartList,
+        "cart-total": CartTotal
+      },
+      data: function() {
+        return {
+          name: "hzx",
+          list: [
+            { id: 1, name: "电视", price: 2000, num: 1 },
+            { id: 2, name: "空调", price: 3000, num: 1 },
+            { id: 3, name: "冰箱", price: 3000, num: 1 },
+            { id: 4, name: "手机", price: 6000, num: 1 },
+            { id: 5, name: "电脑", price: 9900, num: 1 },
+            { id: 6, name: "洗衣机", price: 2000, num: 1 }
+          ]
+        };
+      },
+      methods: {
+        delCart: function(id) {
+          //根据id 删除list中对应的数据
+          //找到id所对应的数据索引
+          let index = this.list.findIndex(item => {
+            return item.id == id;
+          });
+          //根据索引删除对应数据
+          this.list.splice(index, 1);
+        },
+        changeNum: function(val) {
+          console.log(val);
+          //根据子组件传过来的数据 更新list中对应的数据
+          this.list.some(item => {
+            if (item.id == val.id) {
+              item.num = val.num;
+              return true;
+            }
+          });
+        },
+        cartSub: function(val) {
+          console.log(val);
+          //根据子组件传过来的数据 更新list中对应的数据
+          this.list.some(item => {
+            if (item.id == val.id) {
+              if (item.num > 1) {
+                item.num -= 1;
+              }
+              return true;
+            }
+          });
+        },
+        cartAdd: function(val) {
+          console.log(val);
+          //根据子组件传过来的数据 更新list中对应的数据
+          this.list.some(item => {
+            if (item.id == val.id) {
+              item.num += 1;
+              return true;
+            }
+          });
+        }
+      }
+    });
+    var vm = new Vue({
+      el: "#app",
+      data: {}
+    });
+  </script>
+</html>

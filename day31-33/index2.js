@@ -17,11 +17,13 @@ window.onload = function() {
       let checkSingle = document.createElement("input");
       let textSingle = document.createTextNode(checkBoxData[i].text);
       checkSingle.setAttribute("type", "checkbox");
+      checkSingle.setAttribute("checkbox-type", "single");
 
       checkBoxName.appendChild(checkSingle);
       checkBoxName.appendChild(textSingle);
     }
     checkBoxName.onclick = function(event) {
+      getData();
       let target = event.target;
       console.log(target.checked);
       if (target.getAttribute("type") == "checkbox") {
@@ -44,8 +46,18 @@ window.onload = function() {
             }
           }
         }
+        if (checkBoxType == "single") {
+          console.log("这是单选");
+          let count = 0;
+        }
       }
     };
+  }
+
+  function getData() {
+    let arr = [];
+    console.log(arr);
+    return arr;
   }
 
   checkBoxGroup(regionWrapper, [

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+      <form action="https://developer.mozilla.org/zh-CN/" v-on:submit.prevent>
+        <div>
+          <span>姓名：</span>
+          <span>
+            <input type="text" v-model.lazy='uname' v-focus v-color='color'>
+            <span >{{tip}}</span>
+          </span>
+        </div>
+        <div>
+          <span>性别</span>
+          <span>
+            <input type="radio" name="" id="male" value="男" v-model="gender" />
+            <label for="male">男</label>
+            <input
+              type="radio"
+              name=""
+              id="female"
+              value="女"
+              v-model="gender"
+            />
+            <label for="female">女</label>
+          </span>
+        </div>
+        <div>
+          <span>爱好</span>
+          <label for="sing">唱</label>
+          <input type="checkbox" name="" id="sing" value="唱" v-model="hobby" />
+          <label for="dance">跳</label>
+          <input
+            type="checkbox"
+            name=""
+            id="dance"
+            value="跳"
+            v-model="hobby"
+          />
+          <label for="rap">RAP</label>
+          <input type="checkbox" name="" id="rap" value="RAP" v-model="hobby" />
+          <label for="ball">篮球</label>
+          <input
+            type="checkbox"
+            name=""
+            id="ball"
+            value="篮球"
+            v-model="hobby"
+          />
+        </div>
+        <div>
+          <span>职业</span>
+          <select name="" id="" v-model="occupation">
+            <option value="请选择职业">请选择职业</option>
+            <option value="歌手">歌手</option>
+            <option value="舞者">舞者</option>
+            <option value="篮球运动员">篮球运动员</option>
+            <option value="网红">网红</option>
+          </select>
+        </div>
+        <div>
+          <div>个人简介</div>
+          <textarea name="" id="" cols="30" rows="10" v-model="intro">
+          </textarea>
+        </div>
+        <div>
+          <input type="submit" value="提交" @click="handle" />
+        </div>
+      </form>
+      <div>{{uname|upper}}</div>
+      <div>{{date|format('yyyy-mm-dd')}}</div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      Vue.directive("focus", {
+        inserted: function(el) {
+          el.focus();
+        }
+      });
+      Vue.directive("color", {
+        bind: function(el, binding) {
+          el.style.backgroundColor = binding.value;
+        }
+      });
+      Vue.filter('upper',function(val){
+        return val.charAt(0).toUpperCase()+val.slice(1)
+      })
+      Vue.filter('format',function(val,arg){
+          console.log(arg);
+          if(arg==='yyyy-mm-dd'){
+              let ret=''
+              ret=val.getFullYear()+'-'+(val.getMonth()+1)+'-'+val.getDate()
+              return ret
+          }
+             return val
+        })
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          uname: "",
+          gender: "男",
+          hobby: [],
+          occupation: "请选择职业",
+          intro: "",
+          color: "red",
+          tip: "",
+          date:new Date()
+        },
+        methods: {
+          handle: function() {
+            console.log(this.uname);
+            console.log(this.gender);
+            console.log(this.hobby);
+            console.log(this.occupation);
+            console.log(this.intro);
+          },
+          checkName: function(uname) {
+            //调用接口 但是可以使用定时任务的方式模拟接口调用
+            let that = this;
+            setTimeout(function() {
+              if (uname == "admin") {
+                that.tip = "用户名已经存在";
+              } else {
+                that.tip = "用户名可以使用";
+              }
+            },2000);
+          }
+        },
+        /*       侦听器
+       1.采用侦听器监听用户名的变化
+       2.调用后台接口进行验证
+       3.根据验证的结果调整提示信息 */
+        watch: {
+          uname: function(val) {
+            //调用后台接口验证用户名的合法性
+            this.checkName(val);
+            //修改提示信息
+            this.tip='正在验证'
+          }
+        }
+
+        
+      });
+    </script>
+  </body>
+</html>

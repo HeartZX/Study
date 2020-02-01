@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script src="axios.min.js"></script>
+  <script>
+    //产生Promise的实例对象
+    const p = new Promise(function(resolve, reject) {
+      setTimeout(function() {
+        var flag = true;
+        if (flag) {
+          resolve("sucess"); //成功时调用
+        } else {
+          reject("erro"); //失败时调用
+        }
+      }, 1000);
+    });
+    //获取处理结果
+    p.then(
+      function(data) {
+        //从resolve得到正常结果
+        console.log(data);
+      },
+      function(info) {
+        //从reject得到错误信息
+        console.log(info);
+      }
+    ).finally(function(data) {
+      console.log("finshed");
+    });
+    console.dir(p);
+    //基于promise处理Ajax请求
+    function queryData() {
+      return new Promise(function(resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState != 4) return;
+          if ((xhr.readyState = 4 && xhr.status == 200)) {
+            resolve(xhr.responseText);
+          } else {
+            reject("服务器错误");
+          }
+        };
+        xhr.open("get", url);
+        xhr.send(null);
+      });
+    }
+    queryData("").then(
+      function(data) {
+        console.log(data);
+      },
+      function(info) {
+        console.log(info);
+      }
+    );
+    //fetch
+    fetch("http://www.dell-lee.com/react/api/list.json", {
+      method: "get"
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+      });
+
+    /* fetch("",{
+      method:'post',
+      body:'uname=hzx&pwd=123',
+      headers:{
+        'Content-Type':'application/x-www-form-urlencoded'
+      }
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+      }); */
+    /*      fetch("",{
+      method:'post',
+      body:'uname=hzx&pwd=123',
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+      }); */
+
+    //axios
+    axios.get("http://www.dell-lee.com/react/api/list.json").then(ret => {
+      console.log(ret);
+      console.log(ret.data);
+    });
+  </script>
+</html>

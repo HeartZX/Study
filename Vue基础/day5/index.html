@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width , initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <script src="./vue.js"></script>
+  <script src="./vue-router.js"></script>
+  <body>
+    <div id="app">
+      <div>
+        <a href="#/zhuye">主页</a>
+        <a href="#/keji">科技</a>
+        <a href="#/caijing">财经</a>
+        <a href="#/yule">娱乐</a>
+        <component :is="comName"></component>
+      </div>
+      <router-link to="/user/1">User1</router-link>
+      <router-link :to="{name :'user',params:{id:2}}">User2</router-link>
+      <router-link to="/user/3">User3</router-link>
+      <router-link to="/user/4">User4</router-link>
+      <router-link to="/register">Register</router-link>
+      <router-view> </router-view>
+      <!--    路由占位符 -->
+    </div>
+
+    <script>
+      const User = {
+        data: function() {
+          return {
+            msg: "User的id："
+          };
+        },
+        props: ["id", "uname", "age"],
+        template: `               
+    <div>
+      <div>{{msg+id+' 名字： '+uname+' 年龄：'+age}}</div>
+      <button @click="goRegister">跳转到注册页面</button>
+    </div>
+        `,
+        methods: {
+          goRegister: function() {
+            this.$router.push("/register");
+          }
+        }
+      };
+      const Register = {
+        template: `<div>
+        <h1>Register组件</h1>
+        <button @click='goBack'>后退</button>
+        <router-link to="/register/tab1">tab1</router-link>
+        <router-link to="/register/tab2">tab2</router-link>
+        <router-view> </router-view>
+      </div>
+        `,
+        methods: {
+          goBack: function() {
+            this.$router.go(-1);
+          }
+        }
+      };
+      const Tab1 = {
+        data: function() {
+          return {
+            msg: "tab1"
+          };
+        },
+        template: "<div>{{msg}}</div>"
+      };
+      const Tab2 = {
+        data: function() {
+          return {
+            msg: "tab2"
+          };
+        },
+        template: "<div>{{msg}}</div>"
+      };
+      const zhuye = {
+        data: function() {
+          return {
+            msg: "主页信息"
+          };
+        },
+        template: "<div>{{msg}}</div>"
+      };
+      const keji = {
+        data: function() {
+          return {
+            msg: "科技信息"
+          };
+        },
+        template: "<div>{{msg}}</div>"
+      };
+      const caijing = {
+        data: function() {
+          return {
+            msg: "财经信息"
+          };
+        },
+        template: "<div>{{msg}}</div>"
+      };
+      const yule = {
+        data: function() {
+          return {
+            msg: "娱乐信息"
+          };
+        },
+        template: "<div>{{msg}}</div>"
+      };
+      //创建路由实例对象
+      const router = new VueRouter({
+        routes: [
+          //路由规则
+          { path: "/", redirect: "/user" }, //路由重定向
+          {
+            name: "user",
+            path: "/user/:id",
+            component: User,
+            /* props:true, */
+
+            /* props:{uname:'hzx',age:12} */
+
+            props: route => ({ uname: "hzx", age: "22", id: route.params.id })
+          }, //如果props被设置为true，route.params将会被设置为组件属性
+          {
+            path: "/register",
+            component: Register,
+            children: [
+              { path: "/register/tab1", component: Tab1 },
+              { path: "/register/tab2", component: Tab2 }
+            ]
+          }
+        ]
+      });
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          comName: "zhuye"
+        },
+        router, //挂载路由实例对象
+        //注册为私有组件
+        components: {
+          zhuye,
+          keji,
+          caijing,
+          yule
+        }
+      });
+      window.onhashchange = function() {
+        console.log(location.hash);
+        switch (location.hash.slice(1)) {
+          case "/zhuye":
+            vm.comName = "zhuye";
+            break;
+          case "/keji":
+            vm.comName = "keji";
+            break;
+          case "/caijing":
+            vm.comName = "caijing";
+            break;
+          case "/yule":
+            vm.comName = "yule";
+            break;
+          default:
+            break;
+        }
+      };
+    </script>
+  </body>
+</html>
