@@ -1,4 +1,4 @@
-# Study
+
 记录自己前端学习过程的小demo
 
 [百度学院页](https://heartzx.github.io/Study/day9-11/index.html)
@@ -14,3 +14,5 @@
 [js实现五子棋](https://heartzx.github.io/Study/五子棋/Gobang.html)
 
 [js实现2048](https://heartzx.github.io/Study/2048小游戏/05.html)
+
+
