@@ -136,6 +136,7 @@
             ctx.closePath();
             ctx.fill();
             ctx.restore();
+           /*  ctx.scale(20, 20); */
         },
         drawCirle: function() {
             var ctx = this.tree.ctx, cirle = this.cirle;
@@ -168,8 +169,10 @@
 
             ctx.moveTo(0, 0);
             ctx.scale(0.75, 0.75);
-            ctx.font = "12px 微软雅黑,Verdana"; // 字号肿么没有用? (ˉ(∞)ˉ)
-            ctx.fillText("click here", 23, 16);
+          /*   ctx.scale(2, 2); */
+            ctx.font = "24px 微软雅黑,Verdana"; // 字号肿么没有用? (ˉ(∞)ˉ)
+           /*  ctx.fillText("点我", 23, 16); */
+           ctx.fillText("点我", 23, 16);
             ctx.restore();
         },
         clear: function() {
