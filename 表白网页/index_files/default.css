@@ -15,6 +15,9 @@ a {
 
 #main {
     width: 100%;
+    position: absolute;
+    top: 30%;
+
 }
 
 #wrap {
