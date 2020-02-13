@@ -1,22 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
-<script>
-    function Person(){
-
+  </head>
+  <body></body>
+  <!--   <script>
+    //1.利用new Object() 创建对象
+    var obj1 = new Object();
+    //2.利用 对象字面量创建对象
+    var obj2 = {};
+    //3.利用构造函数创建对象
+    function Person(name) {
+      this.name = name;
+      this.work = function() {
+        console.log("work");
+      };
     }
-    var hzx=new Person()
-    console.dir(Person)
-    console.log(hzx.__proto__===Person.prototype)
-      var obj=new Object()
-      console.log(Object)
-</script>
+    var hzx = new Person("hzx");
+    console.dir(Person);
+    console.log(hzx.__proto__ === Person.prototype);
+    var obj = new Object();
+    console.log(Object);
+    //给数组添加一个求和方法
+    console.log(Array.prototype);
+    Array.prototype.sum = function() {
+      var sum = 0;
+      for (var i = 0; i < this.length; i++) {
+        sum += this[i];
+      }
+      return sum;
+    };
+  </script> -->
+  <!-- <script>
+    class Person {
+      constructor(name) {
+        this.name = name;
+      }
+      eat() {}
+    }
+    var hzx = new Person("hzx");
+    console.log(hzx);
+
+    class Father {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.say();
+      }
+      sum() {
+        console.log(this.x + this.y);
+      }
+      say() {
+        return "我是爸爸";
+      }
+    }
+    class Son extends Father {
+      constructor(x, y) {
+        super(x, y); //调用了父类中的构造函数
+      }
+      say() {
+        console.log(super.say() + "的儿子");
+        //super.say()调用了父类中的普通函数
+      }
+    }
+    var son = new Son(1, 2);
+    son.sum();
+    son.say();
+  </script> -->
+  <script>
+    for (let i = 2020; i < 2100; i++) {
+      let year = i.toString();
+      let date = year
+        .split("")
+        .reverse()
+        .join("");
+      /*    console.log(date); */
+      // 月
+      let month = parseInt(date.slice(0, 2));
+      /*    console.log(month) */
+      //日
+      let day = parseInt(date.slice(2, 4));
+      /*    console.log(day) */
+      if (month < 13 && day < 31) {
+        document.write(year + date + "<br>");
+      }
+    }
+  </script>
 </html>

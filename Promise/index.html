@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //传统的回调方式
+      //模拟请求数据
+      function fn(arg) {
+        setTimeout(function() {
+          arg && fn(); //arg为真 就执行fn
+        }, 1000);
+      }
+      fn(function() {
+        console.log(1);
+        fn(function() {
+          console.log(2);
+          fn(function() {
+            console.log(3);
+            fn(function() {
+              console.log(4);
+            });
+          });
+        });
+      });
+
+      
+    </script>
+  </body>
+</html>
