@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>我喜欢你</title>
+  <link rel="stylesheet" href="./style/love.css">
+  <!-- airbrake -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/airbrake-js/1.6.2/client.min.js"></script>
+  <script>
+    /* var airbrake = new airbrakeJs.Client({
+      projectId: 209583,
+      projectKey: '47345de4fa232ea9a7337433eebb12c1'
+    }); */
+    // airbrake
+    /* var ok = "那你就是我家小猪猪了~";
+
+    var p = "小姐姐我关注你很久了~";
+
+    var h1 = "做我女朋友好吗~";
+
+    var no = ["房子写你名", "保大", "我妈会游泳", "饭我做", "菜我烧", "衣服我洗", "家务我全包"];
+
+    var data = <%- json %>
+    if (data) {
+
+      var result = JSON.parse(data);
+
+      if (result.no != undefined) {
+        no = result.no;
+      };
+      if (result.ok != undefined) {
+        ok = unescape(result.ok);
+      };
+      if (result.p != undefined) {
+        p = unescape(result.p);
+      };
+      if (result.h1 != undefined) {
+        h1 = unescape(result.h1);
+      };
+    } */
+  </script>
+  <script>
+	(function (doc, win) {
+		var docEl = doc.documentElement,
+			resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			recalc = function () {
+				var clientWidth = docEl.clientWidth;
+				if (!clientWidth) return;
+				if (clientWidth >= 750) {
+					docEl.style.fontSize = '100px';
+				} else {
+					docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+				}
+			};
+		if (!doc.addEventListener) return;
+		win.addEventListener(resizeEvt, recalc, false);
+		doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+
+</script>
+</head>
+
+<body>
+  <div class="main">
+    <div class="left">
+      <p>
+        <script>
+          document.write("小姐姐暗恋你很久了~")
+        </script>
+      </p>
+      <h1>
+        <script>
+          document.write("做我女朋友好吗~")
+        </script>
+      </h1>
+    </div>
+    <img class="pic" src="./1.jpg">
+  </div>
+  <div class="button-box">
+    <button id="ok">好的呀</button>
+    <button id="no">滚开</button>
+  </div>
+  <!-- <footer>
+    <b>©</b>
+    <b>
+      <a href="http://www.zkl2333.com">zkl2333</a> 2018</b>
+    <br>
+    <a href="http://www.miitbeian.gov.cn">浙ICP备17004361号-1</a>
+    遵纪守法好公民 
+  </footer> -->
+</body>
+
+<script>
+  const clickOk = document.querySelector('#ok');
+  const clickNo = document.querySelector('#no');
+
+  clickOk.onclick = function () {
+    alert('那你就是我的小猪猪了 嘿嘿嘿');
+  }
+
+  clickNo.onclick = function () {
+    alert(unescape(getmsg(["你全宇宙最美", "你说什么都对", "房子写你名", "家务我全包","哼 不让你拒绝了"])));
+  }
+
+ /*  var l = no.length; */
+  var i = 0;
+
+  function getmsg(arr) {
+    console.log(i)
+    if (i >=4) {
+      document.getElementById('no').style.opacity = 0
+    }
+    return arr[i++]
+  }
+</script>
+
+</html>
